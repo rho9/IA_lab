@@ -12,6 +12,9 @@ COMPILARE
 -dovrebbe risponderti true
 -ogni volta che fai modifiche al file devi salvare e ricompilare
 
+## Comando per stampe complete
+`set_prolog_flag(answer_write_options, [quoted(true), portray(true), spacing(next_argument)]).`
+
 VARIABILI
 Devono essere scritte con l'iniziale maiuscola
 
