@@ -19,14 +19,19 @@ labirinto["walls"] = []
 
 width, heigth = im.size
 
+print(width, heigth)
+
 for i in range(width):
     for j in range(heigth):
-        if pixels[i, j] == (0, 0, 255):
+        if pixels[i, j] == (0, 0, 255) or pixels[i, j] == (0, 0, 255, 255):
             labirinto['walls'].append((i+1, j+1))
-        elif pixels[i, j] == (255, 0, 0):
+            print(pixels[i, j])
+        elif pixels[i, j] == (255, 0, 0) or pixels[i, j] == (255, 0, 0, 255):
             labirinto['start'] = (i+1, j+1)
-        elif pixels[i, j] == (0, 255, 0):
+            print("Found start")
+        elif pixels[i, j] == (0, 255, 0) or pixels[i, j] == (0, 255, 0, 255):
             labirinto['end'] = (i+1, j+1)
+            print("Found end")
 
 # write prolog program
 file.write("num_righe("+str(heigth)+").\n")
