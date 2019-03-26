@@ -27,6 +27,9 @@ Esempio: piuCalorico(wurstel,X),piuCalorico(X,verza)
 
 - **uguale**: `is`
 - **diverso**: `\==`
+- **minore uguale**: `=<` molto controintuitivo lol
+
+Per espressioni booleane e altre magie guardare [qui](http://www.swi-prolog.org/pldoc/man?section=clpb-exprs).
 
 ### Debug
 - scrivi `trace.`

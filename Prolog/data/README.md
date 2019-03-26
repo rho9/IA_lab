@@ -2,6 +2,11 @@
 `translator.py`
 
 ## Usage
+
+Prima di tutto installa *pillow*: libreria usata per processare le immagini.
+`pip install pillow`
+
+Per eseguire lo script: 
 ``` bash
 python translator.py <imagename>.png
 ```
