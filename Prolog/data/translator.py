@@ -1,3 +1,6 @@
+#!../../bin/python
+#!/bin/python
+
 from PIL import Image
 import sys
 
