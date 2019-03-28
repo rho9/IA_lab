@@ -10,7 +10,6 @@ END = (0, 255, 0)
 
 def generate_point(pxs, color):
     ri, rj = r.randint(0, width-1), r.randint(0, heigth-1)
-    print(ri, rj)
     regen = False
     while pxs[ri, (rj - 1) % heigth] == (0, 0, 255) \
         and pxs[ri, (rj + 1) % heigth] == (0, 0, 255) \
@@ -20,7 +19,6 @@ def generate_point(pxs, color):
         while pxs[ri, rj] == END or pxs[ri, rj] == START or regen:
             regen = False
             ri, rj = r.randint(0, width-1), r.randint(0, heigth-1)
-            print("regenerated", ri, rj)
     pxs[ri, rj] = color
 
 if len(sys.argv) < 3:
