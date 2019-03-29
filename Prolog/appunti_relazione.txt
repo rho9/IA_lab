@@ -1,4 +1,0 @@
-Iterative Deepening:
-- Problemi con pochi muri anche con labirinti piccoli (20*20).
-- Trova l'ottimo
-- espande molto l'albero delle chiamate etc...
