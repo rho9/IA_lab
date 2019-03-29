@@ -1,9 +1,10 @@
-#!../../bin/python
-#!/bin/python
+#!/usr/bin/env python
 
 import random as r
 import sys
 from PIL import Image
+
+path = sys.argv[0][:0-len("generator.py")]
 
 START = (255, 0, 0)
 END = (0, 255, 0)
@@ -49,6 +50,6 @@ generate_point(pixels, START)
 generate_point(pixels, END)
 
 # save image
-image.save(filename+".png")
+image.save(path+filename+".png")
 
 print("Done.")

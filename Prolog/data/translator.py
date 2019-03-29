@@ -1,5 +1,4 @@
-#!../../bin/python
-#!/bin/python
+#!/usr/bin/env python
 
 from PIL import Image
 import sys
@@ -8,11 +7,13 @@ if len(sys.argv) != 2:
     print("usage python3 translator.py filename")
     exit()
 
-filename = sys.argv[1][:-4]
+path = sys.argv[0][:0-len("translator.py")]
+
+filename = sys.argv[1]
 
 # set up files
-im = Image.open(filename+".png")
-file = open(filename + ".pl", 'w')
+im = Image.open(path +filename+".png")
+file = open(path+filename + ".pl", 'w')
 file.write("% Configurazione labirinto " + filename + "\n\n")
 pixels = im.load()
 
@@ -21,8 +22,6 @@ labirinto = {}
 labirinto["walls"] = []
 
 width, heigth = im.size
-
-print(width, heigth)
 
 for i in range(width):
     for j in range(heigth):
@@ -44,5 +43,7 @@ file.writelines(map(
     lambda x: "occupata(pos"+str(tuple(reversed(x)))+").\n",
     labirinto["walls"])
 )
+
+file.close()
 
 print("Done.")
