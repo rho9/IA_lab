@@ -23,19 +23,22 @@ search([ActualNode|Path], G, Bound, Result) :-
   F is G + H,
   F =< Bound, % facciamo il controllo per non avere problemi con il backtracking
   \+finale(ActualNode),
-  Min is inf.
+  Min is inf, % ci si augura che funzioni
+  successors(Successors, ActualNode),
+  quickSort(Successors, SortedSuccessors) % !!!!da modificare perchè ordini in base alle f!!!!
+  
   
 % Contiene la lista di nodi da esplorare
+% !!!!dobbiamo darlo in pasto al quicksort, restituire una lista di coppie contenente il nodo e la sua f?!!!!
 successors(Result, ActualNode) :-
   findall(Azione, applicabile(Azione, ActualNode), Applicable).
   successors_rec(Result, Applicable, ActualNode).
   
-successors_rec(_, _, []) :-
-  format("Nope").
-
+successors_rec(_, [], _).
 successors_rec(Result, [Action|Applicable], ActualNode) :-
   trasforma(Action, ActualNode, NewNode),
-  Result = [NewNode|Result].
+  Result = [NewNode|Result],
+  successors_rec(Result, Applicable, ActualNode).
 
 /*
  path              current search path (acts like a stack)
