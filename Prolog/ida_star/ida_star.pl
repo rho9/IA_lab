@@ -26,12 +26,17 @@ search([ActualNode|Path], G, Bound, Result) :-
   Min is inf.
   
 % Contiene la lista di nodi da esplorare
-successors()
+successors(Result, ActualNode) :-
+  findall(Azione, applicabile(Azione, ActualNode), Applicable).
+  successors_rec(Result, Applicable, ActualNode).
   
-  
+successors_rec(_, _, []) :-
+  format("Nope").
 
-  
-  
+successors_rec(Result, [Action|Applicable], ActualNode) :-
+  trasforma(Action, ActualNode, NewNode),
+  Result = [NewNode|Result].
+
 /*
  path              current search path (acts like a stack)
  node              current node (last node in current path)
