@@ -1,6 +1,6 @@
 [Ee]sempio*
 bin
 include
-lib
+./lib
 share
 *.sh
