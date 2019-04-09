@@ -1,10 +1,17 @@
 % IDA*
 
 %wrapper per la chiamata da parte dell'utente
-ida_star(Soluzione, Max) :-
+ida_star(Result) :-
   iniziale(S),
   heuristic(H, S),
-  search([S], 0, Max).
+  ida_star_rec(Result, H, S, [S]).
+
+ida_star_rec(Result, Bound, S, Path) :-
+  search(Path, 0, Bound, Result, Path),
+  Result == q.
+
+ida_star_rec(Result, Bound, S) :-
+  search([S], 0, Bound, Result),
 
 % caso base (non c'è soluzione, tutte le euristiche sono peggiori di quella di partenza)
 search([ActualNode|Path], G, Bound, Result) :-
@@ -14,7 +21,7 @@ search([ActualNode|Path], G, Bound, Result) :-
   Result is F.
   
 % caso base (il nodo che sto considerando è finale)
-search([ActualNode|Path], G, Bound, Result) :-
+search([ActualNode|Patsh], G, Bound, Result) :-
   finale(ActualNode),
   Result is -1.
   
