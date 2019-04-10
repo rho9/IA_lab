@@ -1,6 +1,6 @@
 [Ee]sempio*
-bin
-include
-./lib
-share
+/bin
+/include
+/lib
+/share
 *.sh
