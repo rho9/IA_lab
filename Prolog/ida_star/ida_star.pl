@@ -1,19 +1,29 @@
 % IDA*
 
 %wrapper per la chiamata da parte dell'utente
-ida_star(Result) :-
+ida_star(Path) :-
   iniziale(S),
   heuristic(H, S),
-  ida_star_rec(Result, H, S, [S]).
+  Path = [S],
+  ida_star_rec(Result, H, S, Path).
+
+ida_star_rec(_, _, S, _) :-
+  finale(S).
+
+ida_star_rec(Result, _, _, _) :-
+  Result == inf,
+  format("Not found").
 
 ida_star_rec(Result, Bound, S, Path) :-
-  search(Path, 0, Bound, Result, Path),
-  Result == q.
+  search(Result, 0, Bound, Path),
+  ida_star_rec(Result, Result, S, Path).
 
-ida_star_rec(Result, Bound, S) :-
-  search([S], 0, Bound, Result),
 
-% caso base (non c'è soluzione, tutte le euristiche sono peggiori di quella di partenza)
+search(Result, Bound, S, Path):-
+  format("ciao"),
+  Result = inf.
+
+/*% caso base (non c'è soluzione, tutte le euristiche sono peggiori di quella di partenza)
 search([ActualNode|Path], G, Bound, Result) :-
   heuristic(H, ActualNode),
   F is G + H,
@@ -31,7 +41,7 @@ search([ActualNode|Path], G, Bound, Result) :-
   F =< Bound, % facciamo il controllo per non avere problemi con il backtracking
   \+finale(ActualNode),
   Min is inf, % ci si augura che funzioni
-  
+ */ 
 
 /*
  path              current search path (acts like a stack)
