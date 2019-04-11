@@ -41,7 +41,9 @@ search(Result, G, _, Bound, S, [Action|Actions], Visited) :-
 
 updateMin(Min, Result) :- 
   \+(Result == -1),
-  assert(Min = Result).
+  Min = Result,
+  assert(Min).
+  % assert(Min, result)
 
 /*% caso base (non c'è soluzione, tutte le euristiche sono peggiori di quella di partenza)
 search([ActualNode|Path], G, Bound, Result) :-
