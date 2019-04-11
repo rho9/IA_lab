@@ -1,27 +1,47 @@
 % IDA*
 
 %wrapper per la chiamata da parte dell'utente
-ida_star(Path) :-
+ida_star(Result, Path) :-
   iniziale(S),
   heuristic(H, S),
-  Path = [S],
-  ida_star_rec(Result, H, S, Path).
+  ida_star_rec(Result, H, S, Path, [S]).
 
-ida_star_rec(_, _, S, _) :-
-  finale(S).
+ida_star_rec(_, _, S, [], _) :- %caso base
+  finale(S),
+  format("Found").
 
-ida_star_rec(Result, _, _, _) :-
+ida_star_rec(Result, _, _, _, _) :- %caso base
   Result == inf,
   format("Not found").
 
-ida_star_rec(Result, Bound, S, Path) :-
-  search(Result, 0, Bound, Path),
-  ida_star_rec(Result, Result, S, Path).
+ida_star_rec(Result, Bound, S, Path, Visited) :-
+  heuristic(H, S),!,
+  search(Result, 0, H, Bound, S, Path, Visited),
+  ida_star_rec(Result, Result, S, Path, Visited).  
 
+%perché altimenti se fallisce il dopo potrebbe rifare un'altro caso base
+search(Result, _, F, Bound, _, _, _) :-
+  F > Bound,!,
+  Result = F.
+  
+search(Result, _, _, _, S, _, _) :-
+  finale(S),!,
+  Result = -1. %found
 
-search(Result, Bound, S, Path):-
-  format("ciao"),
-  Result = inf.
+search(Result, G, _, Bound, S, [Action|Actions], Visited) :-
+  Min = inf,
+  applicabile(Action,S),
+  trasforma(Action,S,SNuovo),
+  \+member(SNuovo,Visited),
+  NewG is G + 1,
+  heuristic(H, SNuovo),
+  NewF is NewG + H,
+  search(Result, NewG, NewF, Bound, SNuovo, Actions, [SNuovo|Visited]),
+  updateMin(Min, Result).
+
+updateMin(Min, Result) :- 
+  \+(Result == -1),
+  assert(Min = Result).
 
 /*% caso base (non c'è soluzione, tutte le euristiche sono peggiori di quella di partenza)
 search([ActualNode|Path], G, Bound, Result) :-
