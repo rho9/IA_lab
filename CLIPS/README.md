@@ -32,10 +32,16 @@ NOTA: l'attributo `cardinality` di `multislot` indica il numero minimo e massimo
 Formato generale: `(cardinality <lower (cardinality <lower-limit> <upper limit> <upper-limit>) limit>)`
 dove `<lower‐limit>` e `<upper‐limit>` possono essere `?VARIABLE` (e quindi qualunque valore) o un intero positivo.
 
-# Avvio e terminazione
+# Comandi
 • Avvio da riga di comando (UNIX): `./clips`
 
 • Terminare: `(exit)`
+
+• Caricare i fatti: `(reset)`
+
+• Eseguire le regole: `(run)`
+
+• Caricare file: `(load percorso_file.clp)`
 
 # Costrutti
 • Fatto oridnato senza slot
@@ -86,10 +92,12 @@ NOTA: I fatti sno asseriti nella Working Memory (WM) solo dopo aver dato il coma
 • duplicare fatti: `(duplicate <fact-index> (<slot-name> <slot-value>)+ )`
 
 • ispezionare la working memory:
-	`(facts)` stampa (elenca) la lista dei fatti
-	`(watch facts)` mostra automaticamente i cambiamenti che occorrono nella WM a seguito dell’esecuzione delle regole
+
+	• `(facts)` stampa (elenca) la lista dei fatti
+	
+	• `(watch facts)` mostra automaticamente i cambiamenti che occorrono nella WM a seguito dell’esecuzione delle regole. "<==" vuol dire che qualcosa è stato tolto; "==>" vul dire che qualcosa è stato inserito
   
-• `(unwatch facts)` per disabilitare il watching sui fatti
+• `(unwatch facts)` per disabilitare il watching sui fatti. Puoi usare `(unwatch all)` per disabilitare tutti i fatti
 
 • ottenre l'indice del fatto: `(assert(fatto))`
 
@@ -97,26 +105,26 @@ NOTA: I fatti sno asseriti nella Working Memory (WM) solo dopo aver dato il coma
 
 Costrutto:
 
-(defrule <rule name> ["comment"]
-  <patterns>* ; left-hand side (LHS)
-              ; or antecedent of the rule
-=>
-  <actions>* ; right-hand side (RHS)
-              ; or consequent of the rule
-)
+	(defrule <rule name> ["comment"]
+	  <patterns>* ; left-hand side (LHS)
+		      ; or antecedent of the rule
+	=>
+	  <actions>* ; right-hand side (RHS)
+		      ; or consequent of the rule
+	)
 
 Esempio di istanza:
 
-(defrule birthday-FLV
-  (person (name "Luigi")
-    (age 46)
-    (eye-color brown)
-    (hair-color brown))
-    (date-today April-13-02)
-=>
-    (printout t "Happy birthday, Luigi!")
-    (modify 1 (age 47))
-)
+	(defrule birthday-FLV
+	  (person (name "Luigi")
+	    (age 46)
+	    (eye-color brown)
+	    (hair-color brown))
+	    (date-today April-13-02)
+	=>
+	    (printout t "Happy birthday, Luigi!")
+	    (modify 1 (age 47))
+	)
 
 NOTA: non usare un indice esplicito (qui 1) per modificare i fatti (è raro conoscerlo). Servono degli handlers forniti da variabili
 
@@ -143,3 +151,59 @@ Breackpoints:
 (remove-break <rulename>)
 (show-breaks)
 Così dopo la run l'esecuzione va avanti finché non arriva alla regola che hai inserito
+	
+## Variabili
+Nomi simbolici che iniziano con ? per campi singoli (uno slot), con $? per math da 0 a più valori in un multislot
+Esempio:
+
+	(defrule birthday-FLV
+	  ?person <- (person (name "Luigi")
+	    (age 46)
+	    (eye-color brown)
+	    (hair-color brown))
+	    (date-today April-13-02)
+	=>
+	    (printout t "Happy birthday, Luigi!")
+	    (modify ?person (age 47))
+	)
+
+	
+## Priorità
+Intervallo : [-10000, 10000].
+
+	(defrule test-1 (declare (salience 100)) ; di solito si usano multipli di 10
+	    (fire test-1)
+	=>
+	    (printout t "Rule test-1 firing." crlf)
+	)
+
+## Field Constraints
+Vincoli definiti per il singolo campo usati per filtrare il pattern matching
+
+• ~ not: il campo può prendere qualsiasi valore tranne quello specificato
+
+`(name ~Simpson)`
+
+`(age ~40)`
+
+• | or: sono specificati valori alternativi ammissibili per uno stesso campo
+
+`(name Simpson|Oswald)`
+
+`(age 30|40|50)`
+
+• & and: il valore del campo deve soddisfare una congiunzione di vincoli
+
+`(name ?name&~Simpson)` equivalente al not Simspon di prima
+
+`(name ?name&Harvey)`
+
+• : expression: aggiungi l’espressione che segue come vincolo
+
+`(age ?age&:(> ?age 20))`
+
+`(name ?name&:(eq (sub-string 1 1 ?name) "S")`
+
+## Connettivi logici
+
+
