@@ -40,8 +40,13 @@ search(Result, G, _, Bound, S, [Action|Actions], Visited) :-
   updateMin(Min, Result).
 
 updateMin(Min, Result) :- 
+  format("ciao1"),
   \+(Result == -1),
-  assert(Min = Result).
+  format("ciao2"),!,
+  format("ciao3"),
+  Min is Result,
+  format("ciao4"),
+  assert(Min).
 
 /*% caso base (non c'è soluzione, tutte le euristiche sono peggiori di quella di partenza)
 search([ActualNode|Path], G, Bound, Result) :-
