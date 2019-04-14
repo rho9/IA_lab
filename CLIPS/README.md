@@ -41,7 +41,32 @@ dove `<lower‐limit>` e `<upper‐limit>` possono essere `?VARIABLE` (e quindi 
 
 • Eseguire le regole: `(run)`
 
-• Caricare file: `(load percorso_file.clp)`
+• Caricare file: `(load percorso_file.clp)`• aggiungere fatti: `(assert <fact>+)`
+
+• Rimuovere fatti: `(retract <fact-index>+)`
+
+• Modificare fatti: `(modify <fact-index> (<slot-name> <slot-value>)+ )`.
+  Equivale a rimuovere il fatto originale e aggiungere il nuovo fatto modificato con un indice incrementato
+  
+• Duplicare fatti: `(duplicate <fact-index> (<slot-name> <slot-value>)+ )`
+
+• Stampare (elencare) la lista dei fatti: `(facts)`
+	
+• Mostra automaticamente i cambiamenti che occorrono nella WM a seguito dell’esecuzione delle regole: `(watch facts)`. "<==" vuol dire che qualcosa è stato tolto; "==>" vul dire che qualcosa è stato inserito
+
+• Mostrare, durante l’esecuzione, quali regole sono eseguite : `(watch rules)`
+
+• Mostrare, durante l’esecuzione, quali attivazioni hanno permesso l’esecuzione delle regole: `(watch activations)`
+
+•  Disattivare il watching: `(unwatch rules)` e `(unwatch activations)`. Puoi usare `(unwatch all)` per disabilitare tutti i fatti
+
+• Ottenre l'indice del fatto: `(assert(fatto))`
+
+• Elencare le regole definite fino a questo momento nella KB: `(rules)`
+
+•  Mostrare la definizione della regola: `(ppdefrule nome-regola)`
+
+• Mostrare l’agenda attuale:`(agenda)`. Restituisce l'elenco ordinato delle regole attivabili. La regola in cima sarà la prossima ad essere eseguita (per ogni regola sono indicati i fatti che l’attivano, cioè le precondizioni)
 
 # Costrutti
 • Fatto oridnato senza slot
@@ -81,26 +106,6 @@ Esempio
     
 NOTA: I fatti sno asseriti nella Working Memory (WM) solo dopo aver dato il comando `(reset)`
 
-## Manipolaizone dei fatti
-• aggiungere fatti: `(assert <fact>+)`
-
-• rimuovere fatti: `(retract <fact-index>+)`
-
-• modificare fatti: `(modify <fact-index> (<slot-name> <slot-value>)+ )`.
-  Equivale a rimuovere il fatto originale e aggiungere il nuovo fatto modificato con un indice incrementato
-  
-• duplicare fatti: `(duplicate <fact-index> (<slot-name> <slot-value>)+ )`
-
-• ispezionare la working memory:
-
-	• `(facts)` stampa (elenca) la lista dei fatti
-	
-	• `(watch facts)` mostra automaticamente i cambiamenti che occorrono nella WM a seguito dell’esecuzione delle regole. "<==" vuol dire che qualcosa è stato tolto; "==>" vul dire che qualcosa è stato inserito
-  
-• `(unwatch facts)` per disabilitare il watching sui fatti. Puoi usare `(unwatch all)` per disabilitare tutti i fatti
-
-• ottenre l'indice del fatto: `(assert(fatto))`
-
 # Regole
 
 Costrutto:
@@ -128,20 +133,6 @@ Esempio di istanza:
 
 NOTA: non usare un indice esplicito (qui 1) per modificare i fatti (è raro conoscerlo). Servono degli handlers forniti da variabili
 
-Ispezionare e tracciare
-
-• (rules) elenca le regole definite fino a questo momento nella KB
-
-• (ppdefrule nome-regola) mostra la definizione della regola
-
-• (agenda) mostra l’agenda attuale: elenco ordinato di regole attivabili. La regola in cima sarà la prossima ad essere eseguita (per ogni regola sono indicati i fatti che l’attivano, cioè le precondizioni)
-
-• (watch rules) mostra, durante l’esecuzione, quali regole sono eseguite
-
-• (watch activations) mostra, durante l’esecuzione, quali attivazioni hanno permesso l’esecuzione delle regole
-
-• (unwatch rules) e (unwatch activations) per disattivare il watching
-
 # Debugging
 Salvare tutto ciò che viene visualizzato sul terminale sul file indicato, compreso gli input dell’utente.: (dribble-on filename)
 Disabilitare il comando: (dribble-off)
@@ -168,7 +159,7 @@ Esempio:
 	)
 
 	
-## Priorità
+## Priorità: Salience
 Intervallo : [-10000, 10000].
 
 	(defrule test-1 (declare (salience 100)) ; di solito si usano multipli di 10
@@ -206,4 +197,93 @@ Vincoli definiti per il singolo campo usati per filtrare il pattern matching
 
 ## Connettivi logici
 
+• or:
+	(or (pattern1) (pattern2))
+	    ;soddisfatta se almeno uno dei due pattern unifica con i fatti della WM
+	    
+	(defrule celebrate
+	    (or (birthday) (anniversary))
+	=>
+	    (printout t "Let's have a party!" crlf))
+	    
+• not:
+	(not (pattern))
+	    ;soddisfatto quando nessun fatto unifica con il pattern
+	    
+	(defrule working-day
+	    (not (birthday))
+	    (not (anniversary))
+	=>
+	    (printout t "Let's work!" crlf))
+	    
+• exists:
+	(exists (pattern))
+	    ;soddisfatto per un unico fatto che unifica
+	    
+    	(defrule emergency-report
+	    (exists
+	        (or (emergency (emergency-type fire))
+	        (emergency (emergency-type bomb)))
+	    )
+	=>
+	    (printout t “There is an emergency.“ crlf )
+	)
+	
+Se anche la WM contenesse entrambe le emergenze, la regola scatterebbe una volta sola
 
+• forall:
+	(forall (pattern))
+	    ;soddisfatto se il pattern vale per tutti i fatti che unificano
+	    
+	(defrule evacuated-all-buildings
+	    (forall (emergency (emergency-type fire | bomb)
+	                       (location ?building) )
+	            (evacuated (building ?building))
+	    )
+	=>
+	    (printout t “All buildings with emergency are evacuated “ crlf))
+	    
+La regola scatta solo se per tutti i ?building dove è stata riscontrata una emergenza è anche stato dato l’ordine di evacuazione.
+
+# Funzioni
+• `(gensym)` restituisce un nuovo simbolo con forma genX dove X è un intero incrementato automaticamente ad ogni invocazione della funzione. Il primo simbolo generato è gen1. I simboli generati non sono necessariamente univoci
+
+• `(gensym*)` è simile a gensym, ma con la garanzia che il simbolo generato è univoco
+
+• `(setgen X)` imposta il valore iniziale del numero in coda al simbolo
+
+• `(bind)` lega esplicitamente un valore ad una variabile, può essere usato nel conseguente delle regole. Esempi.
+
+	(bind ?distance (+ f g))
+	(bind ?new (gensym*))
+	(assert (car (state-id ?new) (name ?name) (position MI)))
+	
+# Inout/Output
+`(open <file-name> <logical-name> "r")`
+	
+• <file-name> è il nome del file su disco
+	
+• <logical-name> è un nome usato all’interno del codice CLIPS
+	
+• ”r” indica il permesso di lettura (”w” per scrivere)
+
+`(open "example.dat" my-file "r")`
+
+`(read my-file)`
+
+• Al termine il file deve essere chiuso: `(close <logical-name>)`
+
+• read legge un solo simbolo
+
+• readline legge un’intera riga terminata da CR
+
+Struttura generale:
+
+• (read <logical-name>) legge un solo token dal file
+	
+• (read) legge un solo token dal terminale (il file di default)
+
+Esempi:
+
+	(bind ?input (read))
+	(bind ?$input (readline))
