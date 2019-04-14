@@ -289,3 +289,14 @@ Esempi:
 
 	(bind ?input (read))
 	(bind ?$input (readline))
+	
+# Per stampare
+The Printout Command
+
+    (printout <logical-name> <print-items>*)
+
+    (defrule fire-emergency
+        (emergency (type fire))
+     =>
+        (printout t "action activate-sprinkler-system" crlf)
+     )
