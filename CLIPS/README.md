@@ -41,9 +41,11 @@ dove `<lower‐limit>` e `<upper‐limit>` possono essere `?VARIABLE` (e quindi 
 
 • Eseguire le regole: `(run)`
 
-• Caricare file: `(load percorso_file.clp)`• aggiungere fatti: `(assert <fact>+)`
+• Caricare file: `(load percorso_file.clp)`
 
-• Rimuovere fatti: `(retract <fact-index>+)`
+• aggiungere fatti: `(assert <fact>+)`
+
+• Rimuovere fatti: `(retract <fact-index>+)`. Per rimuovere tutti i fatti: `(retract *)`
 
 • Modificare fatti: `(modify <fact-index> (<slot-name> <slot-value>)+ )`.
   Equivale a rimuovere il fatto originale e aggiungere il nuovo fatto modificato con un indice incrementato
