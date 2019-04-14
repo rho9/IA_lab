@@ -1,7 +1,7 @@
 # Tipi primitivi
 • float
 
-• integer
+• integer. Diverso "<>"
 
 • symbol: e.g. this-is-a-symbol, wrzlbrmft, !?@*+
 
