@@ -43,6 +43,8 @@ dove `<lower‐limit>` e `<upper‐limit>` possono essere `?VARIABLE` (e quindi 
 
 • Caricare file: `(load percorso_file.clp)`
 
+• Ripartire da capo: `(clear)`
+
 • aggiungere fatti: `(assert <fact>+)`
 
 • Rimuovere fatti: `(retract <fact-index>+)`. Per rimuovere tutti i fatti: `(retract *)`
