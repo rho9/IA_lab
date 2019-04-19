@@ -1,6 +1,6 @@
 % IDA*
 
-%wrapper per la chiamata da parte dell'utente
+% wrapper per la chiamata da parte dell'utente
 ida_star(Result, Path) :-
   iniziale(S),
   heuristic(H, S),
@@ -66,4 +66,4 @@ search([ActualNode|Path], G, Bound, Result) :-
   F =< Bound, % facciamo il controllo per non avere problemi con il backtracking
   \+finale(ActualNode),
   Min is inf, % ci si augura che funzioni
- */ 
+*/
