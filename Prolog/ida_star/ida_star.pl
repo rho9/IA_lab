@@ -18,20 +18,11 @@ ida_star_rec(Result, Bound, S, Path, Visited) :-
   heuristic(H, S),!,
   Min is inf,
   search(NewResult, Min, 0, H, Bound, S, Path, Visited, Res),
-  write("NewResult in ida_star_rec: "),
-  write(NewResult),
-  write("\n"),
   ida_star_rec(NewResult, Res, S, Path, Visited).  
 
 %perché altimenti se fallisce il dopo potrebbe rifare un'altro caso base
 search(Result, _, _, F, Bound, _, _, _, NewResult) :-
-  write("Bound: "),
-  write(Bound),
   F > Bound,!,
-  write(Result),
-  write(" is "),
-  write(F),
-  write("\n"),
   Result is F.
   
 search(Result, _, _, _, _, S, _, _, NewResult) :-
@@ -46,23 +37,25 @@ search(Result, Min, G, _, Bound, S, [Action|Actions], Visited, NewResult) :-
   heuristic(H, SNuovo),
   NewF is NewG + H,
   search(NewResult, Min, NewG, NewF, Bound, SNuovo, Actions, [SNuovo|Visited], Res),
-  write("prima di UpdateMin\n"),
-  updateMin(Min, NewResult, NewMin),
-  write("dopo di UpdateMin"),
-  NewResult is NewMin.
+  updateMin(Min, NewResult),
+  write("prima dell'assegnamento in search"),
+  NewResult = Atom_min,
+  write("prima dell'assegnamento in search").
   
-updateMin(Min, Result, NewMin) :- 
-  write("Min in updateMin: "),
-  write(Min),
-  write("\n"),
-  write("Result in updateMin: "),
-  write(Result),
-  write("\n"),
+updateMin(Min, Result) :-
+  writeln(updateMin1),
   Min >= Result,!,
-  NewMin is Result.
+  writeln(updateMin2),
+  atom_number(Atom_min, Min), % devo usare il predicato atom_number perché retract si aspetta un atomo e gli interi non lo sono
+  writeln(updateMin3),
+  retract(Atom_min), % Atom_min è un atomo, eppure retract non funziona
+  writeln(updateMin4),
+  Atom_min = Result,
+  writeln(updateMin5),
+  assert(Atom_min),
+  writeln(updateMin6),
 
-updateMin(_,_,_) :-
-  NewMin is Min. % non devo aggiornare -> mantengo il vecchio valore di min
+updateMin(_,_,_). % non devo aggiornare -> mantengo il vecchio valore di min
   
 /*% caso base (non c'è soluzione, tutte le euristiche sono peggiori di quella di partenza)
 search([ActualNode|Path], G, Bound, Result) :-
