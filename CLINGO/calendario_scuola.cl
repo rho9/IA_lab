@@ -27,6 +27,9 @@ lezione(religione).
 lezione(arte).
 lezione(scienze).
 lezione(educazione_fisica).
+lezione(a).
+lezione(b).
+lezione(c).
 
 % Docenti disponibili
 docente(docente_lettere_uno).
@@ -79,11 +82,19 @@ insegna(Docente, Materia, Ora, Giorno) :-
   lezione(Materia),
   ora(Ora),
   giorno(Giorno).
-  
-% ogni docente insegna una sola materia
-1{insegna_materia(D,M): lezione(M)}1 :- docente(D).
+    
 
+%ogni materia è tenuta da un professore
+1{materia_insegnata_da(M,D): docente(D)}1 :- lezione(M).
 
+%unisco le due sopra
+:- materia_insegnata_da(M1,D1),
+    materia_insegnata_da(M2,D2),
+    D1==D2,
+    M1!=M2.
+    
+% NON VA BENE: SE LO METTO SOPRA NON PUò STARE SOTTO E VICEVERSA!!!!
 
-#show insegna_materia/2.
+#show materia_insegnata_da/2.
+%#show docente_insegna_materia/2.
 % show serve perché altrimenti mostra anche tutto ciò che è in "RISORSE" e non si capisce più nulla
