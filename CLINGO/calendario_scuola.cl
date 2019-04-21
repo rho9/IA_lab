@@ -27,24 +27,21 @@ lezione(religione).
 lezione(arte).
 lezione(scienze).
 lezione(educazione_fisica).
-lezione(a).
-lezione(b).
-lezione(c).
 
 % Docenti disponibili
-docente(docente_lettere_uno).
-docente(docente_lettere_due).
-docente(docente_matematica_scienze_uno).
-docente(docente_matematica_scienze_due).
-docente(docente_scienze_uno).
-docente(docente_scienze_due).
-docente(docente_tecnologia).
-docente(docente_musica).
-docente(docente_inglese).
-docente(docente_spagnolo).
-docente(docente_religione).
-docente(docente_arte).
-docente(docente_educazione_fisica).
+docente(docente_uno).
+docente(docente_due).
+docente(docente_tre).
+docente(docente_quattro).
+docente(docente_cinque).
+docente(docente_sei).
+docente(docente_sette).
+docente(docente_otto).
+docente(docente_nove).
+docente(docente_dieci).
+docente(docente_undici).
+docente(docente_dodici).
+docente(docente_tredici).
 
 % Classi
 classe(prima_A).
@@ -84,17 +81,39 @@ insegna(Docente, Materia, Ora, Giorno) :-
   giorno(Giorno).
     
 
-%ogni materia è tenuta da un professore
-1{materia_insegnata_da(M,D): docente(D)}1 :- lezione(M).
+%ogni materia è tenuta da almeno un professore
+1{materia_insegnata_da(M,D): docente(D)}2  :- lezione(M).
 
-%unisco le due sopra
-:- materia_insegnata_da(M1,D1),
-    materia_insegnata_da(M2,D2),
-    D1==D2,
-    M1!=M2.
-    
-% NON VA BENE: SE LO METTO SOPRA NON PUò STARE SOTTO E VICEVERSA!!!!
+% un professore non può insegnare due materie diverse a meno che queste non siano matematica e scienze
+:- materia_insegnata_da(M1,D),
+   materia_insegnata_da(M2,D),
+   M1!=M2,
+   M1!=matematica,
+   M2!=scienze.
+
+:- materia_insegnata_da(M1,D),
+   materia_insegnata_da(M2,D),
+   M1!=M2,
+   M2!=matematica,
+   M1!=scienze.
+   
+% solo mate, scienze e lettere hanno due professori
+:- materia_insegnata_da(M,D1),
+   materia_insegnata_da(M,D2),
+   D1!=D2,
+   M!=lettere.
+   
+:- materia_insegnata_da(M,D1),
+   materia_insegnata_da(M,D2),
+   D1!=D2,
+   M!=matematica.
+   
+:- materia_insegnata_da(M,D1),
+   materia_insegnata_da(M,D2),
+   D1!=D2,
+   M!=scienze.
+   
+%TUTTI I PROFESSORI DEVONO INSEGNARE QUALCOSA!!!
 
 #show materia_insegnata_da/2.
-%#show docente_insegna_materia/2.
 % show serve perché altrimenti mostra anche tutto ciò che è in "RISORSE" e non si capisce più nulla
