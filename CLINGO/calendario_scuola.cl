@@ -67,84 +67,61 @@ ora(dodici_tredici).
 ora(tredici_quattordici).
 
 %%%%%%%%%%%%%%%%%%%%%%%%
-% VINCOLI
+% VINCOLI PROFESSORI
+%%%%%%%%%%%%%%%%%%%%%%%%   
+
+insegna(docente_lettere_uno,lettere). 
+insegna(docente_lettere_due,lettere). 
+insegna(docente_mate_scie_uno,matematica). 
+insegna(docente_mate_scie_due,matematica). 
+insegna(docente_mate_scie_tre,matematica). 
+insegna(docente_mate_scie_quattro,matematica). 
+insegna(docente_tecnologia,tecnologia). 
+insegna(docente_musica,musica). 
+insegna(docente_inglese,inglese). 
+insegna(docente_spagnolo,spagnolo). 
+insegna(docente_religione,religione). 
+insegna(docente_arte,arte). 
+insegna(docente_mate_scie_uno,scienze). 
+insegna(docente_mate_scie_due,scienze). 
+insegna(docente_mate_scie_tre,scienze). 
+insegna(docente_mate_scie_quattro,scienze).
+insegna(docente_educazione_fisica,educazione_fisica).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+% VINCOLI LEZIONI
 %%%%%%%%%%%%%%%%%%%%%%%%
 
-% 6 ore di lezione al giorno, quindi 3 materie al giorno
-% 6{lezioni_per_giorno(G,L): lezione(L)}6:- giorno(G).
+% ore lettere a settimana
+10{ore_a_settimana(lettere,O,G,C):ora(O),giorno(G)}10 :- classe(C).
 
-%non so chi insegna, ma non ci sono sovrapposizioni nè di prof, nè di aulee
-%*insegna(Docente, Materia, Ora, Giorno) :-
-  docente(Docente),
-  lezione(Materia),
-  ora(Ora),
-  giorno(Giorno).*%
-    
+% ore matematica a settimana
+4{ore_a_settimana(matematica,O,G,C):ora(O),giorno(G)}4 :- classe(C).
 
-%*materia_insegnata_da(M,D) :-
-  lezione(M),
-  docente(D).*%
+% ore scienze a settimana
+2{ore_a_settimana(scienze,O,G,C):ora(O),giorno(G)}2 :- classe(C).
 
-% lettere ha due insegnanti
-2{materia_insegnata_da(lettere,D):docente(D)}2.
+% ore inglese a settimana
+3{ore_a_settimana(inglese,O,G,C):ora(O),giorno(G)}3 :- classe(C).
 
-% matematica ha quattro insegnanti
-4{materia_insegnata_da(matematica,D): docente(D)}4.
+% ore spagnolo a settimana
+2{ore_a_settimana(spagnolo,O,G,C):ora(O),giorno(G)}2 :- classe(C).
 
-% tecnologia ha un insegnante
-1{materia_insegnata_da(tecnologia,D): docente(D)}1.
+% ore musica a settimana
+2{ore_a_settimana(musica,O,G,C):ora(O),giorno(G)}2 :- classe(C).
 
-% musica ha un insegnante
-1{materia_insegnata_da(musica,D): docente(D)}1.
+% ore tecnologia a settimana
+2{ore_a_settimana(tecnologia,O,G,C):ora(O),giorno(G)}2 :- classe(C).
 
-% inglese ha un insegnante
-1{materia_insegnata_da(inglese,D): docente(D)}1.
+% ore arte a settimana
+2{ore_a_settimana(arte,O,G,C):ora(O),giorno(G)}2 :- classe(C).
 
-% spagnolo ha un insegnante
-1{materia_insegnata_da(spagnolo,D): docente(D)}1.
+% ore educazione fisica a settimana
+2{ore_a_settimana(educazione_fisica,O,G,C):ora(O),giorno(G)}2 :- classe(C).
 
-% religione ha un insegnante
-1{materia_insegnata_da(religione,D): docente(D)}1.
+% ore religione a settimana
+1{ore_a_settimana(religione,O,G,C):ora(O),giorno(G)}1 :- classe(C).
 
-% arte ha un insegnante
-1{materia_insegnata_da(arte,D): docente(D)}1.
-
-% scienze ha quattro insegnanti
-4{materia_insegnata_da(scienze,D): docente(D)}4.
-
-% educazione_fisica ha un insegnante
-1{materia_insegnata_da(educazione_fisica,D): docente(D)}1.
-
-%ogni docente insegna una o due materie
-1{materia_insegnata_da(M,D): lezione(M)}2  :- docente(D).
-
-no_materie_diverse_stesso_insegnante_caso_uno :-
-   materia_insegnata_da(M1,D),
-   materia_insegnata_da(M2,D),
-   M1!=M2,
-   M1!=matematica,
-   M2!=scienze.
-
-goal :-
-  materia_insegnata_da(M,D),
-  not no_materie_diverse_stesso_insegnante_caso_uno.
-  
-:- not goal.
-
-%*:- materia_insegnata_da(M1,D),
-   materia_insegnata_da(M2,D),
-   M1!=M2,
-   M1!=matematica,
-   M2!=scienze.
-  
-:- materia_insegnata_da(M1,D),
-   materia_insegnata_da(M2,D),
-   M1!=M2,
-   M2!=matematica,
-   M1!=scienze.*%
-
-   
-%UN PROF INSEGNA DUE MATERIE SOLO SE QUESTE SONO SCIENZE E MATE
-
-#show materia_insegnata_da/2.
+#show ore_a_settimana/4.
 % show serve perché altrimenti mostra anche tutto ciò che è in "RISORSE" e non si capisce più nulla
