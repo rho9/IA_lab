@@ -74,46 +74,77 @@ ora(tredici_quattordici).
 % 6{lezioni_per_giorno(G,L): lezione(L)}6:- giorno(G).
 
 %non so chi insegna, ma non ci sono sovrapposizioni nè di prof, nè di aulee
-insegna(Docente, Materia, Ora, Giorno) :-
+%*insegna(Docente, Materia, Ora, Giorno) :-
   docente(Docente),
   lezione(Materia),
   ora(Ora),
-  giorno(Giorno).
+  giorno(Giorno).*%
     
 
-%ogni materia è tenuta da almeno un professore
-1{materia_insegnata_da(M,D): docente(D)}2  :- lezione(M).
+%*materia_insegnata_da(M,D) :-
+  lezione(M),
+  docente(D).*%
 
-% un professore non può insegnare due materie diverse a meno che queste non siano matematica e scienze
-:- materia_insegnata_da(M1,D),
+% lettere ha due insegnanti
+2{materia_insegnata_da(lettere,D):docente(D)}2.
+
+% matematica ha quattro insegnanti
+4{materia_insegnata_da(matematica,D): docente(D)}4.
+
+% tecnologia ha un insegnante
+1{materia_insegnata_da(tecnologia,D): docente(D)}1.
+
+% musica ha un insegnante
+1{materia_insegnata_da(musica,D): docente(D)}1.
+
+% inglese ha un insegnante
+1{materia_insegnata_da(inglese,D): docente(D)}1.
+
+% spagnolo ha un insegnante
+1{materia_insegnata_da(spagnolo,D): docente(D)}1.
+
+% religione ha un insegnante
+1{materia_insegnata_da(religione,D): docente(D)}1.
+
+% arte ha un insegnante
+1{materia_insegnata_da(arte,D): docente(D)}1.
+
+% scienze ha quattro insegnanti
+4{materia_insegnata_da(scienze,D): docente(D)}4.
+
+% educazione_fisica ha un insegnante
+1{materia_insegnata_da(educazione_fisica,D): docente(D)}1.
+
+%ogni docente insegna una o due materie
+1{materia_insegnata_da(M,D): lezione(M)}2  :- docente(D).
+
+no_materie_diverse_stesso_insegnante_caso_uno :-
+   materia_insegnata_da(M1,D),
    materia_insegnata_da(M2,D),
    M1!=M2,
    M1!=matematica,
    M2!=scienze.
 
+goal :-
+  materia_insegnata_da(M,D),
+  not no_materie_diverse_stesso_insegnante_caso_uno.
+  
+:- not goal.
+
+%*:- materia_insegnata_da(M1,D),
+   materia_insegnata_da(M2,D),
+   M1!=M2,
+   M1!=matematica,
+   M2!=scienze.
+  
 :- materia_insegnata_da(M1,D),
    materia_insegnata_da(M2,D),
    M1!=M2,
    M2!=matematica,
-   M1!=scienze.
+   M1!=scienze.*%
+
    
-% solo mate, scienze e lettere hanno due professori
-:- materia_insegnata_da(M,D1),
-   materia_insegnata_da(M,D2),
-   D1!=D2,
-   M!=lettere.
-   
-:- materia_insegnata_da(M,D1),
-   materia_insegnata_da(M,D2),
-   D1!=D2,
-   M!=matematica.
-   
-:- materia_insegnata_da(M,D1),
-   materia_insegnata_da(M,D2),
-   D1!=D2,
-   M!=scienze.
-   
-%TUTTI I PROFESSORI DEVONO INSEGNARE QUALCOSA!!!
+%UN PROF INSEGNA DUE MATERIE SOLO SE QUESTE SONO SCIENZE E MATE
 
 #show materia_insegnata_da/2.
 % show serve perché altrimenti mostra anche tutto ciò che è in "RISORSE" e non si capisce più nulla
