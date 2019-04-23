@@ -86,7 +86,7 @@ insegna(docente_mate_scie_uno,scienze).
 insegna(docente_mate_scie_due,scienze). 
 insegna(docente_mate_scie_tre,scienze). 
 insegna(docente_mate_scie_quattro,scienze).
-insegna(docente_educazione_fisica,educazione_fisica).
+insegna(docente_educazione_fisica ,educazione_fisica).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%
@@ -123,5 +123,19 @@ insegna(docente_educazione_fisica,educazione_fisica).
 % ore religione a settimana
 1{ore_a_settimana(religione,O,G,C):ora(O),giorno(G)}1 :- classe(C).
 
-#show ore_a_settimana/4.
+% classe seguita sempre da stessi prof
+% 0-> nessuno. 1 -> docente_uno. 2 -> docente_due
+lettere(0,0,0,0,0,0).
+matematica(0,0,0,0,0,0).
+scienze(0,0,0,0,0,0).
+
+% classi(prima_A, seconda_A, terza_A, prima_B, seconda_B, terza_B). ordine con cui vengono associati i numeri: x+y mi da la posizione
+num_sezioni(2).
+num_anni(3).
+
+prof_assegnato(L,M,S,V) :-
+  lettere(L),
+  num_anni(A),
+
+%show ore_a_settimana/4.
 % show serve perché altrimenti mostra anche tutto ciò che è in "RISORSE" e non si capisce più nulla
