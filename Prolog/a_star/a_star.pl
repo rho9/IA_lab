@@ -30,25 +30,39 @@ a_star_rec(Result, [State-F|OpenSet], ClosedSet, G, Path) :-
 % Caso base
 findNewStates(_, _, _, []).
     
-findNewStates(NewNodes, ActualState, G, [Action|Actions]) :-
-  trasforma(ActualState, Action, NewState),
+findNewStates(NewNodes, ActualState, G, [Action|Actions]) :- % aggiorna la frontiera
+  trasforma(Action, ActualState, NewState),
   heuristic(NewH, NewState),
   NewF is G + NewH + 1, % caso in cui ogni movimento costa 1
-  findNewStates([NewState-NewF|NewNodes], ActualState, Actions).
+  findNewStates([NewState-NewF|NewNodes], ActualState, G+1, Actions).
   
-% findNewOpenSet mi permette di aggiornare OpenSet in modo corretto: se incontro uno stato che è già presente zll'interno di OpenSet, aggiorno la sua F nel caso quella trovata sia minore di quella presente in OpenSet
+% findNewOpenSet mi permette di aggiornare OpenSet in modo corretto: se incontro uno stato che è già presente all'interno di OpenSet, aggiorno la sua F nel caso quella trovata sia minore di quella presente in OpenSet
 % Caso in cui incontro uno stato nuovo
 findNewOpenSet(OpenSet, [State-Value|NewNodes]) :-
-  pairs_keys(OpenSet, OpenSetState),
+  pairsKeys(OpenSet, OpenSetState),
   \+member(State, OpenSetState),
   findNewOpenSet([State-Value|OpenSet], NewNodes).
   
 % Caso in cui lo stato sia già all'interno di OpenSet e il valore sia maggiore -> non faccio nulla
-findNewOpenSet(OpenSet, [State-Value|NewNodes]).
+findNewOpenSet(OpenSet, [State-Value|NewNodes]) :-
+  getCurrentValue(V, State, OpenSet),
+  V > Value,
+  findNewOpenSet([State-V|OpenSet], NewNodes). % modifica lo state-value perchè c'è già ed è minore
 
-% pairs_keys([c-2,f-1,m-6],Result).
-% Result = [c, f, m].
+findNewOpenSet(OpenSet, [_|NewNodes]) :-
+  findNewOpenSet(OpenSet, NewNodes). % rimuovo lo state-value perchè c'è già ed è maggiore
 
+getCurrentValue(Value, State, [S-V|_]) :-
+  S == State,
+  Value = V.
+
+getCurrentValue(Value, State, [_|OpenSet]) :-
+  getCurrentValue(Value, State, OpenSet).
+
+pairsKeys([], _).
+
+pairsKeys([State-_|Set], Result) :-
+  pairsKeys(Set, [State|Result]).
 
 
 
