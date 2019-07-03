@@ -6,8 +6,8 @@ ida_star(Result, Path) :-
   heuristic(H, S),
   ida_star_rec(Result, H, S, Path, [S]).
 
-ida_star_rec(_, _, S, [], _) :- %caso base
-  finale(S),
+ida_star_rec(_, -1, _, _, _) :- %caso base
+  %finale(S),
   format("Found").
 
 ida_star_rec(Result, _, _, _, _) :- %caso base
@@ -15,19 +15,20 @@ ida_star_rec(Result, _, _, _, _) :- %caso base
   format("Not found").
 
 ida_star_rec(Result, Bound, S, Path, Visited) :-
-  heuristic(H, S),!,
-  assert(variables(min, inf)),
-  search(NewResult, 0, H, Bound, S, Path, Visited),
-  ida_star_rec(NewResult, Res, S, Path, Visited).  
+  heuristic(H, S),
+  b_setval(min, inf),
+  search(ResultSearch, 0, H, Bound, S, Path, Visited),
+  ida_star_rec(Result, ResultSearch, S, Path, Visited).  %ResultSearch is the new Bound
 
 %perché altimenti se fallisce il dopo potrebbe rifare un'altro caso base
 search(Result, _, F, Bound, _, _, _) :-
-  F > Bound,!,
+  F > Bound,
   Result is F.
   
-search(Result, _, _, _, S, _, _) :-
-  finale(S),!,
-  NewResult = -1. %found
+search(Result, _, _, _, S, _, Visited) :-
+  finale(S),
+  print(Visited),
+  Result = -1. %found
 
 search(Result, G, _, Bound, S, [Action|Actions], Visited) :-
   applicabile(Action,S),
@@ -36,19 +37,10 @@ search(Result, G, _, Bound, S, [Action|Actions], Visited) :-
   NewG is G + 1,
   heuristic(H, SNuovo),
   NewF is NewG + H,
-  search(NewResult, NewG, NewF, Bound, SNuovo, Actions, [SNuovo|Visited]),
-  updateMin(NewResult),
-  variables(min, NewMin),
-  writeln(NewMin),
-  Result = NewMin.
-  
-updateMin(Result) :-
-  variables(min, Min),
-  Min >= Result,!,
-  retract(variables(min, Min)),
-  assert(variables(min, Result)).
-
-updateMin(_). % non devo aggiornare -> mantengo il vecchio valore di min
+  search(Result, NewG, NewF, Bound, SNuovo, Actions, [SNuovo|Visited]),
+  b_getval(min, Min),
+  Min >= Result,
+  b_setval(min, Result).
   
 /*% caso base (non c'è soluzione, tutte le euristiche sono peggiori di quella di partenza)
 search([ActualNode|Path], G, Bound, Result) :-
