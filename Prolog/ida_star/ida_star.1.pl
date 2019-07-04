@@ -1,49 +1,33 @@
-%wrapper per la chiamata da parte dell'utente
-ida_star(Soluzione) :-
-  iniziale(S),
-  heuristic(S, H),
-  assert(min_h(inf)), %in questo modo il predicato viene salvato nel db
-  assert(actual_g(0)),
-  ida_star_rec(S, Soluzione, H, 0).
+ida_star(Path, Actions):- %cose che devono esssere istanziate
+  iniziale(Start),
+  heuristic(H, Start),
+  ida_star_rec(Result,H, 0, Start, [Start], Actions).
 
+ida_star_rec(-1,_,_,_,_,_).
 
-heuristic(S, H):-
-  H is 1.
+ida_star_rec(Result, Bound, G, Node, Path, Actions):-
+  nb_setval(minF, inf),!, %svuoto lo stack del backtraking
+  search(Result,Bound,G, Node, Path,Actions),
+  nb_getval(minF, Min),
+  ida_star_rec(Result, Min, G, Node, Path, Actions).
 
-%caso base
-ida_star_rec(S, _, _, _) :-
-  finale(S).
+search(_,Bound, G, Node, _, _) :-
+  heuristic(H, Node),
+  G+H > Bound,
+  nb_getval(minF, Min),
+  Min > G+H,
+  nb_setval(minF, G+H),
+  false.
+  %se backtracking finito.
 
-%cerca la soluzione entro la soglia data
-ida_star_rec(S, Soluzione, H, G) :-
-  dfs_aux(S, Soluzione, [S], G+H).
+search(Result,_,_,Node,_,_):-
+  finale(Node),
+  Result is -1.
 
-%scende di un livello e fa la chiamata ricorsiva
-ida_star_rec(S, Soluzione, Soglia, H, G) :-
-  heuristic(S, H),
-  NuovaSoglia is Soglia + H,
-  ida_star_rec(S, Soluzione, NuovaSoglia).
-
-dfs_aux(S,[],_,_) :-
-  finale(S).
-
-dfs_aux(S,[Azione|AzioniTail],Visitati,Soglia, G) :-
-  heuristic(S, H),
-  G + H =< Soglia,
-  applicabile(Azione,S),
-  trasforma(Azione,S,SNuovo),
-  \+member(SNuovo,Visitati),
-  G is G + 1,
-  assert(actual_g(G)),
-  assert(min_h(inf)),
-  dfs_aux(SNuovo,AzioniTail,[SNuovo|Visitati],Soglia, G).
-
-dfs_aux(S,[Azione|AzioniTail],Visitati,Soglia, G) :-
-  heuristic(S, H),
-  G + H > Soglia,
-  min_h(X), %possibile problema OR +
-  actual_g(G1),%frontiera
-  G1 == G,
-  X > G + H,
-  assert(min_h(H)).
-  %Soglia. % cose
+search(Result,Bound,G,Node,Path,[Action|Actions]):-
+  applicabile(Action, Node),
+  trasforma(Action, Node, NewNode),
+  \+member(NewNode, Path),
+  heuristic(H, Node),
+  G+H =< Bound,
+  search(Result,Bound, G+1, NewNode,[NewNode|Path], Actions).

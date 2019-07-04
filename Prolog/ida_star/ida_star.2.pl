@@ -1,49 +1,42 @@
 % IDA*
 
 % wrapper per la chiamata da parte dell'utente
-ida_star(Result, Path) :-
+ida_star(Result) :-
   iniziale(S),
   heuristic(H, S),
-  ida_star_rec(Result, H, S, Path, [S]).
+  ida_star_rec(Result, H, S, [S], 0).
 
-ida_star_rec(_, -1, _, _, _) :- %caso base
+%ida_star_rec(-1, _, _, _, _) :- %caso base
   %finale(S),
-  format("Found").
+  %format("Found").
 
-ida_star_rec(Result, _, _, _, _) :- %caso base
-  Result == inf,
-  format("Not found").
+%ida_star_rec(Result, S, Path, Visited, Bound) :- %caso base
+  %Result == inf,
+  %format("Not found").
 
-ida_star_rec(Result, Bound, S, Path, Visited) :-
-  heuristic(H, S),
-  nb_setval(min, inf),
-  search(ResultSearch, 0, H, Bound, S, Path, Visited),
-  ida_star_rec(Result, ResultSearch, S, Path, Visited).  %ResultSearch is the new Bound
+ida_star_rec(Result, Bound, S, Visited, G) :-
+  search(Result, Bound, S, Visited, G),
+  findall(FNode, ida_node(_, FNode), Bounds),
+  exclude(>=(Bound), Bounds, OverBounds),
+  sort(OverBounds, SortedBounds),
+  nth0(0, SortedBounds, NewBound),
+  retractall(ida_node(_,_)),
+  ida_star_rec(Result, NewBound, S, Visited, G).  %ResultSearch is the new Bound
 
 %perché altimenti se fallisce il dopo potrebbe rifare un'altro caso base
-search(Result, _, F, Bound, _, _, _) :-
-  F > Bound,
-  Result is F.
-  
+search([], S, _, _) :-
+  finale(S).
 
-search(Result, _, _, _, S, _, Visited) :-
-  finale(S),
-  print(Visited),
-  Result = -1. %found
-
-search(Result, G, F, Bound, S, [Action|Actions], Visited) :-
+search([Action|Result], Bound, S, Visited, G) :-
   applicabile(Action,S),
   trasforma(Action,S,SNuovo),
   \+member(SNuovo,Visited),
   NewG is G + 1,
   heuristic(H, SNuovo),
   NewF is NewG + H,
-  search(ResultSearch, NewG, NewF, Bound, SNuovo, Actions, [SNuovo|Visited]),
-  nb_getval(min, Min),
-  Min >= ResultSearch,
-  nb_setval(min, ResultSearch),
-  F =< Bound,
-  nb_getval(min, Result).
+  assert(ida_node(SNuovo, NewF)),
+  NewF =< Bound,
+  search(Result, Bound, SNuovo, [SNuovo|Visited], NewG).
 
 /*% caso base (non c'è soluzione, tutte le euristiche sono peggiori di quella di partenza)
 search([ActualNode|Path], G, Bound, Result) :-
