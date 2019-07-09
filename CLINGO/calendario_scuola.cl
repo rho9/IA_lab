@@ -139,6 +139,7 @@ insegna(docente_educazione_fisica ,educazione_fisica).
 
 % ogni classe può seguire al più una lezione nello stesso momento
 0{classe_segue(L,O,G,C):lezione(L),ora(O),giorno(G)}1 :- classe(C).
+% vedere cosa succede togliendo i vincoli ore_a_settimana -> fare test
 
 % ogni professore può tenere al più una lezione nello stesso momento
 0{prof_insegna(D,L,O,G):insegna(D,L),ora(O),giorno(G)}1 :- docente(D).
@@ -155,10 +156,10 @@ insegna(docente_educazione_fisica ,educazione_fisica).
 % le classi a tempo normale non possono avere lezione dalle quattordici alla quindici
 0{classe_segue(L,quattordici_quindici,G,C):lezione(L),giorno(G)}0 :- tempo_norm(C).
 
-goal :- ore_a_settimana(Lezione1, Aula, Ora1, Giorno1, Classe),
-		prof_insegna(Docente1, Lezione2, Ora2, Giorno2),
-		classe_segue(Docente, Lezione, Ora, Giorno),
-		aula_usata(Docente2, Lezione3, Ora3, Giorno3, Luogo).
+goal :- ore_a_settimana(Lezione1, Aula1, Ora1, Giorno1, Classe1),
+		prof_insegna(Docente2, Lezione2, Ora2, Giorno2),
+		classe_segue(Lezione3, Ora3, Giorno3, Classe3),
+		aula_usata(Docente4, Lezione4, Ora4, Giorno4, Luogo4).
 :- not goal.
 
 % classe seguita sempre da stessi prof SCELTA NOSTRA, NON è DA SPECIFICHE
