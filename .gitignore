@@ -4,3 +4,6 @@ include
 ./lib
 share
 *.sh
+lib
+*.txt
+*.log
