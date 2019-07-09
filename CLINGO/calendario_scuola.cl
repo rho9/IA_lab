@@ -29,19 +29,19 @@ lezione(scienze).
 lezione(educazione_fisica).
 
 % Docenti disponibili
-docente(docente_uno).
-docente(docente_due).
-docente(docente_tre).
-docente(docente_quattro).
-docente(docente_cinque).
-docente(docente_sei).
-docente(docente_sette).
-docente(docente_otto).
-docente(docente_nove).
-docente(docente_dieci).
-docente(docente_undici).
-docente(docente_dodici).
-docente(docente_tredici).
+docente(docente_lettere_uno).
+docente(docente_lettere_due).
+docente(docente_mate_scie_uno).
+docente(docente_mate_scie_due).
+docente(docente_mate_scie_tre).
+docente(docente_mate_scie_quattro).
+docente(docente_tecnologia).
+docente(docente_musica).
+docente(docente_inglese).
+docente(docente_spagnolo).
+docente(docente_religione).
+docente(docente_arte).
+docente(docente_educazione_fisica).
 
 % Classi
 classe(prima_A).
@@ -50,6 +50,14 @@ classe(seconda_A).
 classe(seconda_B).
 classe(terza_A).
 classe(terza_B).
+
+% Tipologia classi
+tempo_prol(prima_A).
+tempo_prol(seconda_A).
+tempo_prol(terza_A).
+tempo_norm(pirma_B).
+tempo_norm(seconda_B).
+tempo_norm(terza_B).
 
 % Giorni della settimana di scuola
 giorno(lun).
@@ -65,6 +73,7 @@ ora(dieci_undici).
 ora(undici_dodici).
 ora(dodici_tredici).
 ora(tredici_quattordici).
+ora(quattordici_quindici).
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 % VINCOLI PROFESSORI
@@ -93,37 +102,66 @@ insegna(docente_educazione_fisica ,educazione_fisica).
 % VINCOLI LEZIONI
 %%%%%%%%%%%%%%%%%%%%%%%%
 
-% ore lettere a settimana
-10{ore_a_settimana(lettere,O,G,C):ora(O),giorno(G)}10 :- classe(C).
+% ogni classe ha 10 ore di lettere a settimana
+10{ore_a_settimana(lettere,aula_lettere,O,G,C):ora(O),giorno(G)}10 :- classe(C).
 
-% ore matematica a settimana
-4{ore_a_settimana(matematica,O,G,C):ora(O),giorno(G)}4 :- classe(C).
+% ogni classe ha 4 ore di matematica a settimana
+4{ore_a_settimana(matematica,aula_matematica,O,G,C):ora(O),giorno(G)}4 :- classe(C).
 
-% ore scienze a settimana
-2{ore_a_settimana(scienze,O,G,C):ora(O),giorno(G)}2 :- classe(C).
+% ogni classe ha 2 ore di scienze a settimana
+2{ore_a_settimana(scienze,lab_scienze,O,G,C):ora(O),giorno(G)}2 :- classe(C).
 
-% ore inglese a settimana
-3{ore_a_settimana(inglese,O,G,C):ora(O),giorno(G)}3 :- classe(C).
+% ogni classe ha 3 ore di inglese a settimana
+3{ore_a_settimana(inglese,aula_inglese,O,G,C):ora(O),giorno(G)}3 :- classe(C).
 
-% ore spagnolo a settimana
-2{ore_a_settimana(spagnolo,O,G,C):ora(O),giorno(G)}2 :- classe(C).
+% ogni classe ha 2 ore di spagnolo a settimana
+2{ore_a_settimana(spagnolo,aula_spagnolo,O,G,C):ora(O),giorno(G)}2 :- classe(C).
 
-% ore musica a settimana
-2{ore_a_settimana(musica,O,G,C):ora(O),giorno(G)}2 :- classe(C).
+% ogni classe ha 2 ore di musica a settimana
+2{ore_a_settimana(musica,aula_musica,O,G,C):ora(O),giorno(G)}2 :- classe(C).
 
-% ore tecnologia a settimana
-2{ore_a_settimana(tecnologia,O,G,C):ora(O),giorno(G)}2 :- classe(C).
+% ogni classe ha 2 ore di tecnologia a settimana
+2{ore_a_settimana(tecnologia,aula_tecnologia,O,G,C):ora(O),giorno(G)}2 :- classe(C).
 
-% ore arte a settimana
-2{ore_a_settimana(arte,O,G,C):ora(O),giorno(G)}2 :- classe(C).
+% ogni classe ha 2 ore di arte a settimana
+2{ore_a_settimana(arte,lab_arte,O,G,C):ora(O),giorno(G)}2 :- classe(C).
 
-% ore educazione fisica a settimana
-2{ore_a_settimana(educazione_fisica,O,G,C):ora(O),giorno(G)}2 :- classe(C).
+% ogni classe ha 2 ore di educazione fisica a settimana
+2{ore_a_settimana(educazione_fisica,lab_educazione_fisica,O,G,C):ora(O),giorno(G)}2 :- classe(C).
 
-% ore religione a settimana
-1{ore_a_settimana(religione,O,G,C):ora(O),giorno(G)}1 :- classe(C).
+% ogni classe ha un ora di religione a settimana
+1{ore_a_settimana(religione,aula_religione,O,G,C):ora(O),giorno(G)}1 :- classe(C).
 
-% classe seguita sempre da stessi prof
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+% VINCOLI TEMPORALI
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ogni classe può seguire al più una lezione nello stesso momento
+0{classe_segue(L,O,G,C):lezione(L),ora(O),giorno(G)}1 :- classe(C).
+
+% ogni professore può tenere al più una lezione nello stesso momento
+0{prof_insegna(D,L,O,G):insegna(D,L),ora(O),giorno(G)}1 :- docente(D).
+
+% ogni aula può essere utilizzata al più da una sola classe nello stesso momento
+0{aula_usata(D,L,O,G,A):insegna(D,L),ora(O),giorno(G)}1 :- aula(A).
+
+% uguale per lab
+0{aula_usata(D,L,O,G,LAB):insegna(D,L),ora(O),giorno(G)}1 :- laboratorio(LAB).
+
+% le classi a tempo prolungato non possono avere lezione durante l'ora di pranzo: tredici_quattordici
+0{classe_segue(L,tredici_quattordici,G,C):lezione(L),giorno(G)}0 :- tempo_prol(C).
+
+% le classi a tempo normale non possono avere lezione dalle quattordici alla quindici
+0{classe_segue(L,quattordici_quindici,G,C):lezione(L),giorno(G)}0 :- tempo_norm(C).
+
+goal :- ore_a_settimana(Lezione1, Aula, Ora1, Giorno1, Classe),
+		prof_insegna(Docente1, Lezione2, Ora2, Giorno2),
+		classe_segue(Docente, Lezione, Ora, Giorno),
+		aula_usata(Docente2, Lezione3, Ora3, Giorno3, Luogo).
+:- not goal.
+
+% classe seguita sempre da stessi prof SCELTA NOSTRA, NON è DA SPECIFICHE
 % 0-> nessuno. 1 -> docente_uno. 2 -> docente_due
 lettere(0,0,0,0,0,0).
 matematica(0,0,0,0,0,0).
@@ -133,9 +171,9 @@ scienze(0,0,0,0,0,0).
 num_sezioni(2).
 num_anni(3).
 
-prof_assegnato(L,M,S,V) :-
-  lettere(L),
-  num_anni(A),
+%prof_assegnato(L,M,S,V) :-
+%  lettere(L),
+%  num_anni(A),
 
-%show ore_a_settimana/4.
+#show ore_a_settimana/5.
 % show serve perché altrimenti mostra anche tutto ciò che è in "RISORSE" e non si capisce più nulla
