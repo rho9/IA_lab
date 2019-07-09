@@ -33,7 +33,7 @@ findNewStates(_, _, _, []).
 findNewStates(NewNodes, ActualState, G, [Action|Actions]) :- % aggiorna la frontiera
   trasforma(Action, ActualState, NewState),
   heuristic(NewH, NewState),
-  NewF is G + NewH + 1, % caso in cui ogni movimento costa 1
+  NewF is G + NewH, % caso in cui ogni movimento costa 1
   findNewStates([NewState-NewF|NewNodes], ActualState, G+1, Actions).
   
 % findNewOpenSet mi permette di aggiornare OpenSet in modo corretto: se incontro uno stato che è già presente all'interno di OpenSet, aggiorno la sua F nel caso quella trovata sia minore di quella presente in OpenSet
