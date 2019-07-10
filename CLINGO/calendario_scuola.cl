@@ -1,4 +1,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%
+% PROBLEMI
+%%%%%%%%%%%%%%%%%%%%%%%%
+% 6 classi per 10 ore di lettere > 5 giorni per 7 fasce orarie -> aumentare aule di lettere
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
 % RISORSE
 %%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -139,7 +147,6 @@ insegna(docente_educazione_fisica ,educazione_fisica).
 
 % ogni classe può seguire al più una lezione nello stesso momento
 0{classe_segue(L,O,G,C):lezione(L),ora(O),giorno(G)}1 :- classe(C).
-% vedere cosa succede togliendo i vincoli ore_a_settimana -> fare test
 
 % ogni professore può tenere al più una lezione nello stesso momento
 0{prof_insegna(D,L,O,G):insegna(D,L),ora(O),giorno(G)}1 :- docente(D).

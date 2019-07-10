@@ -8,7 +8,7 @@ content = f.read()
 
 giorni = ["lun", "mar", "mer", "gio", "ven"]
 ore = ["otto_nove","nove_dieci", "dieci_undici", "undici_dodici", "dodici_tredici", "tredici_quattordici", "quattordici_quindici"]
-aule = ["aula_lettere", "aula_matematica", "aula_tecnologia", "aula_musica", "aula_inglese", "aula_spagnolo", "aula_religione", "lab_arte", "lab_scienze", "lab_educazione_fisica"]
+aule = ["aula_lettere1", "aula_lettere2", "aula_matematica", "aula_tecnologia", "aula_musica", "aula_inglese", "aula_spagnolo", "aula_religione", "lab_arte", "lab_scienze", "lab_educazione_fisica"]
 
 orari = {}
 for i in range(len(aule)):
