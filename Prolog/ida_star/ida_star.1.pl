@@ -1,16 +1,24 @@
 ida_star(Path, Actions):- %cose che devono esssere istanziate
   iniziale(Start),
   heuristic(H, Start),
-  ida_star_rec(Result,H, 0, Start, [Start], Actions).
+  ida_star_rec(Result, H, 0, Start, [Start], Actions).
 
-ida_star_rec(-1,_,_,_,_,_).
+ida_star_rec(Result,_,_,_,_,_) :-
+  integer(Result).
 
 ida_star_rec(Result, Bound, G, Node, Path, Actions):-
-  nb_setval(minF, inf),!, %svuoto lo stack del backtraking
-  search(Result,Bound,G, Node, Path,Actions),
+  nb_setval(minF, inf),
+  !, %svuoto lo stack del backtraking
+  \+search(Result, Bound, G, Node, Path, Actions),
   nb_getval(minF, Min),
   ida_star_rec(Result, Min, G, Node, Path, Actions).
 
+% raggiunto il nodo finale
+search(Result,_,_,Node,_,_):-
+  finale(Node),
+  Result is -1.
+
+% quando il bound è da aggiornare
 search(_,Bound, G, Node, _, _) :-
   heuristic(H, Node),
   G+H > Bound,
@@ -20,14 +28,14 @@ search(_,Bound, G, Node, _, _) :-
   false.
   %se backtracking finito.
 
-search(Result,_,_,Node,_,_):-
-  finale(Node),
-  Result is -1.
-
+% raggiunto quando il bound non è da aggiornare
 search(Result,Bound,G,Node,Path,[Action|Actions]):-
   applicabile(Action, Node),
   trasforma(Action, Node, NewNode),
-  \+member(NewNode, Path),
+  \+member(NewNode, Path), % controlla di non esserci già passato
   heuristic(H, Node),
   G+H =< Bound,
-  search(Result,Bound, G+1, NewNode,[NewNode|Path], Actions).
+  heuristic(NewH, NewNode),
+  New_G is G+1,
+  F is New_G+NewH,
+  search(Result,Bound, New_G, NewNode,[NewNode|Path], Actions),!.
