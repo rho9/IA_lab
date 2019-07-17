@@ -1,35 +1,40 @@
 ida_star(Path, Actions):- %cose che devono esssere istanziate
   iniziale(Start),
   heuristic(Bound, Start),
-  ida_star_rec(Result, Bound, 0, Start, [Start], Actions).
+  nb_setval(global_bound, NewBound),
+  ida_star_rec(Result, 0, Start, [Start], Actions).
 
-
-
-ida_star_rec(_,_,_,ActualNode,_,[]) :-
+% forse Result non serve: ho finito quando le azioni sono vuote e sono in finale
+ida_star_rec(_,_,ActualNode,_,[]) :-
   finale(ActualNode).
 
+ida_star_rec(Result, G, ActualNode, Path, Actions) :-
+	nb_getval(global_bound, Bound),
+	search(Result, Bound, G, ActualNode, Path, Actions).
 
-% raggiunto il nodo finale
-search(_,_,_,ActualNode,_,[]):-
+% soluzione trovata
+search(_,_,_,ActualNode,_,[]) :-
   finale(ActualNode).
 
-% quando il bound è da aggiornare
-search(_,Bound, G, ActualNode, _, _) :-
+% F supera il bound
+search(Result, Bound, G, ActualNode, Path, Actions) :-
   heuristic(H, ActualNode),
-  G+H > Bound,
-  nb_getval(minF, Min),
-  Min > G+H,
-  nb_setval(minF, G+H),
+  F is H+G,
+  F > Bound,
+  NewBound is F,
+  nb_setval(global_bound, NewBound),
   false.
-  %se backtracking finito.
+  % devo ritornare f. così cosa fa?:
+  %search(Result, NewBound, G, ActualNode, Path, Actions).
 
-% raggiunto quando il bound non è da aggiornare
-search(Result,Bound,G,ActualNode,Path,[Action|Actions]):-
-  applicabile(Action, ActualNode),
-  trasforma(Action, ActualNode, NewNode),
-  \+member(NewNode, Path), % controlla di non esserci già passato
-  heuristic(NewH, NewNode),
-  New_G is G+1,
-  F is New_G+NewH,
-  F =< Bound,
-  search(Result,Bound, New_G, NewNode,[NewNode|Path], Actions),!.
+search(Result, Bound, G, ActualNode, Path, [Action|Actions]) :-
+	nb_setval(minF, inf),
+	applicabile(Action, ActualNode),
+	trasforma(Action, ActualNode, NewNode),
+	\+member(NewNode, Path),
+	NewG is G+1,
+	search(Result, Bound, NewG, NewNode, [NewNode|Path], Actions),
+	nb_getval(minF, Min),
+	Bound < Min,
+	nb_setval(minF, Bound),
+	false.
