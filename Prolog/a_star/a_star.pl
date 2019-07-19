@@ -23,6 +23,7 @@ a_star_rec(Result, [State-_|_], _, _, Path) :-
 % Caso in cui incontro uno stato chiuso: non lo considero e vado avanti nella mia ricorsione
 a_star_rec(Result, [State-_|OpenSet], ClosedSet, G, Path) :-
   member(State, ClosedSet),
+  print("ciao"),
   a_star_rec(Result, OpenSet, ClosedSet, G, Path).
   
 a_star_rec(Result, OpenSet, ClosedSet, G, Path) :-
@@ -33,10 +34,14 @@ a_star_rec(Result, OpenSet, ClosedSet, G, Path) :-
   findNewStates(NewNodes, State, G+1, ApplicableList),
   pairsKeys(OpenSet, States),
   % se non sono membri li aggiungiamo
-  findNewOpenSet(OpenSet, NewNodes, States),
+  findNewOpenSet(OpenSet, [State|ClosedSet], NewNodes, NewOpenSet),
   % ordino i nodi all'interno di OpenSet in ordine crescente su f
-  sort(2, @<, OpenSet, OpenSetOrdered),
-  a_star_rec(Result, OpenSetOrdered, [State-F|ClosedSet], G+1, Path).
+  print(NewOpenSet),
+  format("\n"),
+  print(ClosedSet),
+  format("\n\n"),
+  sort(2, @<, NewOpenSet, OpenSetOrdered),
+  a_star_rec(Result, OpenSetOrdered, [State|ClosedSet], G+1, Path).
     
 % findNewStates()  mi permette di trovare tutti i nuovi stati in cui posso andare dopo aver applicato le azioni allo stato attuale
 % Caso base
@@ -56,36 +61,82 @@ findNewStates([NewState-NewF|NewNodes], ActualState, G, [Action|Actions]) :- % a
 % NewOpenSet: nuovo open set
 
 % Caso base
-findNewOpenSet([], [], _).
+findNewOpenSet([], _, [], []).
 
-findNewOpenSet([], [State-Value|NewNodes], NewOpenSet) :-
-  findNewOpenSet([], NewNodes, [State-Value|NewOpenSet]).
+findNewOpenSet([], ClosedSet, [State-_|NewNodes], NewOpenSet) :-
+  member(State, ClosedSet),
+  findNewOpenSet([], ClosedSet, NewNodes, NewOpenSet).
 
-findNewOpenSet([State-Value|OpenSet], [], NewOpenSet) :-
-  findNewOpenSet(OpenSet, [], [State-Value|NewOpenSet]).
+findNewOpenSet([], ClosedSet, [State-Value|NewNodes], [NewState-NewValue|NewOpenSet]) :-
+  \+member(State, ClosedSet),
+  NewState = State,
+  NewValue = Value,
+  findNewOpenSet([], ClosedSet, NewNodes, NewOpenSet).
 
+findNewOpenSet([State-_|OpenSet], ClosedSet, [], NewOpenSet) :-
+  member(State, ClosedSet),
+  findNewOpenSet(OpenSet, ClosedSet, [], NewOpenSet).
+
+findNewOpenSet([State-Value|OpenSet], ClosedSet, [], [NewState-NewValue|NewOpenSet]) :-
+  \+member(State, ClosedSet),
+  NewState = State,
+  NewValue = Value,
+  findNewOpenSet(OpenSet, ClosedSet, [], NewOpenSet).
 % TOGLIERE (CIOè NON CONSIDERARE) QUALCOSA DA OPENSET? BASTA AGGIUNGERE ALTRO CASO
   
 % Caso in cui lo stato sia già all'interno di OpenSet e il valore nuovo sia maggiore -> non faccio nulla
-findNewOpenSet([State-V|OpenSet], [State-Value|NewNodes], NewOpenSet) :-
+findNewOpenSet([State-V|OpenSet], ClosedSet, [State-Value|NewNodes], NewOpenSet) :-
   %getCurrentValue(V, State, OpenSet),
+  member(State, ClosedSet),
   V =< Value,
-  findNewOpenSet(OpenSet, NewNodes, [State-V|NewOpenSet]).
+  findNewOpenSet(OpenSet, ClosedSet, NewNodes, NewOpenSet).
+
+findNewOpenSet([State-V|OpenSet], ClosedSet, [State-Value|NewNodes], [NewState-NewValue|NewOpenSet]) :-
+  %getCurrentValue(V, State, OpenSet),
+  \+member(State, ClosedSet),
+  V =< Value,
+  NewState = State,
+  NewValue = V,
+  findNewOpenSet(OpenSet, ClosedSet, NewNodes, NewOpenSet).
 
 % Caso in cui lo stato sia già all'interno di OpenSet e il valore sia minore -> aggiorno il valore
-findNewOpenSet([State-_|OpenSet], [State-Value|NewNodes], NewOpenSet) :-
-  findNewOpenSet(OpenSet, NewNodes, [State-Value|NewOpenSet]).
+findNewOpenSet([State-_|OpenSet], ClosedSet, [State-_|NewNodes], NewOpenSet) :-
+  member(State, ClosedSet),
+  findNewOpenSet(OpenSet, ClosedSet, NewNodes, NewOpenSet).
+
+findNewOpenSet([State-_|OpenSet], ClosedSet, [State-Value|NewNodes], [NewState-NewValue|NewOpenSet]) :-
+  \+member(State, ClosedSet),
+  NewState = State,
+  NewValue = Value,
+  findNewOpenSet(OpenSet, ClosedSet, NewNodes, NewOpenSet).
 
 % Caso in cui debba aggiungere da OpenSet
-findNewOpenSet([S-V|OpenSet], [State-Value|NewNodes], NewOpenSet) :-
-  member(State, OpenSet),
+findNewOpenSet([S-_|OpenSet], ClosedSet, [State-_|NewNodes], NewOpenSet) :-
   S \= State, % vedere se si può togliere
-  findNewOpenSet(OpenSet, [State-Value|NewNodes], [S-V|NewOpenSet]).
+  member(S, ClosedSet),
+  findNewOpenSet(OpenSet, ClosedSet, NewNodes, NewOpenSet).
+
+findNewOpenSet([S-V|OpenSet], ClosedSet, [State-Value|NewNodes], [NewState-NewValue|NewOpenSet]) :-
+  S \= State, % vedere se si può togliere
+  \+member(S, ClosedSet),
+  NewState = S,
+  NewValue = V,
+  findNewOpenSet(OpenSet, ClosedSet, [State-Value|NewNodes], NewOpenSet).
+
 
 % Caso in cui debba aggiungere da NewNodes
-findNewOpenSet([S-V|OpenSet], [State-Value|NewNodes], NewOpenSet) :-
+findNewOpenSet([S-_|OpenSet], ClosedSet, [State-_|NewNodes], NewOpenSet) :-
+  S \= State, % vedere se si può togliere  
+  member(State, ClosedSet),
+  findNewOpenSet(OpenSet, ClosedSet, NewNodes, NewOpenSet).
+
+findNewOpenSet([S-V|OpenSet], ClosedSet, [State-Value|NewNodes], [NewState-NewValue|NewOpenSet]) :-
   S \= State, % vedere se si può togliere
-  findNewOpenSet([S-V|OpenSet], NewNodes, [State-Value|NewOpenSet]).
+  \+member(State, ClosedSet),
+  NewState = State,
+  NewValue = Value,
+  findNewOpenSet([S-V|OpenSet], ClosedSet, NewNodes, NewOpenSet).
+
 
 getCurrentValue(Value, State, [S-V|_]) :-
   S == State,
