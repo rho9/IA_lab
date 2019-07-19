@@ -4,13 +4,14 @@ ida_star(Path, Actions):- %cose che devono esssere istanziate
   ida_star_rec(Result, H, 0, Start, [Start], Actions).
 
 ida_star_rec(Result,_,_,_,_,_):-
-  nonvar(Result).
+  nonvar(Result),!.
 % raggiunto il nodo finale
 
 ida_star_rec(Result, Bound, G, Node, Path, Actions):-
   nb_setval(minF, inf),
   \+search(Result, Bound, G, Node, Path, Actions),
   nb_getval(minF, Min),
+  Min \== inf,
   ida_star_rec(Result, Min, G, Node, Path, Actions).
 
 ida_star_rec(Result, Bound, G, Node, Path, Actions):-
