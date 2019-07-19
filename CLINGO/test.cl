@@ -48,16 +48,16 @@ insegna(docente_lettere_due,lettere).
 
 
 % ogni classe può seguire al più una lezione nello stesso momento
-0{classe_segue(L,O,G,C):lezione(L),ora(O),giorno(G)}1 :- classe(C).
+%0{classe_segue(L,O,G,C):lezione(L),ora(O),giorno(G)}1 :- classe(C).
 
 % ogni aula può essere utilizzata al più da una sola classe nello stesso momento
-0{aula_usata(L,O,G,C,A):classe_segue(L,O,G,C)}1 :- aula(A).
+%0{aula_usata(L,O,G,C,A):classe_segue(L,O,G,C)}1 :- aula(A).
 
 % ogni classe ha 10 ore di lettere a settimana
-10{ore_a_settimana(lettere,A,O,G,C):si_tiene_in(lettere,A),ora(O),giorno(G)}10 :- classe(C). % corretto
+3{ore_a_settimana(lettere,A,O,G,C):si_tiene_in(lettere,A),ora(O),giorno(G)}3 :- classe(C). % corretto
 
 goal :- aula_usata(L1,O1,G1,C1,A1),
-		classe_segue(L3,O3,G3,C3),
+		%classe_segue(L3,O3,G3,C3),
 		ore_a_settimana(L2,A2,O2,G2,C2).
 :- not goal.
 
