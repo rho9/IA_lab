@@ -15,25 +15,20 @@ a_star(Result) :-
 %ClosedSet non viene aggionrato: quando gli stati vanno inseriti lì dentro?
 
 % Caso base
-a_star_rec(Result, [node(State,_,Actions)|_], _, _, Path) :-
+a_star_rec(Result, [node(State,_,Actions)|_], _, _, _) :-
   finale(State),
-  Result = Actions,
-  print(Result).
+  Result = Actions.
   
-% Caso in cui incontro uno stato chiuso: non lo considero e vado avanti nella mia ricorsione
-a_star_rec(Result, [node(State,_,_)|OpenSet], ClosedSet, G, Path) :-
-  member(State-_, ClosedSet),
-  a_star_rec(Result, OpenSet, ClosedSet, G, Path).
-  
-a_star_rec(Result, OpenSet, ClosedSet, G, Path) :-
+a_star_rec(Result, [Node|OpenSet], ClosedSet, G, Path) :-
+  [Node|OpenSet] \== [],
   % estrapolo F
-  [node(State,F,Actions)|_] = OpenSet,
+  node(State,F,Actions) = Node,
   findall(Action,applicabile(Action,State),ApplicableList),
   findNewStates(NewNodes, node(State,F,Actions), G+1, ApplicableList, ClosedSet),
   % se non sono membri li aggiungiamo
-  findNewOpenSet(OpenSet, [State-F|ClosedSet], NewNodes, NewOpenSet),
+  findNewOpenSet([Node|OpenSet], [State-F|ClosedSet], NewNodes, NewOpenSet),
   % ordino i nodi all'interno di OpenSet in ordine crescente su f
-  sort(2, @=<, NewOpenSet, OpenSetOrdered),
+  sort(2, @=<, NewOpenSet, OpenSetOrdered),!,
   a_star_rec(Result, OpenSetOrdered, [State-F|ClosedSet], G+1, Path).
     
 % findNewStates()  mi permette di trovare tutti i nuovi stati in cui posso andare dopo aver applicato le azioni allo stato attuale
@@ -112,12 +107,12 @@ findNewOpenSet([node(State,_,_)|OpenSet], ClosedSet, [node(State,Value,Actions)|
 % Caso in cui debba aggiungere da OpenSet
 findNewOpenSet([node(S,_,_)|OpenSet], ClosedSet, [node(State,Value,Actions)|NewNodes], NewOpenSet) :-
   S \= State, % vedere se si può togliere
-  member(S, ClosedSet),
+  member(S-_, ClosedSet),
   findNewOpenSet(OpenSet, ClosedSet, [node(State,Value, Actions)|NewNodes], NewOpenSet).
 
 findNewOpenSet([node(S,V,A)|OpenSet], ClosedSet, [node(State,Value,Actions)|NewNodes], [node(NewState,NewValue,NewAct)|NewOpenSet]) :-
   S \= State, % vedere se si può togliere
-  \+member(S, ClosedSet),
+  \+member(S-_, ClosedSet),
   NewState = S,
   NewValue = V,
   NewAct = A,
