@@ -18,7 +18,9 @@ for i in range(int(sys.argv[1])):
 
 #start test
 for i in range(int(sys.argv[1])):
-    print("Starting dfs limitata on esempio"+str(i)+"a ...")
-    sub.run(["./"+path+"dfs_limitata/load.py", "esempio"+str(i)+"a", "30"])
+    print("Starting ida star on esempio"+str(i)+"a ...")
+    sub.run(["./"+path+"ida_star/load.py", "esempio"+str(i)+"a", "30"])
     print("Starting iterative deepening on esempio"+str(i)+"a ...")
     sub.run(["./"+path+"iterative_deepening/load.py", "esempio"+str(i)+"a", "30"])
+    print("Starting a star on esempio"+str(i)+"a ...")
+    sub.run(["./"+path+"a_star/load.py", "esempio"+str(i)+"a", "30"])
