@@ -23,7 +23,10 @@ content = content.split(" ")
 for line in content:
     result = re.search(r'ore_a_settimana\(\w+,(\w+),(\w+),(\w+),(\w+)\)', line)
     if result is not None: 
-        orari[result.group(1)][result.group(3)].update({result.group(2):result.group(4)})
+        if orari[result.group(1)][result.group(3)].__contains__(result.group(2)):
+            orari[result.group(1)][result.group(3)].update({result.group(2):orari[result.group(1)][result.group(3)][result.group(2)]+'-'+result.group(4)})
+        else:
+            orari[result.group(1)][result.group(3)].update({result.group(2):result.group(4)})
 s=''
 for i in orari.keys():
     print("\n" + i)
