@@ -20,9 +20,9 @@ Il labirinto generato è completamente casuale e potrebbe avere soluzione troppo
 
 Per eseguire lo script: 
 ``` bash
-./translator.py <imagename>.png
+./translator.py <imagename>
 ```
-Lo script prende in input un immagine `.png` e crea un file `.pl` con lo stesso nome dell'immagine nella stessa folder dell'immagine. Il file generato contiene la rappresentazione testuale dell'immagine con la sintassi di prolog.
+Lo script prende in input un immagine `.png` (nome file senza estensione) e crea un file `.pl` con lo stesso nome dell'immagine nella stessa folder dell'immagine. Il file generato contiene la rappresentazione testuale dell'immagine con la sintassi di prolog.
 
 ### Tip
 Chiamare l'immagine `esempio_qualcosa.png` così verrà ignorata dal gitignore.
