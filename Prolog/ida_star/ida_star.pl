@@ -21,7 +21,8 @@ ida_star_rec(Result, Bound, G, Node, Path, Actions):-
 
 search(Result,_,_,Node,_,Actions):-
   finale(Node),
-  finale(Result).
+  finale(Result),
+  Actions = [].
 
 % quando il bound è da aggiornare
 search(_,Bound, G, Node, _, _) :-
