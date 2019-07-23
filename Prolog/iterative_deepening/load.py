@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import subprocess as sub
 import sys
@@ -14,7 +14,8 @@ file.write(":- initialization main.\n")
 file.write("\n")
 file.write("main :- consult(['"+path+"iterative_deepening.pl']),\n")
 file.write("  consult(['"+path+"../azioni.pl']),\n")                                     
-file.write("  consult(['"+path+"../data/"+sys.argv[1]+".pl']),\n")                                            
+file.write("  consult(['"+path+"../data/"+sys.argv[1]+".pl']),\n")
+file.write("  consult(['"+path+"../heuristics/manhattan_distance.pl']),\n")
 file.write("  iterative_deepening(X, "+sys.argv[2]+"),\n")                                 
 file.write("  atomic_list_concat(X, ', ', A),\n")                             
 file.write("  atom_string(A, S),\n")
