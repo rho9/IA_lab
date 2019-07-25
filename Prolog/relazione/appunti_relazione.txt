@@ -2,3 +2,30 @@ Iterative Deepening:
 - Problemi con pochi muri anche con labirinti piccoli (20*20).
 - Trova l'ottimo
 - espande molto l'albero delle chiamate etc...
+
+Dati Sperimentali:
+
+labirinto_con_sol_30
+ida_star non termina (atm)
+iterative deepening non termina (atm)
+a_star -> 0.07929801940917969 seconds (sol ottima)
+
+labirinto_con_sol_percorso_obbligato_20
+ida_star -> 0.10940313339233398 seconds (sol ottima)
+iterative deepening non trova sol (superata soglia)
+a_star -> 0.0381779670715332 seconds (sol ottima)
+
+labirinto_con_sol_vuoto_20
+ida_star -> 0.031320810317993164 seconds (sol ottima)
+iterative deepening non termina
+a_star -> 0.4691321849822998 seconds (sol ottima)
+
+labirinto_no_sol_10
+ida_star -> 0.11495304107666016 seconds (no sol)
+iterative deepening -> 0.7246701717376709 seconds (no sol)
+a_star -> 0.029758453369140625 seconds (no sol)
+
+labirinto_easy
+ida_star -> 0.10440921783447266 seconds (sol ottima)
+iterative deepening -> 2.1728715896606445 seconds (sol ottima)
+a_star -> 0.029259920120239258 seconds (sol ottima)
