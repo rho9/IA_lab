@@ -262,7 +262,7 @@ La regola scatta solo se per tutti i ?building dove è stata riscontrata una eme
 	(bind ?new (gensym*))
 	(assert (car (state-id ?new) (name ?name) (position MI)))
 	
-# Inout/Output
+# Input/Output
 `(open <file-name> <logical-name> "r")`
 	
 • <file-name> è il nome del file su disco
@@ -302,7 +302,7 @@ The Printout Command
      =>
         (printout t "action activate-sprinkler-system" crlf)
      )
-#PROGETTO
+# PROGETTO
 ```
 Progetto di Intelligenza Artificiale e Laboratorio
 Modulo: Planning e Sistemi a Regole
