@@ -34,3 +34,9 @@ labirinto_con_2_sol_10
 ida_star -> 0.021452665328979492 seconds (sol ottima)
 iterative deepening -> 0.13241171836853027 seconds (sol ottima)
 a_star -> 0.034604787826538086 seconds (sol ottima)
+
+labirinto_con_2_iniziali_10
+ida_star -> 0.023352622985839844 seconds (sol ottima)
+iterative deepening -> 0.0429232120513916 seconds (sol ottima)
+a_star -> 0.12324810028076172 seconds (sol ottima)
+
