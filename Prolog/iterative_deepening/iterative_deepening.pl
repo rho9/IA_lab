@@ -14,7 +14,7 @@ iterative_deepening_rec(S, Soluzione, Soglia, Max) :-
 
 %scende di un livello e fa la chiamata ricorsiva
 iterative_deepening_rec(S, Soluzione, Soglia, Max) :-
-  Soglia=<Max,
+  Soglia<Max,
   NuovaSoglia is Soglia +1,
   iterative_deepening_rec(S, Soluzione, NuovaSoglia, Max).
 
