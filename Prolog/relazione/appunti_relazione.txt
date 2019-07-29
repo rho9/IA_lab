@@ -6,8 +6,8 @@ Iterative Deepening:
 Dati Sperimentali:
 
 labirinto_con_sol_30
-ida_star non termina (atm)
-iterative deepening non termina (atm)
+ida_star -> 27.262372255325317 seconds (sol ottima)
+iterative deepening -> 951.9194250106812 seconds (sol ottima)
 a_star -> 0.07929801940917969 seconds (sol ottima)
 
 labirinto_con_sol_percorso_obbligato_20
@@ -29,3 +29,14 @@ labirinto_easy
 ida_star -> 0.10440921783447266 seconds (sol ottima)
 iterative deepening -> 2.1728715896606445 seconds (sol ottima)
 a_star -> 0.029259920120239258 seconds (sol ottima)
+
+labirinto_con_2_sol_10
+ida_star -> 0.021452665328979492 seconds (sol ottima)
+iterative deepening -> 0.13241171836853027 seconds (sol ottima)
+a_star -> 0.034604787826538086 seconds (sol ottima)
+
+labirinto_con_2_iniziali_10
+ida_star -> 0.023352622985839844 seconds (sol ottima)
+iterative deepening -> 0.0429232120513916 seconds (sol ottima)
+a_star -> 0.12324810028076172 seconds (sol ottima)
+
