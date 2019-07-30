@@ -1,3 +1,8 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+% ITERATIVE DEEPENING %
+%%%%%%%%%%%%%%%%%%%%%%%
+
+
 % iterative_deepening: wrapper per la chiamata da parte dell'utente
 % Soluzione: variabile al cui interno vengono salvate le azioni che portano dalla cella iniziale a quella finale
 % Max: soglia oltre cui la ricerca non può andare

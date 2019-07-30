@@ -1,17 +1,32 @@
-ida_star(Path, Actions):- %cose che devono esssere istanziate
+%%%%%%%%%%%%
+% IDA STAR %
+%%%%%%%%%%%%
+
+
+% ida_star(Actions)
+% Actions: actions from initial to final node
+ida_star(Actions):-
   iniziale(Start),
   heuristic(H, Start),
-  ida_star_rec(Result, H, 0, Start, [Start], Actions).
+  ida_star_rec(_, H, 0, Start, [Start], Actions).
 
-ida_star_rec(Result,_,_,_,_,_):-
-  nonvar(Result),!.
-% raggiunto il nodo finale
 
+% ida_star_rec(Result, Bound, G, Node, Path, Actions)
+% Result: variable not assigned until the final node is reached
+% Bound: actual bound
+% G: cost to reach Node from initial node
+% Node: actual node
+% Path: list of nodes from initial node to Node
+% Actions: list of actions that bring from initial node to Node
+ida_star_rec(Result,  _, _, _, _, _):-
+  nonvar(Result), !. % True if Result is not a free variable.
+
+% search rule fails. If minF has infinite as value, no solutions is possible
 ida_star_rec(Result, Bound, G, Node, Path, Actions):-
-  nb_setval(minF, inf),
+  nb_setval(minF, inf), % minF: global variable in which is saved the best bound (the best F)
   \+search(Result, Bound, G, Node, Path, Actions),
   nb_getval(minF, Min),
-  Min \== inf,
+  Min \== inf, % non c'è soluzione: search ha fallito -> non ho più nodi e minF è a infinito. Richiama quello sotto, ma tanto fallirà pure lei
   ida_star_rec(Result, Min, G, Node, Path, Actions).
 
 ida_star_rec(Result, Bound, G, Node, Path, Actions):-
@@ -19,31 +34,33 @@ ida_star_rec(Result, Bound, G, Node, Path, Actions):-
   ida_star_rec(Result, Bound, G, Node, Path, Actions).
 
 
-search(Result,_,_,Node,_,Actions):-
+% search(Result, Bound, G, Node, Path, Actions)
+% Result: variable not assigned until the final node is reached
+% Bound: actual bound
+% G: cost to reach Node from initial node
+% Node: actual node
+% Path: list of nodes from initial node to Node
+% Actions: list of actions that bring from initial node to Node
+search(Result, _, _, Node, _, Actions):-
   finale(Node),
   finale(Result),
-  Actions = [].
+  Actions = []. % avoid that a free variable is added to the solution
 
-% quando il bound è da aggiornare
-search(_,Bound, G, Node, _, _) :-
+% the bound must be updated
+search(_, Bound, G, Node, _, _) :-
   heuristic(H, Node),
   G+H > Bound,
   nb_getval(minF, Min),
   Min > G+H,
   nb_setval(minF, G+H),
   false.
-  % devo ritornare f. così cosa fa?:
-  %search(Result, NewBound, G, ActualNode, Path, Actions).
 
-
-% raggiunto quando il bound non è da aggiornare
-search(Result,Bound,G,Node,Path,[Action|Actions]):-
+% the bound must not be updated
+search(Result, Bound, G, Node, Path, [Action|Actions]):-
   heuristic(H, Node),
   G+H =< Bound,
   applicabile(Action, Node),
   trasforma(Action, Node, NewNode),
-  \+member(NewNode, Path), % controlla di non esserci già passato
-  heuristic(NewH, NewNode),
+  \+member(NewNode, Path),
   New_G is G+1,
-  F is New_G+NewH,
-  search(Result,Bound, New_G, NewNode,[NewNode|Path], Actions),!.
+  search(Result, Bound, New_G, NewNode, [NewNode|Path], Actions), !.
