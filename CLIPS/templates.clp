@@ -1,7 +1,9 @@
+(defmodule TEMPLATES (export ?ALL))
+
 (deftemplate hotel "hotels"
     (slot name (type STRING))
     (slot stars (type INTEGER)(range 1 5))
-    (slot _region (type STRING))
+    (slot location (type STRING))
     (slot free_rooms (type INTEGER) (range 0 ?VARIABLE))
 )
 
@@ -18,4 +20,3 @@
     (slot sportivo (type INTEGER)(default 0)(range 0 5))
     (slot enogastronomico (type INTEGER)(default 0)(range 0 5))
 )
-
