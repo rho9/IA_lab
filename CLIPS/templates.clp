@@ -20,3 +20,9 @@
     (slot sportivo (type INTEGER)(default 0)(range 0 5))
     (slot enogastronomico (type INTEGER)(default 0)(range 0 5))
 )
+
+(deftemplate position
+    (slot name (type STRING))
+    (slot latitude (type FLOAT))
+    (slot longitude (type FLOAT))
+)

@@ -892,3 +892,201 @@
         (free_rooms 2)
     )
 )
+
+(deffacts DATA::positions
+    (position
+        (name"Torino")
+        (latitude 45.07340313)
+        (longitude 7.53552315)
+    )
+    (position
+        (name"Cherasco")
+        (latitude 44.64496842)
+        (longitude 7.85404244)
+    )
+    (position
+        (name"Asti")
+        (latitude 44.89685385)
+        (longitude 8.13932732)
+    )
+    (position
+        (name"Aosta")
+        (latitude 45.74384075)
+        (longitude 7.2806582)
+    )
+    (position
+        (name"Genova")
+        (latitude 44.44689209)
+        (longitude 8.75074862)
+    )
+    (position
+        (name"Imperia")
+        (latitude 43.89345941)
+        (longitude 7.94143818)
+    )
+    (position
+        (name"Milano")
+        (latitude 45.46264824)
+        (longitude 9.03764891)
+    )
+	(position
+		(name"Como")
+		(latitude 45.8005143)
+		(longitude 9.01538845)
+	)
+	(position
+		(name"Bologna")
+		(latitude 44.49903259)
+		(longitude 11.19160202)
+	)
+	(position
+		(name"Rimini")
+		(latitude 44.05344196)
+		(longitude 12.50464719)
+	)
+	(position
+		(name"Venezia")
+		(latitude 45.40420075)
+		(longitude 12.10156086)
+	)
+	(position
+		(name"Verona")
+		(latitude 45.42622895)
+		(longitude 10.92249153)
+	)
+	(position
+		(name"Trento")
+		(latitude 46.08044006)
+		(longitude 11.05031596)
+	)
+	(position
+		(name"Bolzano")
+		(latitude 46.48923126)
+		(longitude 11.31213831)
+	)
+	(position
+		(name"Trieste")
+		(latitude 45.65229875)
+		(longitude 13.71362219)
+	)
+	(position
+		(name"Gorizia")
+		(latitude 45.94701735)
+		(longitude 13.57459535)
+	)
+	(position
+		(name"Firenze")
+		(latitude 43.77993676)
+		(longitude 11.17092808)
+	)
+	(position
+		(name"Saturnia")
+		(latitude 42.66515313)
+		(longitude 11.50313477)
+	)
+	(position
+		(name"Perugia")
+		(latitude 43.09499704)
+		(longitude 12.3102843)
+	)
+	(position
+		(name"Assisi")
+		(latitude 43.06577437)
+		(longitude 12.60213641)
+	)
+	(position
+		(name"Ancona")
+		(latitude 43.58215027)
+		(longitude 13.43678657)
+	)
+	(position
+		(name"Urbino")
+		(latitude 43.72923246)
+		(longitude 12.61291067)
+	)
+	(position
+		(name"Roma")
+		(latitude 41.90973056)
+		(longitude 12.2558141)
+	)
+	(position
+		(name"Rieti")
+		(latitude 42.41605097)
+		(longitude 12.83052717)
+	)
+	(position
+		(name"Pescara")
+		(latitude 42.45554063)
+		(longitude 14.13362508)
+	)
+	(position
+		(name"Termoli")
+		(latitude 41.98678343)
+		(longitude 14.95989432)
+	)
+	(position
+		(name"Campobasso")
+		(latitude 41.55748809)
+		(longitude 14.63300496)
+	)
+	(position
+		(name"Napoli")
+		(latitude 40.85352242)
+		(longitude 14.10292292)
+	)
+	(position
+		(name"Benevento")
+		(latitude 41.12295525)
+		(longitude 14.73767026)
+	)
+	(position
+		(name"Brindisi")
+		(latitude 40.64222486)
+		(longitude 17.90099411)
+	)
+	(position
+		(name"Trani")
+		(latitude 41.27471439)
+		(longitude 16.37387876)
+	)
+	(position
+		(name"Matera")
+		(latitude 40.66460121)
+		(longitude 16.56510946)
+	)
+	(position
+		(name"Potenza")
+		(latitude 40.64122316)
+		(longitude 15.77381011)
+	)
+	(position
+		(name"Crotone")
+		(latitude 39.07857626)
+		(longitude 17.08057769)
+	)
+	(position
+		(name"Pizzo")
+		(latitude 38.7596846)
+		(longitude 16.11933131)
+	)
+	(position
+		(name"Lipari")
+		(latitude 38.48107899)
+		(longitude 14.90407054)
+	)
+	(position
+		(name"Vulcano")
+		(latitude 44.65442145)
+		(longitude 7.7308176)
+	)
+	(position
+		(name"Cagliari")
+		(latitude 39.22538338)
+		(longitude 9.05833803)
+	)
+	(position
+		(name"Caprera")
+		(latitude 41.2071823)
+		(longitude 9.42613321)
+	)
+)
