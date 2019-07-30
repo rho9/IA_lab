@@ -1,13 +1,13 @@
 (defmodule RULES (import DATA ?ALL) (export ?ALL))
 
 
-(defrule cal_cost
+(defrule RULES::cal_cost
   (hotel (name ?name)(stars ?x))
 =>
   (assert (cost ?name (+ 50 (* (- ?x 1) 25))))
 )
 
-(defrule cal_distance
+(defrule RULES::cal_distance
   (position (name ?name1)(latitude ?lat1)(longitude ?lon1))
   (position (name ?name2)(latitude ?lat2)(longitude ?lon2))
 =>

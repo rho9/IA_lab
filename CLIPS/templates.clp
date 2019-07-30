@@ -1,13 +1,13 @@
 (defmodule TEMPLATES (export ?ALL))
 
-(deftemplate hotel "hotels"
+(deftemplate TEMPLATES::hotel "hotels"
     (slot name (type STRING))
     (slot stars (type INTEGER)(range 1 5))
     (slot location (type STRING))
     (slot free_rooms (type INTEGER) (range 0 ?VARIABLE))
 )
 
-(deftemplate locality "locality"
+(deftemplate TEMPLATES::locality "locality"
     (slot name (type STRING))
     (slot _region (type STRING))
     (slot balneare (type INTEGER)(default 0)(range 0 5))
@@ -21,7 +21,7 @@
     (slot enogastronomico (type INTEGER)(default 0)(range 0 5))
 )
 
-(deftemplate position
+(deftemplate TEMPLATES::position
     (slot name (type STRING))
     (slot latitude (type FLOAT))
     (slot longitude (type FLOAT))
