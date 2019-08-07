@@ -1,28 +1,28 @@
 % node structure: node(State, F, ActionsToState)
 
 % wrapper
-a_star(Result) :-
+a_star(Result, ActionCost) :-
   iniziale(InitialState),
   heuristic(H, InitialState),
   F is H+0,
-  a_star_rec(Result, [node(InitialState,F,[])], [], 0).
+  a_star_rec(Result, [node(InitialState,F,[])], [], 0, ActionCost).
 
 
 % a_star_rec(Result, Openset, ClosedSet, G)
 % the better solution is found
-a_star_rec(Result, [node(State,_,Actions)|_], _, _) :-
+a_star_rec(Result, [node(State,_,Actions)|_], _, _, _) :-
   finale(State),
   Result = Actions.
   
-a_star_rec(Result, [Node|OpenSet], ClosedSet, G) :-
+a_star_rec(Result, [Node|OpenSet], ClosedSet, G, ActionCost) :-
   [Node|OpenSet] \== [], % check if OpenSet is not empty. E SE è VUOTO? NON C'è CASO CHE LO GESTISCA
   node(State, F, Actions) = Node,
   findall(Action, applicabile(Action,State), ApplicableList),
-  findNewStates(NewNodes, node(State,F,Actions), G+1, ApplicableList, ClosedSet),
+  findNewStates(NewNodes, node(State,F,Actions), G+ActionCost, ApplicableList, ClosedSet),
   findNewOpenSet([Node|OpenSet], [State-F|ClosedSet], NewNodes, NewOpenSet),
   % NewOpenSet is ordered on f (in this way it is taken always the lowest f)
   sort(2, @=<, NewOpenSet, OpenSetOrdered),!,
-  a_star_rec(Result, OpenSetOrdered, [State-F|ClosedSet], G+1).
+  a_star_rec(Result, OpenSetOrdered, [State-F|ClosedSet], G+ActionCost, ActionCost).
 
 
 % findNewStates(NewNodes, ActualState, G, ApplicableList, CLosedSet)
@@ -32,7 +32,7 @@ findNewStates(_, _, _, [], _).
 findNewStates([node(NewState,NewF,NewAct)|NewNodes], node(State,F,Act), G, [Action|Actions], ClosedSet) :-
   trasforma(Action, State, NewState),
   heuristic(NewH, NewState),
-  NewF is G + NewH, % OGNI PASSO VALE 1
+  NewF is G + NewH,
   append(Act, [Action], NewAct),
   checkClosedSet(node(NewState,NewF,NewAct), ClosedSet, NewClosedSet),
   findNewStates(NewNodes, node(State,F,Act), G, Actions, NewClosedSet).
