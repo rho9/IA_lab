@@ -3,21 +3,23 @@
 %%%%%%%%%%%%
 
 
-% ida_star(Actions)
+% ida_star(Actions, ActionCost)
 % Actions: actions from initial to final node
+% ActionCost: cost of every action
 ida_star(Actions, ActionCost):-
   iniziale(Start),
   heuristic(H, Start),
   ida_star_rec(_, H, 0, Start, [Start], Actions, ActionCost).
 
 
-% ida_star_rec(Result, Bound, G, Node, Path, Actions)
+% ida_star_rec(Result, Bound, G, Node, Path, Actions, ActionCost)
 % Result: variable not assigned until the final node is reached
 % Bound: actual bound
 % G: cost to reach Node from initial node
 % Node: actual node
 % Path: list of nodes from initial node to Node
 % Actions: list of actions that bring from initial node to Node
+% ActionCost: cost of every action
 ida_star_rec(Result,  _, _, _, _, _, _):-
   nonvar(Result), !. % True if Result is not a free variable.
 
@@ -41,6 +43,7 @@ ida_star_rec(Result, Bound, G, Node, Path, Actions, ActionCost):-
 % Node: actual node
 % Path: list of nodes from initial node to Node
 % Actions: list of actions that bring from initial node to Node
+% ActionCost: cost of every action
 search(Result, _, _, Node, _, Actions, _):-
   finale(Node),
   finale(Result),
