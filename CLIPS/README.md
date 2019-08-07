@@ -1,9 +1,19 @@
+# TO DO
+Possibili domande all'utente:
+- Tipo/i di turismo
+- Numero di notti
+- Quanto vuole spendere
+- Quanti sono
+- Se vuole o non vuole andare in una regione
+- Quante stelle nell'albergo (magari range)
+Per oguna: fare la domanda , calcolare la riposta, aggiungere una domanda....
+
 # Tipi primitivi
 • float
 
 • integer. Diverso "<>"
 
-• symbol: e.g. this-is-a-symbol, wrzlbrmft, !?@*+
+• symbol: e.g. this-is-a-symbol, wrzlbrmft, !?@\*+
 
 • string: e.g. ”This is a string”
 
