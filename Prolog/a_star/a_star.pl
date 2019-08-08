@@ -1,6 +1,11 @@
-% node structure: node(State, F, ActionsToState)
+%%%%%%%%%%
+% A STAR %
+%%%%%%%%%%
 
-% wrapper
+
+% a_star(Result, ActionCost)
+% Result: actions from initial to final node
+% ActionCost: cost of every action
 a_star(Result, ActionCost) :-
   iniziale(InitialState),
   heuristic(H, InitialState),
@@ -8,25 +13,31 @@ a_star(Result, ActionCost) :-
   a_star_rec(Result, [node(InitialState,F,[])], [], 0, ActionCost).
 
 
-% a_star_rec(Result, Openset, ClosedSet, G)
-% the better solution is found
+% a_star_rec(Result, Openset, ClosedSet, G, ActionCost)
+% Result: actions from initial to final node
+% Openset: nodes that must be visited. Each element of Openset has this structure: node(State, F, ActionsToState)
+% ClosedSet: nodes that can't be visited anymore 
+% G: cost to reach actual node from initial node
+% ActionCost: cost of every action
 a_star_rec(Result, [node(State,_,Actions)|_], _, _, _) :-
   finale(State),
   Result = Actions.
-  
+
+% try to find a solution for the labyrinth
 a_star_rec(Result, [Node|OpenSet], ClosedSet, G, ActionCost) :-
-  [Node|OpenSet] \== [], % check if OpenSet is not empty. E SE è VUOTO? NON C'è CASO CHE LO GESTISCA
+  [Node|OpenSet] \== [], % check if OpenSet is not empty.
   node(State, F, Actions) = Node,
   findall(Action, applicabile(Action,State), ApplicableList),
   findNewStates(NewNodes, node(State,F,Actions), G+ActionCost, ApplicableList, ClosedSet),
   findNewOpenSet([Node|OpenSet], [State-F|ClosedSet], NewNodes, NewOpenSet),
-  % NewOpenSet is ordered on f (in this way it is taken always the lowest f)
+  % NewOpenSet is ordered on F (in this way it is taken always the lowest F)
   sort(2, @=<, NewOpenSet, OpenSetOrdered),!,
   a_star_rec(Result, OpenSetOrdered, [State-F|ClosedSet], G+ActionCost, ActionCost).
 
 
 % findNewStates(NewNodes, ActualState, G, ApplicableList, CLosedSet)
-% find reachable states of ActualState
+% NewNodes: contains nodes reachable from ActualState that can be removed from ClosedSet
+% find reachable states of ActualState and update ClosedSet
 findNewStates(_, _, _, [], _).
 
 findNewStates([node(NewState,NewF,NewAct)|NewNodes], node(State,F,Act), G, [Action|Actions], ClosedSet) :-
@@ -34,17 +45,16 @@ findNewStates([node(NewState,NewF,NewAct)|NewNodes], node(State,F,Act), G, [Acti
   heuristic(NewH, NewState),
   NewF is G + NewH,
   append(Act, [Action], NewAct),
-  checkClosedSet(node(NewState,NewF,NewAct), ClosedSet, NewClosedSet),
+  updateClosedSet(node(NewState,NewF,NewAct), ClosedSet, NewClosedSet),
   findNewStates(NewNodes, node(State,F,Act), G, Actions, NewClosedSet).
 
-
-% findNewOpenSet(OpenSet, ClosedSet, NewNodes, NewOpenSet)
-% update Openset: 
 
 %se incontro uno stato che è già presente all'interno di OpenSet, aggiorno la sua F nel caso quella 
 %trovata sia minore di quella presente in OpenSet
 % Caso in cui incontro uno stato nuovo
 
+% findNewOpenSet(OpenSet, ClosedSet, NewNodes, NewOpenSet)
+% NewNodes: nodes that should be inserted into Openset
 findNewOpenSet([], _, [], []).
 
 findNewOpenSet([], ClosedSet, [node(State,_,_)|NewNodes], NewOpenSet) :-
@@ -124,12 +134,12 @@ findNewOpenSet([node(S,V,A)|OpenSet], ClosedSet, [node(State,Value,Actions)|NewN
   findNewOpenSet([node(S,V,A)|OpenSet], ClosedSet, NewNodes, NewOpenSet).
 
 
-% checkClosedSet(elem, ClosedSet, NewClosedSet)
-% update ClosedSet
-checkClosedSet(node(S,V,_), ClosedSet, NewClosedSet) :-
-  member(S-F, ClosedSet),
-  F>V,
-  delete(ClosedSet, S-F, NewClosedSet).
+% updateClosedSet(Node, ClosedSet, NewClosedSet)
+% Node structure: node(State, F, ActionsToState)
+updateClosedSet(node(State,OldF,_), ClosedSet, NewClosedSet) :-
+  member(State-NewF, ClosedSet),
+  NewF>OldF,
+  delete(ClosedSet, State-NewF, NewClosedSet).
 
-checkClosedSet(_, ClosedSet, NewClosedSet) :-
+updateClosedSet(_, ClosedSet, NewClosedSet) :-
   NewClosedSet = ClosedSet.

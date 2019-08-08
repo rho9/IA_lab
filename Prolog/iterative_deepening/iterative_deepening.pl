@@ -6,12 +6,13 @@
 % iterative_deepening: wrapper per la chiamata da parte dell'utente
 % Soluzione: variabile al cui interno vengono salvate le azioni che portano dalla cella iniziale a quella finale
 % Max: soglia oltre cui la ricerca non può andare
+% ActionCost: costo di ogni azione
 iterative_deepening(Soluzione, Max, ActionCost) :-
   iniziale(S),
   iterative_deepening_rec(S, Soluzione, 1, Max, ActionCost).
 
 
-% iterative_deepening_rec(StatoAttuale, Soluzione, SogliaAttuale, SogliaMassima)
+% iterative_deepening_rec(StatoAttuale, Soluzione, SogliaAttuale, SogliaMassima, ActionCost)
 % caso base: è stata raggiunta la casella finale
 iterative_deepening_rec(S, _, _, _, _) :-
   finale(S).
