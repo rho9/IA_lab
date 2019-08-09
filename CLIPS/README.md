@@ -1,11 +1,11 @@
 # TO DO
 Possibili domande all'utente:
 - Tipo/i di turismo
-- Numero di notti
-- Quanto vuole spendere
-- Quanti sono
 - Se vuole o non vuole andare in una regione
+- Quanto vuole spendere
 - Quante stelle nell'albergo (magari range)
+- Numero di notti
+- Quanti sono
 Per oguna: fare la domanda , calcolare la riposta, aggiungere una domanda....
 
 # Tipi primitivi
