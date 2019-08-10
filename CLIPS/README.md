@@ -1,12 +1,12 @@
 # TO DO
-Possibili domande all'utente:
-- Tipo/i di turismo
-- Se vuole o non vuole andare in una regione
-- Quanto vuole spendere
-- Quante stelle nell'albergo (magari range)
-- Numero di notti
-- Quanti sono
-Per oguna: fare la domanda , calcolare la riposta, aggiungere una domanda....
+Analizzare le risposte -> cercare di dare delle soluzioni (certainty) BLEAH
+
+# Appunti
+## main.clp
+Gestisce il flusso di esecuzione (ha una salience molto alta per esssere sicuri che parta per primo).  
+Le funzioni al suo interno gestiscono le domande che permettono di inferire i fatti
+## questions.clp
+Gestisce l'interazione con l'utente: le domande e le risposte possibili e asserisce i nuovi fatti
 
 # Tipi primitivi
 • float
