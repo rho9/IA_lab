@@ -1,9 +1,24 @@
+# TO DO
+- implementare una ricerca che trovi una soluzione qualunque
+- Analizzare le risposte -> cercare di dare delle soluzioni (certainty) BLEAH
+- Da gestire: Una visita turistica è rappresentata da un gruppo di una o più persone che occupano posti letto in
+una località per un periodo di tempo di almeno una notte.
+- in rules non più di 100km tra una meta e l'altra (nei cf un po' di tolleranza è ammessa)
+- Gestione preferenza su una località (aggiungere campo a località: srà come un cf)
+
+# Appunti
+## main.clp
+Gestisce il flusso di esecuzione (ha una salience molto alta per esssere sicuri che parta per primo).  
+Le funzioni al suo interno gestiscono le domande che permettono di inferire i fatti
+## questions.clp
+Gestisce l'interazione con l'utente: le domande e le risposte possibili e asserisce i nuovi fatti
+
 # Tipi primitivi
 • float
 
 • integer. Diverso "<>"
 
-• symbol: e.g. this-is-a-symbol, wrzlbrmft, !?@*+
+• symbol: e.g. this-is-a-symbol, wrzlbrmft, !?@\*+
 
 • string: e.g. ”This is a string”
 

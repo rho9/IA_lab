@@ -1,26 +1,39 @@
-%wrapper per la chiamata da parte dell'utente
+%%%%%%%%%%%%%%%%%%%%%%%
+% ITERATIVE DEEPENING %
+%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% iterative_deepening: wrapper per la chiamata da parte dell'utente
+% Soluzione: variabile al cui interno vengono salvate le azioni che portano dalla cella iniziale a quella finale
+% Max: soglia oltre cui la ricerca non può andare
 iterative_deepening(Soluzione, Max) :-
   iniziale(S),
   iterative_deepening_rec(S, Soluzione, 1, Max).
 
-%caso base
+
+% iterative_deepening_rec(StatoAttuale, Soluzione, SogliaAttuale, SogliaMassima)
+% caso base: è stata raggiunta la casella finale
 iterative_deepening_rec(S, _, _, _) :-
   finale(S).
 
-%cerca la soluzione entro la soglia data
+% la soluzione si trova ancora entro il limite della soglia attuale
 iterative_deepening_rec(S, Soluzione, Soglia, Max) :-
   Soglia=<Max,
   dfs_aux(S, Soluzione, [S], Soglia).
 
-%scende di un livello e fa la chiamata ricorsiva
+% la soluzione non è ancora stata trovata, ma la soglia attuale è stata superata (dfs_aux è false)
 iterative_deepening_rec(S, Soluzione, Soglia, Max) :-
-  Soglia=<Max,
+  Soglia<Max,
   NuovaSoglia is Soglia +1,
   iterative_deepening_rec(S, Soluzione, NuovaSoglia, Max).
 
+
+% dfs_aux(StatoAttuale, Soluzione, StatiVisitati, SogliaAttuale)
+% caso base: è stata raggiunta la casella finale
 dfs_aux(S,[],_,_) :-
   finale(S).
 
+% passo induttivo: si applicano delle mosse per cercare id raggiungere la casella finale
 dfs_aux(S,[Azione|AzioniTail],Visitati,Soglia) :-
   Soglia>0,
   applicabile(Azione,S),
