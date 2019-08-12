@@ -1,5 +1,10 @@
 # TO DO
-Analizzare le risposte -> cercare di dare delle soluzioni (certainty) BLEAH
+- implementare una ricerca che trovi una soluzione qualunque
+- Analizzare le risposte -> cercare di dare delle soluzioni (certainty) BLEAH
+- Da gestire: Una visita turistica è rappresentata da un gruppo di una o più persone che occupano posti letto in
+una località per un periodo di tempo di almeno una notte.
+- in rules non più di 100km tra una meta e l'altra (nei cf un po' di tolleranza è ammessa)
+- Gestione preferenza su una località (aggiungere campo a località: srà come un cf)
 
 # Appunti
 ## main.clp
