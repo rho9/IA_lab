@@ -1,6 +1,5 @@
 (defmodule RULES (import DATA ?ALL) (export ?ALL))
 
-
 ; computes cost of hotel knowing his stars
 (defrule RULES::cal_cost
   (hotel (name ?name)(stars ?x))
@@ -18,6 +17,7 @@
   (bind ?dlon (- ?lon2 ?lon1))
   (bind ?rlat (/ (* ?dlat (pi)) 180))
   (bind ?rlon (/ (* ?dlon (pi)) 180))
+  ;studio segno atan https://it.wikipedia.org/wiki/Arcotangente2
   (bind ?a (+ (** (sin (/ ?dlat 2)) 2) (* (* (** (sin (/ ?dlon 2)) 2) (cos ?lat1))(cos ?lat2))))
   (bind ?c (* (atan (/ ?a (- 1 ?a))) 2))
   (assert (distance ?name1 ?name2 (* ?earthRadius ?c)))
