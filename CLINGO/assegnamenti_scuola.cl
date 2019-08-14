@@ -124,10 +124,11 @@ ore_a_settimana(lettere,10;
 % VINCOLI
 %%%%%%%%%%%%%%%%%%%%%%%%
 
+% orario(docente, materia, aula, oraInizioLezione, OraFineLezione, giorno, annoClasse, sezione)
+% ha_lezione(docente, materia, annoClasse, sezione, oraInizioLezione, OraFineLezione, giorno, aula)
+
 % 10 ore a settimana (lettere)
-10{orario(D,lettere,A,I,F,G,C,S):
-    ha_lezione(D,lettere,C,S,I,F,G,A)
-}10 :- classe(C,S).
+10{orario(D,lettere,A,I,F,G,C,S): ha_lezione(D,lettere,C,S,I,F,G,A)}10 :- classe(C,S).
  
  % 4 ore a settimana (matematica)
 4{orario(D,matematica,A,I,F,G,C,S):
@@ -174,10 +175,8 @@ ore_a_settimana(lettere,10;
     ha_lezione(D,religione,C,S,I,F,G,A)
 }1 :- classe(C,S).
 
-% per ogni slot c'è al massimo una lezione con una classe, ogni lezione si tipo di lezione si tiene in un aula precisa
-0{ha_lezione(D,L,C,S,I,F,G,A):
-    classe(C,S),si_tiene_in(L,A),insegna(D,L)
-}1 :- slot(I,F,G,A).
+% per ogni slot c'è al massimo una lezione con una classe, ogni lezione si tiene in un aula precisa
+0{ha_lezione(D,L,C,S,I,F,G,A): classe(C,S),si_tiene_in(L,A),insegna(D,L)}1 :- slot(I,F,G,_).
 
 % ci sono 35 slot per ogni aula. Ogni slot è identificato da giorno ora e aula
 35{slot(I,F,G,A):
@@ -189,7 +188,7 @@ ore_a_settimana(lettere,10;
     ora(I,F),giorno(G)
 }35 :- laboratorio(L).
 
-% non ci possono essere sovrapposizioni
+% all'inerno di una stessa aula non si possono tenere più lezioni nello stesso momento
 :- ha_lezione(_,_,C1,S1,I,F,G,A),
    ha_lezione(_,_,C2,S2,I,F,G,A),
    C1!=C2;S1!=S2.
