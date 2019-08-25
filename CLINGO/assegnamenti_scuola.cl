@@ -176,7 +176,7 @@ ore_a_settimana(lettere,10;
 }1 :- classe(C,S).
 
 % per ogni slot c'è al massimo una lezione con una classe, ogni lezione si tiene in un aula precisa
-0{ha_lezione(D,L,C,S,I,F,G,A): classe(C,S),si_tiene_in(L,A),insegna(D,L)}1 :- slot(I,F,G,_).
+0{ha_lezione(D,L,C,S,I,F,G,A): classe(C,S),si_tiene_in(L,A),insegna(D,L)}1 :- slot(I,F,G,A).
 
 % ci sono 35 slot per ogni aula. Ogni slot è identificato da giorno ora e aula
 35{slot(I,F,G,A):
@@ -207,6 +207,11 @@ ore_a_settimana(lettere,10;
 :- ha_lezione(D1,L,C,S,_,_,_,_),
    ha_lezione(D2,L,C,S,_,_,_,_),
    D1!=D2.
+
+% una classe non può avere lezione in due posti diversi
+:- ha_lezione(_,_,C,S,I,F,G,A1),
+   ha_lezione(_,_,C,S,I,F,G,A2),
+   A1!=A2.
 
 % COSE IN PIÙ %
 % gli alunni col tempo normale finiscono un ora prima
