@@ -19,6 +19,34 @@
  
 
 ;;*******************
+;;* QUESTIONS FUNCTIONS *
+;;*******************
+
+ ; interacts with user when an allowed values is required (it handles both integer and strings values)
+(deffunction MAIN::ask-question-av (?question ?allowed-values)
+   (printout t ?question)
+   (bind ?answer (read))
+   ; lexemep check if the variable is a string or a symbol
+   (if (lexemep ?answer) then (bind ?answer (lowcase ?answer)))
+   (while (not (member ?answer ?allowed-values)) do
+      (printout t "Inserire un valore tra quelli validi")
+      (bind ?answer (read))
+      (if (lexemep ?answer) then (bind ?answer (lowcase ?answer))))
+   ?answer)
+
+; interacts with user when an integer without allowed values is required
+(deffunction MAIN::ask-question-int (?question)
+   (printout t ?question)
+   (bind ?answer (read))
+   ; lexemep check if the variable is a string or a symbol
+   (if (lexemep ?answer) then (bind ?answer (lowcase ?answer))) ; usefull for "unknown"
+   (while (or (not (integerp ?answer)) (<= ?answer 0)) do ; or is lazy, if the first cond is true does not verify the second
+      (printout t "Inserire un numero intero postivo")
+      (bind ?answer (read))
+      (if (lexemep ?answer) then (bind ?answer (lowcase ?answer))))
+   ?answer)
+
+;;*******************
 ;;* QUESTIONS RULES *
 ;;*******************
 
@@ -92,10 +120,9 @@
    =>
    (modify ?f (already-asked TRUE))
    (bind ?answer (ask-question-av ?the-question ?valid-answers))
-   (while (not (eq ?answer unknown))
+   (if (not (eq ?answer unknown)) then
       (assert (attribute (name min-star-number)  ; LASCIARE ATTRIBUTE O METTERE QUALCOSA DI PIù EVOCATIVO? + LA CERTAINTY VA GESTITA GIà QUA?????
                          (value ?answer)))
-      (bind ?answer (ask-question-av ?the-question ?valid-answers))
    )
 )
 
@@ -108,10 +135,9 @@
    =>
    (modify ?f (already-asked TRUE))
    (bind ?answer (ask-question-av ?the-question ?valid-answers))
-   (while (not (eq ?answer unknown))
+   (if (not (eq ?answer unknown)) then
       (assert (attribute (name max-star-number)  ; LASCIARE ATTRIBUTE O METTERE QUALCOSA DI PIù EVOCATIVO? + LA CERTAINTY VA GESTITA GIà QUA?????
                          (value ?answer)))
-      (bind ?answer (ask-question-av ?the-question ?valid-answers))
    )
 )
 
@@ -154,63 +180,64 @@
                            naturalistico
                            termale
                            culturale
+                           religioso
                            sportivo
                            enogastronomico
                            unknown))
   (question (attribute ok-region)
             (the-question "Vuoi visitare delle specifiche regioni italiane?")
-            (valid-answers Piemonte
-                           Aosta
-                           Liguria
-                           Lombardia
-                           Trentino
-                           Veneto
-                           Friuli
-                           Emilia-Romagna
-                           Toscana
-                           Umbria
-                           Marche
-                           Lazio
-                           Abruzzo
-                           Molise
-                           Campania
-                           Puglia
-                           Basilicata
-                           Calabria
-                           Sicilia
-                           Sardegna
+            (valid-answers piemonte
+                           aosta
+                           liguria
+                           lombardia
+                           trentino
+                           veneto
+                           friuli
+                           emilia-Romagna
+                           toscana
+                           umbria
+                           marche
+                           lazio
+                           abruzzo
+                           molise
+                           campania
+                           puglia
+                           basilicata
+                           calabria
+                           sicilia
+                           sardegna
                            unknown))
   (question (attribute no-region)
             (the-question "Ci sono delle specifiche regioni italiane che non vuoi visitare?")
-            (valid-answers Piemonte
-                           Aosta
-                           Liguria
-                           Lombardia
-                           Trentino
-                           Veneto
-                           Friuli
-                           Emilia-Romagna
-                           Toscana
-                           Umbria
-                           Marche
-                           Lazio
-                           Abruzzo
-                           Molise
-                           Campania
-                           Puglia
-                           Basilicata
-                           Calabria
-                           Sicilia
-                           Sardegna
+            (valid-answers piemonte
+                           aosta
+                           liguria
+                           lombardia
+                           trentino
+                           veneto
+                           friuli
+                           emilia-Romagna
+                           toscana
+                           umbria
+                           marche
+                           lazio
+                           abruzzo
+                           molise
+                           campania
+                           puglia
+                           basilicata
+                           calabria
+                           sicilia
+                           sardegna
                            unknown))
   (question (attribute money)
             (the-question "Quanto vuoi spendere per il tuo soggiorno?"))
   (question (attribute min-star-number)
             (the-question "Qual è il numero minimo di stelle che deve avere l'hotel in cui vuoi soggiornare?")
-            (valid-answers 1 2 3 4))
+            (valid-answers 1 2 3 4 unknown))
   (question (attribute max-star-number)
             (the-question "Qual è il numero massimo di stelle che deve avere l'hotel in cui vuoi soggiornare?")
-            (valid-answers 1 2 3 4))
+            (valid-answers 1 2 3 4 unknown))
   (question (attribute night)
             (the-question "Quante notti vuoi trascorrere in vacanza?"))
   (question (attribute people)

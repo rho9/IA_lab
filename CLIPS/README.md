@@ -1,4 +1,6 @@
 # TO DO
+Importante: Un passo alla volta, altrimenti non passa più e non si capisce un cazzo.
+
 - salvare le risposte all'interno di un fatto (creare template necessario)
 - attraverso i cf fare una ricerca della soluzione
 
@@ -14,6 +16,12 @@ Gestisce il flusso di esecuzione (ha una salience molto alta per esssere sicuri 
 Le funzioni al suo interno gestiscono le domande che permettono di inferire i fatti
 ## questions.clp
 Gestisce l'interazione con l'utente: le domande e le risposte possibili e asserisce i nuovi fatti
+
+# How to use
+`(load l.clp)`
+`(l)`
+or
+`./load.py` ma è un po' buggato [da sistemare]
 
 # Tipi primitivi
 • float

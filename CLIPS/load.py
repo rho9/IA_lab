@@ -51,7 +51,7 @@ for f in ordered_files:
     input += "(load " + f + ")\n(agenda)\n(reset)\n"
 if len(sys.argv) > 1:
     input += extracommands + "\n"
-input += "(exit)\n"
+input += "(run)\n"
 
 print(input)
 
