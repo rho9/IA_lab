@@ -1,4 +1,4 @@
-# argomento: un file con dentro solo "ha_lezione(..." con ogni ha_lezione separata con uno spazio dalle altre
+# argomento: un file con dentro solo "orario(..." con ogni ha_lezione separata con uno spazio dalle altre
 # restituisce true se nessuna classe ha piu lezioni nello stesso momento
 
 from sys import argv
@@ -20,11 +20,11 @@ elem = content.split(" ")
 #print(elem)
 for e in elem:
 	#print(e)
-	lezione.append(e.split(",")[2])
 	lezione.append(e.split(",")[3])
 	lezione.append(e.split(",")[4])
 	lezione.append(e.split(",")[5])
 	lezione.append(e.split(",")[6])
+	lezione.append(e.split(",")[7])
 	ha_lezioni.append(lezione)
 	lezione = []
 #print(ha_lezioni)
