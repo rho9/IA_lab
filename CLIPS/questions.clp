@@ -32,129 +32,57 @@
 ;;* QUESTIONS RULES *
 ;;*******************
 
-; handle tourism type
-(defrule QUESTIONS::tourism-question
+; handle multiple choose type
+(defrule QUESTIONS::multiple-choose-question
    ?f <- (question (already-asked FALSE)
-                   (attribute tourism) ; SE NON SERVE SI POSSONO ACCORPARE ALCUNE DELLE REGOLE SOTTO
+                   (preference ?type&tourism|ok-region|no-region)
                    (the-question ?the-question)
                    (valid-answers $?valid-answers))
+   
    =>
    (modify ?f (already-asked TRUE))
    (bind ?answer (ask-question-av ?the-question ?valid-answers))
-   (while (not (eq ?answer stop))
-      (assert (attribute (name tourism)  ; LASCIARE ATTRIBUTE O METTERE QUALCOSA DI PIù EVOCATIVO? + LA CERTAINTY VA GESTITA GIà QUA?????
+   (while (neq ?answer stop)
+      (assert (preference (name ?type)
                          (value ?answer)))
       (bind ?answer (ask-question-av ?the-question ?valid-answers))
    )
 )
 
-; handle ok region
-(defrule QUESTIONS::ok-region-question
+; handle integer question
+(defrule QUESTIONS::integer-question
    ?f <- (question (already-asked FALSE)
-                   (attribute ok-region)
-                   (the-question ?the-question)
-                   (valid-answers $?valid-answers))
-   =>
-   (modify ?f (already-asked TRUE))
-   (bind ?answer (ask-question-av ?the-question ?valid-answers))
-   (while (not (eq ?answer stop))
-      (assert (attribute (name ok-region)  ; LASCIARE ATTRIBUTE O METTERE QUALCOSA DI PIù EVOCATIVO? + LA CERTAINTY VA GESTITA GIà QUA?????
-                         (value ?answer)))
-      (bind ?answer (ask-question-av ?the-question ?valid-answers))
-   )
-)
-
-; handle region not liked
-(defrule QUESTIONS::no-region-question
-   ?f <- (question (already-asked FALSE)
-                   (attribute no-region)
-                   (the-question ?the-question)
-                   (valid-answers $?valid-answers))
-   =>
-   (modify ?f (already-asked TRUE))
-   (bind ?answer (ask-question-av ?the-question ?valid-answers))
-   (while (not (eq ?answer stop))
-      (assert (attribute (name no-region)  ; LASCIARE ATTRIBUTE O METTERE QUALCOSA DI PIù EVOCATIVO? + LA CERTAINTY VA GESTITA GIà QUA?????
-                         (value ?answer)))
-      (bind ?answer (ask-question-av ?the-question ?valid-answers))
-   )
-)
-
-; handle how much the user wants to spend
-(defrule QUESTIONS::money-question
-   ?f <- (question (already-asked FALSE)
-                   (attribute money)
+                   (preference ?type&money|people)
                    (the-question ?the-question))
    =>
    (modify ?f (already-asked TRUE))
    (bind ?answer (ask-question-int ?the-question))
-   (if (not (eq ?answer stop))
-   then (assert (attribute (name money)  ; LASCIARE ATTRIBUTE O METTERE QUALCOSA DI PIù EVOCATIVO? + LA CERTAINTY VA GESTITA GIà QUA?????
+   (if (neq ?answer stop) then (assert (preference (name ?type) 
                            (value ?answer))))
 )
 
-; handle the minimum number of stars the user wants
-(defrule QUESTIONS::min-star-number-question
+; handle choose question
+(defrule QUESTIONS::choose-question
    ?f <- (question (already-asked FALSE)
-                   (attribute min-star-number)
+                   (preference ?type&min-star-number|max-star-number)
                    (the-question ?the-question)
                    (valid-answers $?valid-answers))
    =>
    (modify ?f (already-asked TRUE))
    (bind ?answer (ask-question-av ?the-question ?valid-answers))
-   (if (not (eq ?answer stop)) then
-      (assert (attribute (name min-star-number)  ; LASCIARE ATTRIBUTE O METTERE QUALCOSA DI PIù EVOCATIVO? + LA CERTAINTY VA GESTITA GIà QUA?????
+   (if (neq ?answer stop) then
+      (assert (preference (name ?type)  
                          (value ?answer)))
    )
 )
 
-; handle the maximum number of stars the user wants
-(defrule QUESTIONS::max-star-number-question
-   ?f <- (question (already-asked FALSE)
-                   (attribute max-star-number)
-                   (the-question ?the-question)
-                   (valid-answers $?valid-answers))
-   =>
-   (modify ?f (already-asked TRUE))
-   (bind ?answer (ask-question-av ?the-question ?valid-answers))
-   (if (not (eq ?answer stop)) then
-      (assert (attribute (name max-star-number)  ; LASCIARE ATTRIBUTE O METTERE QUALCOSA DI PIù EVOCATIVO? + LA CERTAINTY VA GESTITA GIà QUA?????
-                         (value ?answer)))
-   )
-)
-
-; handle how many nights the user wants to spend in the hotels
-(defrule QUESTIONS::night-question
-   ?f <- (question (already-asked FALSE)
-                   (attribute night)
-                   (the-question ?the-question))
-   =>
-   (modify ?f (already-asked TRUE))
-   (bind ?answer (ask-question-int ?the-question))
-   (if (not (eq ?answer stop))
-   then (assert (attribute (name night)  ; LASCIARE ATTRIBUTE O METTERE QUALCOSA DI PIù EVOCATIVO? + LA CERTAINTY VA GESTITA GIà QUA?????
-                           (value ?answer))))
-)
-
-; handle how many people will spend the nights in the hotels
-(defrule QUESTIONS::people-question
-   ?f <- (question (already-asked FALSE)
-                   (attribute people)
-                   (the-question ?the-question))
-   =>
-   (modify ?f (already-asked TRUE))
-   (bind ?answer (ask-question-int ?the-question))
-   (if (not (eq ?answer stop))
-   then (assert (attribute (name people)  ; LASCIARE ATTRIBUTE O METTERE QUALCOSA DI PIù EVOCATIVO? + LA CERTAINTY VA GESTITA GIà QUA?????
-                           (value ?answer))))
-)
 
 ;;**********************
 ;;* POSSIBLE QUESTIONS *
 ;;**********************
 
-(deffacts QUESTIONS::question-attributes
-  (question (attribute tourism) ; used in QUESTIONS RULES
+(deffacts QUESTIONS::question-preferences
+  (question (preference tourism) ; used in QUESTIONS RULES
             (the-question "Quali tipologie di turismo preferisci? (tra: balneare, montano, lacustre, naturalistico, termale, culturale, religioso, sportivo, enogastronomico): ")
             (valid-answers balneare
                            montano
@@ -166,7 +94,7 @@
                            sportivo
                            enogastronomico
                            stop))
-  (question (attribute ok-region)
+  (question (preference ok-region)
             (the-question "Quali regioni italiane vuoi visitare? ")
             (valid-answers piemonte
                            valle-aosta
@@ -189,7 +117,7 @@
                            sicilia
                            sardegna
                            stop))
-  (question (attribute no-region)
+  (question (preference no-region)
             (the-question "Quali regioni italiane NON vuoi visitare? ")
             (valid-answers piemonte
                            valle-aosta
@@ -212,16 +140,16 @@
                            sicilia
                            sardegna
                            stop))
-  (question (attribute money)
+  (question (preference money)
             (the-question "Quanto vuoi spendere per il tuo soggiorno? "))
-  (question (attribute min-star-number)
+  (question (preference min-star-number)
             (the-question "Qual è il numero minimo di stelle che deve avere l'hotel in cui vuoi soggiornare? ")
             (valid-answers 1 2 3 4 stop))
-  (question (attribute max-star-number)
+  (question (preference max-star-number)
             (the-question "Qual è il numero massimo di stelle che deve avere l'hotel in cui vuoi soggiornare? ")
             (valid-answers 1 2 3 4 stop))
-  (question (attribute night)
+  (question (preference night)
             (the-question "Quante notti vuoi trascorrere in vacanza? "))
-  (question (attribute people)
+  (question (preference people)
             (the-question "Quante persone sarete? "))
 )

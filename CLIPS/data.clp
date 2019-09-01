@@ -225,8 +225,6 @@
         (sportivo 2)
         (naturalistico 1)
         (termale 2)
-
-
     )
     (locality
         (name "rieti")

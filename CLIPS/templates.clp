@@ -32,14 +32,14 @@
 ;;**********************
 
 (deftemplate TEMPLATES::question
-   (slot attribute (default ?NONE)) ; COSA è
+   (slot preference (default ?NONE)) ; COSA è
    (slot the-question (default ?NONE))
    (multislot valid-answers (default nil))
    (slot already-asked (default FALSE)) ; avoid that a question is asked more than one time
 )
 
-(deftemplate TEMPLATES::attribute ; SE NON SERVE TOGLIERLO, ALTRIMENTI SCRIVERE A COSA SERVE
+(deftemplate TEMPLATES::preference ; SE NON SERVE TOGLIERLO, ALTRIMENTI SCRIVERE A COSA SERVE
    (slot name)
    (slot value)
-   (slot certainty (default 100.0)))
+)
  
