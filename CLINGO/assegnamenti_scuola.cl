@@ -8,10 +8,6 @@
 % KNOWLEDGE BASE
 %%%%%%%%%%%%%%%%%%%%%%%%
 
-% Classi
-classe(1..3,a).
-classe(1..3,b).
-
 % Aule
 aula(a_lettere1;
      a_lettere2;
@@ -27,7 +23,24 @@ laboratorio(l_arte;
             l_scienze;
             l_educazione_fisica).
 
-% Tipologia lezioni
+% Docenti
+docente(d_lettere1;
+        d_lettere2;
+        d_matematica_scienze1;
+        d_matematica_scienze2;
+        d_tecnologia;
+        d_musica;
+        d_inglese;
+        d_spagnolo;
+        d_religione;
+        d_arte;
+        d_educazione_fisica).
+
+% Classi
+classe(1..3,a).
+classe(1..3,b).
+
+% Tipologie di lezioni
 lezione(lettere;
         matematica;
         tecnologia;
@@ -39,22 +52,7 @@ lezione(lettere;
         scienze;
         educazione_fisica).
 
-% Docenti
-docente(d_lettere1;
-        d_lettere2;
-        d_matematica_scienze1;
-        d_matematica_scienze2;
-        d_matematica_scienze3;
-        d_matematica_scienze4;
-        d_tecnologia;
-        d_musica;
-        d_inglese;
-        d_spagnolo;
-        d_religione;
-        d_arte;
-        d_educazione_fisica).
-
-% Tipologia di orario
+% Regimi di frequenza
 tempo_prolungato(1..3,a).
 tempo_normale(1..3,b).
 
@@ -77,15 +75,13 @@ ora(8,9;
 % Orario mensa
 mensa(12,13).
 
-% Lezioni tenute da professori
+% Quali lezioni tengono i professori
 insegna(
         (d_lettere1;
          d_lettere2),
             lettere;
         (d_matematica_scienze1;
-         d_matematica_scienze2;
-         d_matematica_scienze3;
-         d_matematica_scienze4),
+         d_matematica_scienze2),
             (matematica;
              scienze);
         d_tecnologia,tecnologia;
@@ -96,7 +92,7 @@ insegna(
         d_arte,arte;
         d_educazione_fisica,educazione_fisica).
 
-% Luoghi in cui vengono tenute le lezioni
+% Aule e laboratori in cui vengono tenute le lezioni
 si_tiene_in(lettere,(a_lettere1;a_lettere2);
             matematica, a_matematica;
             tecnologia,a_tecnologia;
@@ -107,18 +103,6 @@ si_tiene_in(lettere,(a_lettere1;a_lettere2);
             arte,l_arte;
             scienze,l_scienze;
             educazione_fisica,l_educazione_fisica).
-
-% Numero di ore a settimana
-ore_a_settimana(lettere,10;
-                matematica,4;
-                inglese,3;
-                scienze,2;
-                spagnolo,2;
-                musica,2;
-                tecnologia,2;
-                arte,2;
-                educazione_fisica,2;
-                religione,1).
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 % VINCOLI
