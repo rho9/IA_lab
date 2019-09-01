@@ -175,8 +175,7 @@ si_tiene_in(lettere,(a_lettere1;a_lettere2);
    ha_lezione(_,_,C,S,I,F,G,A2),
    A1!=A2.
 
-% COSE IN PIÙ %
-% gli alunni col tempo normale finiscono un'ora prima
-%:- ha_lezione(_,_,C,S,I,F,_,_),
-%   tempo_normale(C,S),
-%   ora(14,15).
+% gli alunni con un regime a frequenza normale finiscono un'ora prima
+:- ha_lezione(_,_,C,S,14,15,_,_),
+   tempo_normale(C,S).
+   %ora(14,15).
