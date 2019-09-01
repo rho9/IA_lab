@@ -29,7 +29,7 @@
    ; lexemep check if the variable is a string or a symbol
    (if (lexemep ?answer) then (bind ?answer (lowcase ?answer)))
    (while (not (member ?answer ?allowed-values)) do
-      (printout t "Inserire un valore tra quelli validi")
+      (printout t "Inserire un valore tra quelli validi ")
       (bind ?answer (read))
       (if (lexemep ?answer) then (bind ?answer (lowcase ?answer))))
    ?answer)
@@ -39,9 +39,9 @@
    (printout t ?question)
    (bind ?answer (read))
    ; lexemep check if the variable is a string or a symbol
-   (if (lexemep ?answer) then (bind ?answer (lowcase ?answer))) ; usefull for "unknown"
+   (if (lexemep ?answer) then (bind ?answer (lowcase ?answer))) ; usefull for "stop"
    (while (or (not (integerp ?answer)) (<= ?answer 0)) do ; or is lazy, if the first cond is true does not verify the second
-      (printout t "Inserire un numero intero postivo")
+      (printout t "Inserire un numero intero postivo ")
       (bind ?answer (read))
       (if (lexemep ?answer) then (bind ?answer (lowcase ?answer))))
    ?answer)
@@ -59,7 +59,7 @@
    =>
    (modify ?f (already-asked TRUE))
    (bind ?answer (ask-question-av ?the-question ?valid-answers))
-   (while (not (eq ?answer unknown))
+   (while (not (eq ?answer stop))
       (assert (attribute (name tourism)  ; LASCIARE ATTRIBUTE O METTERE QUALCOSA DI PIù EVOCATIVO? + LA CERTAINTY VA GESTITA GIà QUA?????
                          (value ?answer)))
       (bind ?answer (ask-question-av ?the-question ?valid-answers))
@@ -75,7 +75,7 @@
    =>
    (modify ?f (already-asked TRUE))
    (bind ?answer (ask-question-av ?the-question ?valid-answers))
-   (while (not (eq ?answer unknown))
+   (while (not (eq ?answer stop))
       (assert (attribute (name ok-region)  ; LASCIARE ATTRIBUTE O METTERE QUALCOSA DI PIù EVOCATIVO? + LA CERTAINTY VA GESTITA GIà QUA?????
                          (value ?answer)))
       (bind ?answer (ask-question-av ?the-question ?valid-answers))
@@ -91,7 +91,7 @@
    =>
    (modify ?f (already-asked TRUE))
    (bind ?answer (ask-question-av ?the-question ?valid-answers))
-   (while (not (eq ?answer unknown))
+   (while (not (eq ?answer stop))
       (assert (attribute (name no-region)  ; LASCIARE ATTRIBUTE O METTERE QUALCOSA DI PIù EVOCATIVO? + LA CERTAINTY VA GESTITA GIà QUA?????
                          (value ?answer)))
       (bind ?answer (ask-question-av ?the-question ?valid-answers))
@@ -106,7 +106,7 @@
    =>
    (modify ?f (already-asked TRUE))
    (bind ?answer (ask-question-int ?the-question))
-   (if (not (eq ?answer unknown))
+   (if (not (eq ?answer stop))
    then (assert (attribute (name money)  ; LASCIARE ATTRIBUTE O METTERE QUALCOSA DI PIù EVOCATIVO? + LA CERTAINTY VA GESTITA GIà QUA?????
                            (value ?answer))))
 )
@@ -120,7 +120,7 @@
    =>
    (modify ?f (already-asked TRUE))
    (bind ?answer (ask-question-av ?the-question ?valid-answers))
-   (if (not (eq ?answer unknown)) then
+   (if (not (eq ?answer stop)) then
       (assert (attribute (name min-star-number)  ; LASCIARE ATTRIBUTE O METTERE QUALCOSA DI PIù EVOCATIVO? + LA CERTAINTY VA GESTITA GIà QUA?????
                          (value ?answer)))
    )
@@ -135,7 +135,7 @@
    =>
    (modify ?f (already-asked TRUE))
    (bind ?answer (ask-question-av ?the-question ?valid-answers))
-   (if (not (eq ?answer unknown)) then
+   (if (not (eq ?answer stop)) then
       (assert (attribute (name max-star-number)  ; LASCIARE ATTRIBUTE O METTERE QUALCOSA DI PIù EVOCATIVO? + LA CERTAINTY VA GESTITA GIà QUA?????
                          (value ?answer)))
    )
@@ -149,7 +149,7 @@
    =>
    (modify ?f (already-asked TRUE))
    (bind ?answer (ask-question-int ?the-question))
-   (if (not (eq ?answer unknown))
+   (if (not (eq ?answer stop))
    then (assert (attribute (name night)  ; LASCIARE ATTRIBUTE O METTERE QUALCOSA DI PIù EVOCATIVO? + LA CERTAINTY VA GESTITA GIà QUA?????
                            (value ?answer))))
 )
@@ -162,7 +162,7 @@
    =>
    (modify ?f (already-asked TRUE))
    (bind ?answer (ask-question-int ?the-question))
-   (if (not (eq ?answer unknown))
+   (if (not (eq ?answer stop))
    then (assert (attribute (name people)  ; LASCIARE ATTRIBUTE O METTERE QUALCOSA DI PIù EVOCATIVO? + LA CERTAINTY VA GESTITA GIà QUA?????
                            (value ?answer))))
 )
@@ -173,7 +173,7 @@
 
 (deffacts QUESTIONS::question-attributes
   (question (attribute tourism) ; used in QUESTIONS RULES
-            (the-question "Scegli quali tipologie di turismo preferisci (anche più d'uno) tra balneare, montano, lacustre, naturalistico, termale, culturale, religioso, sportivo, enogastronomico")
+            (the-question "Quali tipologie di turismo preferisci? (tra: balneare, montano, lacustre, naturalistico, termale, culturale, religioso, sportivo, enogastronomico): ")
             (valid-answers balneare
                            montano
                            lacustre
@@ -183,17 +183,17 @@
                            religioso
                            sportivo
                            enogastronomico
-                           unknown))
+                           stop))
   (question (attribute ok-region)
-            (the-question "Vuoi visitare delle specifiche regioni italiane?")
+            (the-question "Quali regioni italiane vuoi visitare? ")
             (valid-answers piemonte
-                           aosta
+                           valle-aosta
                            liguria
                            lombardia
                            trentino
                            veneto
                            friuli
-                           emilia-Romagna
+                           emilia-romagna
                            toscana
                            umbria
                            marche
@@ -206,17 +206,17 @@
                            calabria
                            sicilia
                            sardegna
-                           unknown))
+                           stop))
   (question (attribute no-region)
-            (the-question "Ci sono delle specifiche regioni italiane che non vuoi visitare?")
+            (the-question "Quali regioni italiane NON vuoi visitare? ")
             (valid-answers piemonte
-                           aosta
+                           valle-aosta
                            liguria
                            lombardia
                            trentino
                            veneto
                            friuli
-                           emilia-Romagna
+                           emilia-romagna
                            toscana
                            umbria
                            marche
@@ -229,17 +229,17 @@
                            calabria
                            sicilia
                            sardegna
-                           unknown))
+                           stop))
   (question (attribute money)
-            (the-question "Quanto vuoi spendere per il tuo soggiorno?"))
+            (the-question "Quanto vuoi spendere per il tuo soggiorno? "))
   (question (attribute min-star-number)
-            (the-question "Qual è il numero minimo di stelle che deve avere l'hotel in cui vuoi soggiornare?")
-            (valid-answers 1 2 3 4 unknown))
+            (the-question "Qual è il numero minimo di stelle che deve avere l'hotel in cui vuoi soggiornare? ")
+            (valid-answers 1 2 3 4 stop))
   (question (attribute max-star-number)
-            (the-question "Qual è il numero massimo di stelle che deve avere l'hotel in cui vuoi soggiornare?")
-            (valid-answers 1 2 3 4 unknown))
+            (the-question "Qual è il numero massimo di stelle che deve avere l'hotel in cui vuoi soggiornare? ")
+            (valid-answers 1 2 3 4 stop))
   (question (attribute night)
-            (the-question "Quante notti vuoi trascorrere in vacanza?"))
+            (the-question "Quante notti vuoi trascorrere in vacanza? "))
   (question (attribute people)
-            (the-question "Quante persone sarete?"))
+            (the-question "Quante persone sarete? "))
 )
