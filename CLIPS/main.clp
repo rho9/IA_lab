@@ -4,6 +4,6 @@
   (declare (salience 10000))
   =>
   (set-fact-duplication TRUE) ; QUANDO VIENE USATO????
-  (focus QUESTIONS)
+  (focus DATA RULES QUESTIONS)
 )
 
