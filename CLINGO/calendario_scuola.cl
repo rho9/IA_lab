@@ -163,10 +163,10 @@ insegna(docente_educazione_fisica ,educazione_fisica).
 % le classi a tempo normale non possono avere lezione dalle quattordici alla quindici
 0{classe_segue(L,quattordici_quindici,G,C):lezione(L),giorno(G)}0 :- tempo_norm(C).
 
-goal :- ore_a_settimana(Lezione1, Aula1, Ora1, Giorno1, Classe1),
-		prof_insegna(Docente2, Lezione2, Ora2, Giorno2),
-		classe_segue(Lezione3, Ora3, Giorno3, Classe3),
-		aula_usata(Docente4, Lezione4, Ora4, Giorno4, Luogo4).
+goal :- ore_a_settimana(Lezione, Aula, Ora, Giorno, Classe),
+		prof_insegna(Docente, Lezione, Ora, Giorno),
+		classe_segue(Lezione, Ora, Giorno, Classe),
+		aula_usata(Docente, Lezione, Ora, Giorno, Luogo).
 :- not goal.
 
 % classe seguita sempre da stessi prof SCELTA NOSTRA, NON è DA SPECIFICHE
