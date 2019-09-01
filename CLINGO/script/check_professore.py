@@ -23,9 +23,9 @@ for e in elem:
 	aux = e.split(",")[0]
 	docente = aux.split("(")[1]
 	lezione.append(docente)
-	lezione.append(e.split(",")[3])
 	lezione.append(e.split(",")[4])
 	lezione.append(e.split(",")[5])
+	lezione.append(e.split(",")[6])
 	orario.append(lezione)
 	lezione = []
 #print(orario)

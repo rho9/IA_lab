@@ -3,9 +3,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%
 
 % frequenza di attività extrascolastiche
+% check che professori, aule e classi facciano le stesse cose
 
 %%%%%%%%%%%%%%%%%%%%%%%%
-% KNOWLEDGE BASE
+% RISORSE
 %%%%%%%%%%%%%%%%%%%%%%%%
 
 % Aule
@@ -104,80 +105,57 @@ si_tiene_in(lettere,(a_lettere1;a_lettere2);
             scienze,l_scienze;
             educazione_fisica,l_educazione_fisica).
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%
 % VINCOLI
 %%%%%%%%%%%%%%%%%%%%%%%%
 
-% orario(docente, materia, aula, oraInizioLezione, OraFineLezione, giorno, annoClasse, sezione)
-% ha_lezione(docente, materia, annoClasse, sezione, oraInizioLezione, OraFineLezione, giorno, aula)
+% ci sono 35 slot per ogni aula. Ogni slot è identificato da giorno, fascia oraria (I,F) ed aula
+35{slot(I,F,G,A): ora(I,F),giorno(G)}35 :- aula(A).
+
+% ci sono 35 slot per ogni laboratorio. Ogni slot è identificato da giorno, fascia oraria (I,F) ed aula
+35{slot(I,F,G,L): ora(I,F),giorno(G)}35 :- laboratorio(L).
 
 % 10 ore a settimana (lettere)
 10{orario(D,lettere,A,I,F,G,C,S): ha_lezione(D,lettere,C,S,I,F,G,A)}10 :- classe(C,S).
  
- % 4 ore a settimana (matematica)
-4{orario(D,matematica,A,I,F,G,C,S):
-    ha_lezione(D,matematica,C,S,I,F,G,A)
-}4 :- classe(C,S).
+% 4 ore a settimana (matematica)
+4{orario(D,matematica,A,I,F,G,C,S): ha_lezione(D,matematica,C,S,I,F,G,A)}4 :- classe(C,S).
 
 % 3 ore a settimana (inglese)
-3{orario(D,inglese,A,I,F,G,C,S):
-    ha_lezione(D,inglese,C,S,I,F,G,A)
-}3 :- classe(C,S).
+3{orario(D,inglese,A,I,F,G,C,S): ha_lezione(D,inglese,C,S,I,F,G,A)}3 :- classe(C,S).
 
 % 2 ore a settimana (scienze)
-2{orario(D,scienze,A,I,F,G,C,S):
-    ha_lezione(D,scienze,C,S,I,F,G,A)
-}2 :- classe(C,S).
+2{orario(D,scienze,A,I,F,G,C,S): ha_lezione(D,scienze,C,S,I,F,G,A)}2 :- classe(C,S).
 
 % 2 ore a settimana (spagnolo)
-2{orario(D,spagnolo,A,I,F,G,C,S):
-    ha_lezione(D,spagnolo,C,S,I,F,G,A)
-}2 :- classe(C,S).
+2{orario(D,spagnolo,A,I,F,G,C,S): ha_lezione(D,spagnolo,C,S,I,F,G,A)}2 :- classe(C,S).
 
 % 2 ore a settimana (musica)
-2{orario(D,musica,A,I,F,G,C,S):
-    ha_lezione(D,musica,C,S,I,F,G,A)
-}2 :- classe(C,S).
+2{orario(D,musica,A,I,F,G,C,S): ha_lezione(D,musica,C,S,I,F,G,A)}2 :- classe(C,S).
 
 % 2 ore a settimana (tecnologia)
-2{orario(D,tecnologia,A,I,F,G,C,S):
-    ha_lezione(D,tecnologia,C,S,I,F,G,A)
-}2 :- classe(C,S).
+2{orario(D,tecnologia,A,I,F,G,C,S): ha_lezione(D,tecnologia,C,S,I,F,G,A)}2 :- classe(C,S).
 
 % 2 ore a settimana (arte)
-2{orario(D,arte,A,I,F,G,C,S):
-    ha_lezione(D,arte,C,S,I,F,G,A)
-}2 :- classe(C,S).
+2{orario(D,arte,A,I,F,G,C,S): ha_lezione(D,arte,C,S,I,F,G,A)}2 :- classe(C,S).
 
 % 2 ore a settimana (educazione fisica)
-2{orario(D,educazione_fisica,A,I,F,G,C,S):
-    ha_lezione(D,educazione_fisica,C,S,I,F,G,A)
-}2 :- classe(C,S).
+2{orario(D,educazione_fisica,A,I,F,G,C,S): ha_lezione(D,educazione_fisica,C,S,I,F,G,A)}2 :- classe(C,S).
 
 % 1 ora a settimana (religione)
-1{orario(D,religione,A,I,F,G,C,S):
-    ha_lezione(D,religione,C,S,I,F,G,A)
-}1 :- classe(C,S).
+1{orario(D,religione,A,I,F,G,C,S): ha_lezione(D,religione,C,S,I,F,G,A)}1 :- classe(C,S).
 
 % per ogni slot c'è al massimo una lezione con una classe, ogni lezione si tiene in un aula precisa
 0{ha_lezione(D,L,C,S,I,F,G,A): classe(C,S),si_tiene_in(L,A),insegna(D,L)}1 :- slot(I,F,G,A).
 
-% ci sono 35 slot per ogni aula. Ogni slot è identificato da giorno ora e aula
-35{slot(I,F,G,A):
-    ora(I,F),giorno(G)
-}35 :- aula(A).
+% SERVE? se serve ricordarsi di modificare la relazione
+% all'interno di una stessa aula non si possono tenere più lezioni nello stesso momento
+%:- ha_lezione(_,_,C1,S1,I,F,G,A),
+%   ha_lezione(_,_,C2,S2,I,F,G,A),
+%   C1!=C2;S1!=S2.
 
-% ci sono 35 slot per ogni aula. Ogni slot è identificato da giorno ora e aula
-35{slot(I,F,G,L):
-    ora(I,F),giorno(G)
-}35 :- laboratorio(L).
-
-% all'inerno di una stessa aula non si possono tenere più lezioni nello stesso momento
-:- ha_lezione(_,_,C1,S1,I,F,G,A),
-   ha_lezione(_,_,C2,S2,I,F,G,A),
-   C1!=C2;S1!=S2.
-
-% un insegnante non può avere lezione in due posti diversi
+% un insegnante non può avere lezione in due posti diversi nello stesso momento
 :- ha_lezione(D,_,_,_,I,F,G,A1),
    ha_lezione(D,_,_,_,I,F,G,A2),
    A1!=A2.
@@ -192,13 +170,13 @@ si_tiene_in(lettere,(a_lettere1;a_lettere2);
    ha_lezione(D2,L,C,S,_,_,_,_),
    D1!=D2.
 
-% una classe non può avere lezione in due posti diversi
+% una classe non può avere lezione in due posti diversi nello stesso momento
 :- ha_lezione(_,_,C,S,I,F,G,A1),
    ha_lezione(_,_,C,S,I,F,G,A2),
    A1!=A2.
 
 % COSE IN PIÙ %
-% gli alunni col tempo normale finiscono un ora prima
-% :- ha_lezione(_,_,_,S,I,F,_,_),
-%    tempo_normale(C,S),
-%    ora(14,15).
+% gli alunni col tempo normale finiscono un'ora prima
+%:- ha_lezione(_,_,C,S,I,F,_,_),
+%   tempo_normale(C,S),
+%   ora(14,15).
