@@ -20,6 +20,10 @@
   ;studio segno atan https://it.wikipedia.org/wiki/Arcotangente2
   (bind ?a (+ (** (sin (/ ?dlat 2)) 2) (* (* (** (sin (/ ?dlon 2)) 2) (cos ?lat1))(cos ?lat2))))
   (bind ?c (* (atan (/ ?a (- 1 ?a))) 2))
+  (bind ?distance (* ?earthRadius ?c))
+  (bind ?max-distance 100)
+  (bind ?delta 20) ;approximation of 20 km
+  (if (<= ?distance (+ ?max-distance ?delta)) then
   (assert (distance ?name1 ?name2 (* ?earthRadius ?c)))
-  (assert (distance ?name2 ?name1 (* ?earthRadius ?c)))
+  (assert (distance ?name2 ?name1 (* ?earthRadius ?c))))
 )

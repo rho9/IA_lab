@@ -1,22 +1,4 @@
-(defmodule QUESTIONS (import MAIN ?ALL) (export ?ALL))
-
-
-;;**********************
-;;* QUESTIONS TEMPLATE *
-;;**********************
-
-(deftemplate QUESTIONS::question
-   (slot attribute (default ?NONE)) ; COSA è
-   (slot the-question (default ?NONE))
-   (multislot valid-answers (default nil))
-   (slot already-asked (default FALSE)) ; avoid that a question is asked more than one time
-)
-
-(deftemplate MAIN::attribute ; SE NON SERVE TOGLIERLO, ALTRIMENTI SCRIVERE A COSA SERVE
-   (slot name)
-   (slot value)
-   (slot certainty (default 100.0)))
- 
+(defmodule QUESTIONS (import MAIN ?ALL)(import TEMPLATES ?ALL) (export ?ALL))
 
 ;;*******************
 ;;* QUESTIONS FUNCTIONS *
