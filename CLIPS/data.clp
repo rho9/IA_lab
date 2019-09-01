@@ -1,36 +1,36 @@
 (defmodule DATA (import TEMPLATES ?ALL) (export ?ALL))
 
 (deffacts DATA::localities 
-    (locality
+    (location
         (name "torino")
-        (_region "piemonte")
+        (region "piemonte")
         (culturale 4)
         (sportivo 4)
         (termale 1)
         (enogastronomico 3)
         (naturalistico 2)
     )
-    (locality
+    (location
         (name "cherasco")
-        (_region "piemonte")
+        (region "piemonte")
         (naturalistico 3)
         (culturale 5)
         (religioso 2)
         (sportivo 3)
         (enogastronomico 5)
     )
-    (locality
+    (location
         (name "asti")
-        (_region "piemonte")
+        (region "piemonte")
         (naturalistico 1)
         (culturale 4)
         (sportivo 1)
         (religioso 1)
         (enogastronomico 5)
     )
-    (locality
+    (location
         (name "pré-saint-didier")
-        (_region "valle d'aosta")
+        (region "valle d'aosta")
         (montano 5)
         (lacustre 3)
         (naturalistico 5)
@@ -40,9 +40,9 @@
         (sportivo 3)
         (enogastronomico 3)
     )
-    (locality
+    (location
         (name "aosta")
-        (_region "valle d'aosta")
+        (region "valle d'aosta")
         (montano 3)
         (lacustre 2)
         (naturalistico 2)
@@ -50,9 +50,9 @@
         (sportivo 2)
         (enogastronomico 3)
     )
-    (locality
+    (location
         (name "genova")
-        (_region "liguria")
+        (region "liguria")
         (balneare 3)
         (montano 2)
         (culturale 4)
@@ -60,9 +60,9 @@
         (sportivo 2)
         (enogastronomico 3)
     )
-    (locality
+    (location
         (name "imperia")
-        (_region "liguria")
+        (region "liguria")
         (balneare 5)
         (montano 2)
         (naturalistico 3)
@@ -71,16 +71,16 @@
         (sportivo 4)
         (enogastronomico 3)
     )
-    (locality
+    (location
         (name "milano")
-        (_region "lombardia")
+        (region "lombardia")
         (culturale 5)
         (sportivo 3)
         (enogastronomico 3)
     )
-    (locality
+    (location
         (name "como")
-        (_region "lombardia")
+        (region "lombardia")
         (montano 2)
         (lacustre 5)
         (termale 4)
@@ -90,25 +90,25 @@
         (sportivo 2)
         (enogastronomico 1)
     )
-    (locality
+    (location
         (name "bologna")
-        (_region "emilia-romagna")
+        (region "emilia-romagna")
         (culturale 5)
         (religioso 2)
         (sportivo 3)
         (enogastronomico 5)
     )
-    (locality
+    (location
         (name "rimini")
-        (_region "emilia-romagna")
+        (region "emilia-romagna")
         (culturale 2)
         (balneare 4)
         (naturalistico 2)
         (enogastronomico 3)
     )
-    (locality
+    (location
         (name "venezia")
-        (_region "veneto")
+        (region "veneto")
         (culturale 5)
         (religioso 3)
         (sportivo 3)
@@ -116,9 +116,9 @@
         (lacustre 5)
         (naturalistico 2)
     )
-    (locality
+    (location
         (name "verona")
-        (_region "veneto")
+        (region "veneto")
         (culturale 4)
         (religioso 1)
         (termale 1)
@@ -126,9 +126,9 @@
         (enogastronomico 3)
         (naturalistico 2)
     )
-    (locality
+    (location
         (name "trento")
-        (_region "trentino")
+        (region "trentino")
         (culturale 4)
         (montano 4)
         (lacustre 3)
@@ -136,35 +136,35 @@
         (enogastronomico 3)
         (naturalistico 3)
     )
-    (locality
+    (location
         (name "bolzano")
-        (_region "trentino")
+        (region "trentino")
         (culturale 4)
         (montano 4)
         (lacustre 1)
         (enogastronomico 4)
         (naturalistico 3)
     )
-    (locality
+    (location
         (name "trieste")
-        (_region "friuli")
+        (region "friuli")
         (culturale 4)
         (balneare 3)
         (montano 3)
         (enogastronomico 3)
         (naturalistico 3)
     )
-    (locality
+    (location
         (name "gorizia")
-        (_region "friuli")
+        (region "friuli")
         (culturale 4)
         (montano 3)
         (enogastronomico 3)
         (naturalistico 4)
     )
-    (locality
+    (location
         (name "firenze")
-        (_region "toscana")
+        (region "toscana")
         (culturale 5)
         (termale 1)
         (naturalistico 2)
@@ -172,16 +172,16 @@
         (sportivo 2)
         (enogastronomico 4)
     )
-    (locality
+    (location
         (name "saturnia")
-        (_region "toscana")
+        (region "toscana")
         (naturalistico 5)
         (termale 5)
         (culturale 2)
     )
-    (locality
+    (location
         (name "perugia")
-        (_region "umbria")
+        (region "umbria")
         (naturalistico 3)
         (religioso 2)
         (enogastronomico 5)
@@ -189,9 +189,9 @@
         (sportivo 1)
         (culturale 4)
     )
-    (locality
+    (location
         (name "assisi")
-        (_region "umbria")
+        (region "umbria")
         (montano 3)
         (naturalistico 4)
         (enogastronomico 4)
@@ -199,25 +199,25 @@
         (religioso 5)
         (culturale 3)
     )
-    (locality
+    (location
         (name "ancona")
-        (_region "marche")
+        (region "marche")
         (balneare 5)
         (naturalistico 1)
         (culturale 2)
         (enogastronomico 3)
     )
-    (locality
+    (location
         (name "urbino")
-        (_region "marche")
+        (region "marche")
         (enogastronomico 3)
         (culturale 5)
         (religioso 2)
         (sportivo 2)
     )
-    (locality
+    (location
         (name "roma")
-        (_region "lazio")
+        (region "lazio")
         (culturale 5)
         (religioso 5)
         (enogastronomico 5)
@@ -226,9 +226,9 @@
         (naturalistico 1)
         (termale 2)
     )
-    (locality
+    (location
         (name "rieti")
-        (_region "lazio")
+        (region "lazio")
         (lacustre 3)
         (naturalistico 4)
         (termale 5)
@@ -236,9 +236,9 @@
         (sportivo 3)
         (religioso 2)
     )
-    (locality
+    (location
         (name "l'aquila")
-        (_region "abruzzo")
+        (region "abruzzo")
         (montano 2)
         (culturale 3)
         (sportivo 2)
@@ -246,17 +246,17 @@
         (naturalistico 3)
 
     )
-    (locality
+    (location
         (name "pescara")
-        (_region "abruzzo")
+        (region "abruzzo")
         (balneare 4)
         (naturalistico 4)
         (religioso 2)
         (enogastronomico 2)
     )
-    (locality
+    (location
         (name "termoli")
-        (_region "molise")
+        (region "molise")
         (balneare 5)
         (naturalistico 4)
         (culturale 3)
@@ -264,18 +264,18 @@
         (sportivo 1)
 
     )
-    (locality
+    (location
         (name "campobasso")
-        (_region "molise")
+        (region "molise")
         (culturale 4)
         (naturalistico 3)
         (religioso 4)
         (sportivo 2)
         (enogastronomico 2)
     )
-    (locality
+    (location
         (name "napoli")
-        (_region "campagna")
+        (region "campagna")
         (culturale 5)
         (balneare 5)
         (naturalistico 5)
@@ -285,35 +285,35 @@
         (montano 2)
 
     )
-    (locality
+    (location
         (name "benevento")
-        (_region "campagna")
+        (region "campagna")
         (culturale 5)
         (naturalistico 3)
         (religioso 3)
         (enogastronomico 4)
     )
-    (locality
+    (location
         (name "brindisi")
-        (_region "puglia")
+        (region "puglia")
         (balneare 5)
         (naturalistico 3)
         (culturale 4)
         (religioso 2)
         (enogastronomico 4)
     )
-    (locality
+    (location
         (name "trani")
-        (_region "puglia")
+        (region "puglia")
         (balneare 5)
         (culturale 3)
         (religioso 4)
         (naturalistico 4)
         (enogastronomico 4)
     )
-    (locality
+    (location
         (name "matera")
-        (_region "basilicata")
+        (region "basilicata")
         (montano 5)
         (balneare 4)
         (naturalistico 5)
@@ -321,9 +321,9 @@
         (religioso 3)
         (enogastronomico 3)
     )
-    (locality
+    (location
         (name "potenza")
-        (_region "basilicata")
+        (region "basilicata")
         (montano 2)
         (balneare 4)
         (culturale 4)
@@ -331,9 +331,9 @@
         (enogastronomico 3)
         (naturalistico 2)
     )
-    (locality
+    (location
         (name "crotone")
-        (_region "calabria")
+        (region "calabria")
         (balneare 5)
         (montano 1)
         (lacustre 2)
@@ -341,9 +341,9 @@
         (culturale 1)
         (enogastronomico 3)
     )
-    (locality
+    (location
         (name "pizzo")
-        (_region "calabria")
+        (region "calabria")
         (balneare 5)
         (montano 4)
         (lacustre 3)
@@ -353,18 +353,18 @@
         (culturale 4)
         (sportivo 3)
     )
-    (locality
+    (location
         (name "lipari")
-        (_region "sicilia")
+        (region "sicilia")
         (balneare 5)
         (naturalistico 5)
         (culturale 4)
         (enogastronomico 2)
         (religioso 3)
     )
-    (locality
+    (location
         (name "vulcano")
-        (_region "sicilia")
+        (region "sicilia")
         (balneare 5)
         (naturalistico 5)
         (culturale 4)
@@ -373,9 +373,9 @@
         (montano 2)
         (termale 5)
     )
-    (locality
+    (location
         (name "cagliari")
-        (_region "sardegna")
+        (region "sardegna")
         (balneare 5)
         (naturalistico 5)
         (culturale 3)
@@ -383,9 +383,9 @@
         (religioso 3)
         (sportivo 4)
     )
-    (locality
+    (location
         (name "caprera")
-        (_region "sardegna")
+        (region "sardegna")
         (balneare 5)
         (montano 1)
         (naturalistico 5)
@@ -842,7 +842,7 @@
         (free_rooms 56)
     )
     (hotel 
-        (name "Hotel Mara")
+        (name "Hillton")
         (stars 2)
         (location "lipari")
         (free_rooms 64)

@@ -6,7 +6,7 @@ import re
 f = open("data.clp")
 
 content = f.read()
-found = re.finditer(r'locality\n\s+\(name "(\w+)"\)', content)
+found = re.finditer(r'location\n\s+\(name "(\w+)"\)', content)
 to_write=[]
 for i in found:
     response = r.get("https://www.google.com/maps/place/"+i.group(1))

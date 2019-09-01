@@ -7,9 +7,9 @@
     (slot free_rooms (type INTEGER) (range 0 ?VARIABLE))
 )
 
-(deftemplate TEMPLATES::locality "locality"
+(deftemplate TEMPLATES::location "location"
     (slot name (type STRING))
-    (slot _region (type STRING))
+    (slot region (type STRING))
     (slot balneare (type INTEGER)(default 0)(range 0 5))
     (slot montano (type INTEGER)(default 0)(range 0 5))
     (slot lacustre (type INTEGER)(default 0)(range 0 5))
@@ -43,3 +43,13 @@
    (slot value)
 )
  
+(deftemplate TEMPLATES::hotel-cf 
+    (slot name)
+    (slot CF)
+)
+
+(deftemplate TEMPLATES::hotel-cf-temp 
+    (slot name)
+    (slot CF)
+    (slot type)
+)

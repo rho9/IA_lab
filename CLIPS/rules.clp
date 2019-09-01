@@ -38,3 +38,12 @@
   (retract ?f)
 )
   
+
+;condizione per rendere accettabile la proposta
+;(defrule RULES::hotel-cf-money
+;  ?f <- (hotel-cf ?name ?CF)
+;  (preference money ?money)
+;  (cost ?name :(<= ?cost ?money))
+;=>
+;  (modify ?f (CF (+ ?CF 1)))
+;)
