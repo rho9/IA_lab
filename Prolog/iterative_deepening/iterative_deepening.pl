@@ -18,9 +18,9 @@ iterative_deepening_rec(S, _, _, _, _) :-
   finale(S).
 
 % la soluzione si trova ancora entro il limite della soglia attuale
-iterative_deepening_rec(S, Soluzione, Soglia, Max, _) :-
+iterative_deepening_rec(S, Soluzione, Soglia, Max, ActionCost) :-
   Soglia=<Max,
-  dfs_aux(S, Soluzione, [S], Soglia).
+  dfs_aux(S, Soluzione, [S], Soglia, ActionCost).
 
 % la soluzione non è ancora stata trovata, ma la soglia attuale è stata superata (dfs_aux è false)
 iterative_deepening_rec(S, Soluzione, Soglia, Max, ActionCost) :-
@@ -29,16 +29,17 @@ iterative_deepening_rec(S, Soluzione, Soglia, Max, ActionCost) :-
   iterative_deepening_rec(S, Soluzione, NuovaSoglia, Max, ActionCost).
 
 
-% dfs_aux(StatoAttuale, Soluzione, StatiVisitati, SogliaAttuale)
+% dfs_aux(StatoAttuale, Soluzione, StatiVisitati, SogliaAttuale, ActionCost)
 % caso base: è stata raggiunta la casella finale
-dfs_aux(S,[],_,_) :-
+dfs_aux(S,[],_,Soglia,_) :-
+  Soglia>=0,
   finale(S).
 
 % passo induttivo: si applicano delle mosse per cercare di raggiungere la casella finale
-dfs_aux(S,[Azione|AzioniTail],Visitati,Soglia) :-
+dfs_aux(S, [Azione|AzioniTail], Visitati, Soglia, ActionCost) :-
   Soglia>0,
-  applicabile(Azione,S),
-  trasforma(Azione,S,SNuovo),
-  \+member(SNuovo,Visitati),
-  NuovaSoglia is Soglia-1,
-  dfs_aux(SNuovo,AzioniTail,[SNuovo|Visitati],NuovaSoglia).
+  applicabile(Azione, S),
+  trasforma(Azione, S, SNuovo),
+  \+member(SNuovo, Visitati),
+  NuovaSoglia is Soglia-ActionCost,
+  dfs_aux(SNuovo, AzioniTail, [SNuovo|Visitati], NuovaSoglia, ActionCost).
