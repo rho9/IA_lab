@@ -24,8 +24,8 @@ iterative_deepening_rec(S, Soluzione, Soglia, Max, _) :-
 
 % la soluzione non è ancora stata trovata, ma la soglia attuale è stata superata (dfs_aux è false)
 iterative_deepening_rec(S, Soluzione, Soglia, Max, ActionCost) :-
-  Soglia<Max,
   NuovaSoglia is Soglia + ActionCost,
+  NuovaSoglia=<Max,
   iterative_deepening_rec(S, Soluzione, NuovaSoglia, Max, ActionCost).
 
 
@@ -34,7 +34,7 @@ iterative_deepening_rec(S, Soluzione, Soglia, Max, ActionCost) :-
 dfs_aux(S,[],_,_) :-
   finale(S).
 
-% passo induttivo: si applicano delle mosse per cercare id raggiungere la casella finale
+% passo induttivo: si applicano delle mosse per cercare di raggiungere la casella finale
 dfs_aux(S,[Azione|AzioniTail],Visitati,Soglia) :-
   Soglia>0,
   applicabile(Azione,S),
