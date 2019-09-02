@@ -20,7 +20,7 @@ ida_star(Actions, ActionCost):-
 % Path: list of nodes from initial node to Node
 % Actions: list of actions that bring from initial node to Node
 % ActionCost: cost of every action
-ida_star_rec(Result,  _, _, _, _, _, _):-
+ida_star_rec(Result, _, _, _, _, _, _):-
   nonvar(Result), !. % True if Result is not a free variable.
 
 % search rule fails. If minF has infinite as value, no solutions is possible
