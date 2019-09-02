@@ -30,7 +30,7 @@ iterative_deepening_rec(S, Soluzione, Soglia, Max, ActionCost) :-
 
 
 % dfs_aux(StatoAttuale, Soluzione, StatiVisitati, SogliaAttuale, ActionCost)
-% caso base: è stata raggiunta la casella finale
+% caso base: è stata raggiunta la casella finale e la soglia attuale non ha superato il max valore consentito
 dfs_aux(S,[],_,Soglia,_) :-
   Soglia>=0,
   finale(S).
