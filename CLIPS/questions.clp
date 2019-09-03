@@ -57,8 +57,9 @@
    =>
    (modify ?f (already-asked TRUE))
    (bind ?answer (ask-question-int ?the-question))
-   (if (neq ?answer stop) then (assert (preference (name ?type) 
-                           (value ?answer))))
+   (while (or (not (integerp ?answer)) (not (> ?answer 0)))
+      (bind ?answer (ask-question-int ?the-question)))
+   (assert (preference (name ?type) (value ?answer)))
 )
 
 ; handle choose question

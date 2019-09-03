@@ -9,7 +9,8 @@
 
 (deftemplate TEMPLATES::location "location"
     (slot name (type STRING))
-    (slot region (type STRING))
+    (slot region (type SYMBOL)
+    (allowed-symbols piemonte valle-aosta liguria lombardia trentino veneto friuli emilia-romagna toscana umbria marche lazio abruzzo molise campania puglia basilicata calabria sicilia sardegna))
     (slot balneare (type INTEGER)(default 0)(range 0 5))
     (slot montano (type INTEGER)(default 0)(range 0 5))
     (slot lacustre (type INTEGER)(default 0)(range 0 5))
@@ -45,11 +46,11 @@
  
 (deftemplate TEMPLATES::hotel-cf 
     (slot name)
-    (slot CF)
+    (slot CF(type FLOAT))
 )
 
 (deftemplate TEMPLATES::hotel-cf-temp 
     (slot name)
-    (slot CF)
+    (slot CF(type FLOAT))
     (slot type)
 )

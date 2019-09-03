@@ -3,7 +3,7 @@
 (deffacts DATA::localities 
     (location
         (name "torino")
-        (region "piemonte")
+        (region piemonte)
         (culturale 4)
         (sportivo 4)
         (termale 1)
@@ -12,7 +12,7 @@
     )
     (location
         (name "cherasco")
-        (region "piemonte")
+        (region piemonte)
         (naturalistico 3)
         (culturale 5)
         (religioso 2)
@@ -21,7 +21,7 @@
     )
     (location
         (name "asti")
-        (region "piemonte")
+        (region piemonte)
         (naturalistico 1)
         (culturale 4)
         (sportivo 1)
@@ -30,7 +30,7 @@
     )
     (location
         (name "pré-saint-didier")
-        (region "valle d'aosta")
+        (region valle-aosta)
         (montano 5)
         (lacustre 3)
         (naturalistico 5)
@@ -42,7 +42,7 @@
     )
     (location
         (name "aosta")
-        (region "valle d'aosta")
+        (region valle-aosta)
         (montano 3)
         (lacustre 2)
         (naturalistico 2)
@@ -52,7 +52,7 @@
     )
     (location
         (name "genova")
-        (region "liguria")
+        (region liguria)
         (balneare 3)
         (montano 2)
         (culturale 4)
@@ -62,7 +62,7 @@
     )
     (location
         (name "imperia")
-        (region "liguria")
+        (region liguria)
         (balneare 5)
         (montano 2)
         (naturalistico 3)
@@ -73,14 +73,14 @@
     )
     (location
         (name "milano")
-        (region "lombardia")
+        (region lombardia)
         (culturale 5)
         (sportivo 3)
         (enogastronomico 3)
     )
     (location
         (name "como")
-        (region "lombardia")
+        (region lombardia)
         (montano 2)
         (lacustre 5)
         (termale 4)
@@ -92,7 +92,7 @@
     )
     (location
         (name "bologna")
-        (region "emilia-romagna")
+        (region emilia-romagna)
         (culturale 5)
         (religioso 2)
         (sportivo 3)
@@ -100,7 +100,7 @@
     )
     (location
         (name "rimini")
-        (region "emilia-romagna")
+        (region emilia-romagna)
         (culturale 2)
         (balneare 4)
         (naturalistico 2)
@@ -108,7 +108,7 @@
     )
     (location
         (name "venezia")
-        (region "veneto")
+        (region veneto)
         (culturale 5)
         (religioso 3)
         (sportivo 3)
@@ -118,7 +118,7 @@
     )
     (location
         (name "verona")
-        (region "veneto")
+        (region veneto)
         (culturale 4)
         (religioso 1)
         (termale 1)
@@ -128,7 +128,7 @@
     )
     (location
         (name "trento")
-        (region "trentino")
+        (region trentino)
         (culturale 4)
         (montano 4)
         (lacustre 3)
@@ -138,7 +138,7 @@
     )
     (location
         (name "bolzano")
-        (region "trentino")
+        (region trentino)
         (culturale 4)
         (montano 4)
         (lacustre 1)
@@ -147,7 +147,7 @@
     )
     (location
         (name "trieste")
-        (region "friuli")
+        (region friuli)
         (culturale 4)
         (balneare 3)
         (montano 3)
@@ -156,7 +156,7 @@
     )
     (location
         (name "gorizia")
-        (region "friuli")
+        (region friuli)
         (culturale 4)
         (montano 3)
         (enogastronomico 3)
@@ -164,7 +164,7 @@
     )
     (location
         (name "firenze")
-        (region "toscana")
+        (region toscana)
         (culturale 5)
         (termale 1)
         (naturalistico 2)
@@ -174,14 +174,14 @@
     )
     (location
         (name "saturnia")
-        (region "toscana")
+        (region toscana)
         (naturalistico 5)
         (termale 5)
         (culturale 2)
     )
     (location
         (name "perugia")
-        (region "umbria")
+        (region umbria)
         (naturalistico 3)
         (religioso 2)
         (enogastronomico 5)
@@ -191,7 +191,7 @@
     )
     (location
         (name "assisi")
-        (region "umbria")
+        (region umbria)
         (montano 3)
         (naturalistico 4)
         (enogastronomico 4)
@@ -201,7 +201,7 @@
     )
     (location
         (name "ancona")
-        (region "marche")
+        (region marche)
         (balneare 5)
         (naturalistico 1)
         (culturale 2)
@@ -209,7 +209,7 @@
     )
     (location
         (name "urbino")
-        (region "marche")
+        (region marche)
         (enogastronomico 3)
         (culturale 5)
         (religioso 2)
@@ -217,7 +217,7 @@
     )
     (location
         (name "roma")
-        (region "lazio")
+        (region lazio)
         (culturale 5)
         (religioso 5)
         (enogastronomico 5)
@@ -228,7 +228,7 @@
     )
     (location
         (name "rieti")
-        (region "lazio")
+        (region lazio)
         (lacustre 3)
         (naturalistico 4)
         (termale 5)
@@ -238,7 +238,7 @@
     )
     (location
         (name "l'aquila")
-        (region "abruzzo")
+        (region abruzzo)
         (montano 2)
         (culturale 3)
         (sportivo 2)
@@ -248,7 +248,7 @@
     )
     (location
         (name "pescara")
-        (region "abruzzo")
+        (region abruzzo)
         (balneare 4)
         (naturalistico 4)
         (religioso 2)
@@ -256,7 +256,7 @@
     )
     (location
         (name "termoli")
-        (region "molise")
+        (region molise)
         (balneare 5)
         (naturalistico 4)
         (culturale 3)
@@ -266,7 +266,7 @@
     )
     (location
         (name "campobasso")
-        (region "molise")
+        (region molise)
         (culturale 4)
         (naturalistico 3)
         (religioso 4)
@@ -275,7 +275,7 @@
     )
     (location
         (name "napoli")
-        (region "campagna")
+        (region campania)
         (culturale 5)
         (balneare 5)
         (naturalistico 5)
@@ -287,7 +287,7 @@
     )
     (location
         (name "benevento")
-        (region "campagna")
+        (region campania)
         (culturale 5)
         (naturalistico 3)
         (religioso 3)
@@ -295,7 +295,7 @@
     )
     (location
         (name "brindisi")
-        (region "puglia")
+        (region puglia)
         (balneare 5)
         (naturalistico 3)
         (culturale 4)
@@ -304,7 +304,7 @@
     )
     (location
         (name "trani")
-        (region "puglia")
+        (region puglia)
         (balneare 5)
         (culturale 3)
         (religioso 4)
@@ -313,7 +313,7 @@
     )
     (location
         (name "matera")
-        (region "basilicata")
+        (region basilicata)
         (montano 5)
         (balneare 4)
         (naturalistico 5)
@@ -323,7 +323,7 @@
     )
     (location
         (name "potenza")
-        (region "basilicata")
+        (region basilicata)
         (montano 2)
         (balneare 4)
         (culturale 4)
@@ -333,7 +333,7 @@
     )
     (location
         (name "crotone")
-        (region "calabria")
+        (region calabria)
         (balneare 5)
         (montano 1)
         (lacustre 2)
@@ -343,7 +343,7 @@
     )
     (location
         (name "pizzo")
-        (region "calabria")
+        (region calabria)
         (balneare 5)
         (montano 4)
         (lacustre 3)
@@ -355,7 +355,7 @@
     )
     (location
         (name "lipari")
-        (region "sicilia")
+        (region sicilia)
         (balneare 5)
         (naturalistico 5)
         (culturale 4)
@@ -364,7 +364,7 @@
     )
     (location
         (name "vulcano")
-        (region "sicilia")
+        (region sicilia)
         (balneare 5)
         (naturalistico 5)
         (culturale 4)
@@ -375,7 +375,7 @@
     )
     (location
         (name "cagliari")
-        (region "sardegna")
+        (region sardegna)
         (balneare 5)
         (naturalistico 5)
         (culturale 3)
@@ -385,7 +385,7 @@
     )
     (location
         (name "caprera")
-        (region "sardegna")
+        (region sardegna)
         (balneare 5)
         (montano 1)
         (naturalistico 5)
