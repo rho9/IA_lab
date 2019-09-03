@@ -363,7 +363,7 @@
         (religioso 3)
     )
     (location
-        (name "vulcano")
+        (name "messina")
         (region sicilia)
         (balneare 5)
         (naturalistico 5)
@@ -856,13 +856,13 @@
     (hotel 
         (name "Villa Barone")
         (stars 4)
-        (location "vulcano")
+        (location "messina")
         (free_rooms 75)
     )
     (hotel
         (name "Villa Americana")
         (stars 1)
-        (location "vulcano")
+        (location "messina")
         (free_rooms 98)
     )
     (hotel 
@@ -1073,9 +1073,9 @@
 		(longitude 14.90407054)
 	)
 	(position
-		(name"vulcano")
-		(latitude 44.65442145)
-		(longitude 7.7308176)
+		(name"messina")
+		(latitude 38.1780343)
+		(longitude 15.4107898)
 	)
 	(position
 		(name"cagliari")

@@ -17,16 +17,19 @@
     (bind ?earthRadius 6371)
     (bind ?dlat (- ?lat2 ?lat1))
     (bind ?dlon (- ?lon2 ?lon1))
-    (bind ?rlat (/ (* ?dlat (pi)) 180))
-    (bind ?rlon (/ (* ?dlon (pi)) 180))
+    (bind ?rlat1 (/ (* ?lat1 (pi)) 180))
+    (bind ?rlat2 (/ (* ?lat2 (pi)) 180))
+    (bind ?rdlat (/ (* ?dlat (pi)) 180))
+    (bind ?rdlon (/ (* ?dlon (pi)) 180))
     ;studio segno atan https://it.wikipedia.org/wiki/Arcotangente2
-    (bind ?a (+ (** (sin (/ ?dlat 2)) 2) (* (* (** (sin (/ ?dlon 2)) 2) (cos ?lat1))(cos ?lat2))))
-    (bind ?c (* (atan (/ ?a (- 1 ?a))) 2))
+    (bind ?a (+ (** (sin (/ ?rdlat 2)) 2) (* (* (** (sin (/ ?rdlon 2)) 2) (cos ?rlat1))(cos ?rlat2))))
+    (bind ?c (* (atan (/ (sqrt ?a) (sqrt (- 1 ?a)))) 2))
     (bind ?distance (* ?earthRadius ?c))
     (bind ?max_distance 100)
     (bind ?delta 20) ;approximation of 20 km
     (if (<= ?distance (+ ?max_distance ?delta)) then
       (assert (distance (name1 ?name1) (name2 ?name2) (dist ?distance)))
+      (facts)
     )
   )
 )
