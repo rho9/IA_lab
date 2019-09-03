@@ -1,9 +1,9 @@
 :- initialization main.
 
-main :- consult(['././iterative_deepening/iterative_deepening.pl']),
-  consult(['././iterative_deepening/../azioni.pl']),
-  consult(['././iterative_deepening/../data/labirinto_easy.pl']),
-  consult(['././iterative_deepening/../heuristics/manhattan_distance.pl']),
+main :- consult(['./iterative_deepening/iterative_deepening.pl']),
+  consult(['./iterative_deepening/../azioni.pl']),
+  consult(['./iterative_deepening/../data/labirinto_easy.pl']),
+  consult(['./iterative_deepening/../heuristics/chebyshev_distance.pl']),
   iterative_deepening(X, 100, 1),
   atomic_list_concat(X, ', ', A),
   atom_string(A, S),
