@@ -23,9 +23,9 @@
     (bind ?a (+ (** (sin (/ ?dlat 2)) 2) (* (* (** (sin (/ ?dlon 2)) 2) (cos ?lat1))(cos ?lat2))))
     (bind ?c (* (atan (/ ?a (- 1 ?a))) 2))
     (bind ?distance (* ?earthRadius ?c))
-    (bind ?max-distance 100)
+    (bind ?max_distance 100)
     (bind ?delta 20) ;approximation of 20 km
-    (if (<= ?distance (+ ?max-distance ?delta)) then
+    (if (<= ?distance (+ ?max_distance ?delta)) then
       (assert (distance (name1 ?name1) (name2 ?name2) (dist ?distance)))
     )
   )
@@ -40,8 +40,8 @@
   
 
 ;condizione per rendere accettabile la proposta
-;(defrule RULES::hotel-cf-money
-;  ?f <- (hotel-cf ?name ?CF)
+;(defrule RULES::hotel_cf_money
+;  ?f <- (hotel_cf ?name ?CF)
 ;  (preference money ?money)
 ;  (cost ?name :(<= ?cost ?money))
 ;=>

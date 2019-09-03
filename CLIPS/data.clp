@@ -29,8 +29,8 @@
         (enogastronomico 5)
     )
     (location
-        (name "pré-saint-didier")
-        (region valle-aosta)
+        (name "pré_saint_didier")
+        (region valle_aosta)
         (montano 5)
         (lacustre 3)
         (naturalistico 5)
@@ -42,7 +42,7 @@
     )
     (location
         (name "aosta")
-        (region valle-aosta)
+        (region valle_aosta)
         (montano 3)
         (lacustre 2)
         (naturalistico 2)
@@ -92,7 +92,7 @@
     )
     (location
         (name "bologna")
-        (region emilia-romagna)
+        (region emilia_romagna)
         (culturale 5)
         (religioso 2)
         (sportivo 3)
@@ -100,7 +100,7 @@
     )
     (location
         (name "rimini")
-        (region emilia-romagna)
+        (region emilia_romagna)
         (culturale 2)
         (balneare 4)
         (naturalistico 2)
@@ -436,13 +436,13 @@
     (hotel 
         (name "Mogol")
         (stars 3)
-        (location "pré-saint-didier")
+        (location "pré_saint_didier")
         (free_rooms 10)
     )
     (hotel
         (name "Resorting SPA")
         (stars 5)
-        (location "pré-saint-didier")
+        (location "pré_saint_didier")
         (free_rooms 47)
     )
     (hotel 
