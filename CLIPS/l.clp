@@ -7,8 +7,8 @@
    (load templates.clp)
    (load questions.clp)
    (load data.clp)
-   (load hotel_cf.clp)
    (load rules.clp)
+   (load hotel_cf.clp)
    (reset)
    (run)
    TRUE

@@ -3,7 +3,7 @@
 (defrule MAIN::start
   (declare (salience 10000))
   =>
-  (set-fact-duplication TRUE) ; QUANDO VIENE USATO????
+  (set-fact-duplication FALSE) ; QUANDO VIENE USATO????
   (focus DATA RULES QUESTIONS HOTEL_CF)
 )
 

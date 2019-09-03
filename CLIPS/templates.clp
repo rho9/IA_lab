@@ -54,3 +54,9 @@
     (slot CF(type FLOAT))
     (slot type)
 )
+
+(deftemplate TEMPLATES::distance
+    (slot name1)
+    (slot name2)
+    (slot dist)
+)
