@@ -9,6 +9,7 @@
    (load data.clp)
    (load rules.clp)
    (load hotel_cf.clp)
+   (load search.clp)
    (reset)
    (run)
    TRUE

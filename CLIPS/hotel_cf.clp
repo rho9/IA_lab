@@ -44,12 +44,11 @@
 ; sets 2.5 or -2.5 if the location dists less than 120km
 (defrule HOTEL_CF::hotel_cf_temp_d
   (declare (salience 50))
-  (hotel_cf_temp (name ?name) (CF ?CF&:(eq 5.0 (abs ?CF)))(type ?value))
+  (hotel_cf_temp (name ?name) (CF ?CF&:(eq 5.0 ?CF))(type ?value))
   (hotel (name ?name)(location ?loc))
   (distance (name1 ?loc) (name2 ?loc2))
   (hotel (name ?name2&:(neq ?name ?name2)) (location ?loc2))
 =>
-  (printout t "CIAO\n")
   (assert (hotel_cf_temp (name ?name2) (CF (/ ?CF 2)) (type ?value)))
 )
 
@@ -171,7 +170,6 @@
   (preference (name people) (value ?people))
   (hotel (name ?name) (free_rooms ?p&:(<= ?people ?p)))
 =>
-  (printout t "ciao")
   (modify ?f (CF 1.0))
 )
 
@@ -182,10 +180,10 @@
   ?g <- (hotel_cf (name ?name) (CF ?CF2))
 =>
   (retract ?f)
-  (printout t ?pref)
+  ;(printout t ?pref)
   (if (eq ?CF2 -1) then
   (bind ?CF2 0))
   (modify ?g (CF(+ ?CF1 ?CF2)))
-  (printout t ?name)
-  (printout t (+ ?CF1 ?CF2))
+  ;(printout t ?name)
+  ;(printout t (+ ?CF1 ?CF2))
 )

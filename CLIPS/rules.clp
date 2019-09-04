@@ -29,7 +29,6 @@
     (bind ?delta 20) ;approximation of 20 km
     (if (<= ?distance (+ ?max_distance ?delta)) then
       (assert (distance (name1 ?name1) (name2 ?name2) (dist ?distance)))
-      (facts)
     )
   )
 )
