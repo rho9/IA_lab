@@ -52,7 +52,7 @@
 ; handle integer question
 (defrule QUESTIONS::integer_question
    ?f <- (question (already_asked FALSE)
-                   (preference ?type&money|people)
+                   (preference ?type&money|people|locality_number)
                    (the_question ?the_question))
    =>
    (modify ?f (already_asked TRUE))
@@ -141,6 +141,8 @@
                            sicilia
                            sardegna
                            stop))
+  (question (preference locality_number)
+            (the_question "Quante località vorresti visitare? "))
   (question (preference money)
             (the_question "Quanto vuoi spendere per il tuo soggiorno? "))
   (question (preference min_star_number)

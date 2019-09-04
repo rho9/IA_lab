@@ -61,17 +61,21 @@
     (slot dist)
 )
 
-; (deftemplate TEMPLATES::node
-;     (slot parent)
+ (deftemplate TEMPLATES::node
+     (slot parent)
 ;     (slot id)
-;     (slot hotel)
-;     (slot location)
-;     (slot CF)
-;     (slot open)
-;     (slot distance)
-;     (slot level)
-;     (multislot children)
-; )
+     (slot hotel)
+     (slot location)
+     (slot CF)
+;     (slot open) ; frontiera aperta
+     (slot distance)
+     (slot level)
+     (multislot children)
+ )
+
+(deftemplate TEMPLATES::cf_list
+    (multislot cf)
+)
 
 ; (deftemplate TEMPLATES::best_node
 ;     (slot id)
@@ -81,24 +85,18 @@
 ;     (slot id)
 ; )
 
-(deftemplate TEMPLATES::solution
-    (multislot sol1)
-    (slot cf1)
-    (multislot sol2)
-    (slot cf2)
-    (multislot sol3)
-    (slot cf3)
-    (multislot sol4)
-    (slot cf4)
-    (multislot sol5)
-    (slot cf5)
-)
+;(deftemplate TEMPLATES::solution
+;    (multislot sol1)
+;    (slot cf1)
+;    (multislot sol2)
+;    (slot cf2)
+;    (multislot sol3)
+;    (slot cf3)
+;    (multislot sol4)
+;    (slot cf4)
+;    (multislot sol5)
+;    (slot cf5)
+;)
 
-(deftemplate TEMPLATES::node
-    (slot id)
-    (slot hotel)
-    (slot CF)
-)
-
-(deftemplate TEMPLATES::bests
-    (multislot ids (default -100)) 
+;(deftemplate TEMPLATES::bests
+;    (multislot ids (default -100)) 
