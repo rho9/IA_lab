@@ -26,6 +26,19 @@
   (assert (hotel_cf_temp (name ?name) (CF 0.0) (type ?value)))
 )
 
+(defrule HOTEL_CF::hotel_cf_temp_p
+  (declare (salience 100))
+  (hotel_cf (name ?name) (CF -1.0))
+  (preference (name people)(value ?value))
+  (hotel (name ?name) (stars ?s) (location ?l) (free_rooms ?fr))
+=>
+  (if (> (/ people 2) ?fr) then
+    (assert (hotel_cf_temp (name ?name) (CF -50.0) (type ?value)))
+  else
+    (assert (hotel_cf_temp (name ?name) (CF 0.0) (type ?value)))
+  )
+)
+
 ; sets 5 if the region is ok else -5
 (defrule HOTEL_CF::hotel_cf_temp_r
   (declare (salience 100))
