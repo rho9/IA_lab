@@ -6,7 +6,7 @@
     (bind ?id (gensym*))
     (assert (node (hotel "root")(location "")(CF -9999.0)(distance 0.0)(level 0)(children (create$))))
     (assert (best_node(id ?id)))
-    (assert (cfs_list(cf(create$)))) ; LISTA VUOTA
+    (assert (cf_list(cf(create$)))) ; LISTA VUOTA
 )
 
 (defrule SEARCH::extract_max
