@@ -1,0 +1,110 @@
+net
+{
+	propagationenginegenerator1791944048146838126L = "edu.ucla.belief.approx.BeliefPropagationSettings@3df2d470";
+	recoveryenginegenerator6944530267470113528l = "edu.ucla.util.SettingsImpl@16d52866";
+	jenginegenerator6060830225489488864L = "edu.ucla.belief.inference.JoinTreeSettings@41e75b35";
+	node_size = (130.0 55.0);
+}
+
+node variable3
+{
+	states = ("true" "false" );
+	position = (74 44);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable3";
+	label = "progesterone";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node variable0
+{
+	states = ("true" "false" );
+	position = (563 -20);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable0";
+	label = "scanning test";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node variable4
+{
+	states = ("true" "false" );
+	position = (351 115);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable4";
+	label = "pregnancy";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node variable1
+{
+	states = ("true" "false" );
+	position = (-65 -69);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable1";
+	label = "blood test";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node variable2
+{
+	states = ("true" "false" );
+	position = (229 -64);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable2";
+	label = "urine test";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	excludepolicy = "include whole CPT";
+}
+node variable5
+{
+	states = ("state3" "state2" "state0" "state1" );
+	position = (-3 175);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable5";
+	label = "variable1";
+	excludepolicy = "include whole CPT";
+}
+potential ( variable3 | variable4 )
+{
+	data = ((	0.9	0.09999999999999998	)
+		(	0.01	0.99	));
+}
+potential ( variable0 | variable4 )
+{
+	data = ((	0.9	0.1	)
+		(	0.01	0.99	));
+}
+potential ( variable4 | )
+{
+	data = (	0.87	0.13	);
+}
+potential ( variable1 | variable3 )
+{
+	data = ((	0.7	0.3	)
+		(	0.1	0.9	));
+}
+potential ( variable2 | variable3 )
+{
+	data = ((	0.8	0.2	)
+		(	0.1	0.9	));
+}
+potential ( variable5 | variable3 variable4 )
+{
+	data = (((	0.0	0.0	0.5	0.5	)
+		(	0.0	0.0	0.5	0.5	))
+		((	0.0	0.0	0.5	0.5	)
+		(	0.0	0.0	0.5	0.5	)));
+}

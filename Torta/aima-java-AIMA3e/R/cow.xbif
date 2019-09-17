@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+
+<!--
+  Bayesian network in XMLBIF v0.3 (BayesNet Interchange Format)
+  Produced by SamIam http://reasoning.cs.ucla.edu/samiam
+  Output created 15-lug-2019 22.56.23
+-->
+
+<BIF VERSION="0.3">
+<NETWORK>
+  <NAME>bayesiannetwork</NAME>
+
+  <VARIABLE TYPE="nature">
+    <NAME>Variable0_paste1</NAME>
+    <OUTCOME>true</OUTCOME>
+    <OUTCOME>false</OUTCOME>
+    <PROPERTY>position = (418, -206)</PROPERTY>
+  </VARIABLE>
+
+  <VARIABLE TYPE="nature">
+    <NAME>Variable0</NAME>
+    <OUTCOME>true</OUTCOME>
+    <OUTCOME>false</OUTCOME>
+    <PROPERTY>position = (66, -286)</PROPERTY>
+  </VARIABLE>
+
+  <VARIABLE TYPE="nature">
+    <NAME>Variable0_paste2</NAME>
+    <OUTCOME>true</OUTCOME>
+    <OUTCOME>false</OUTCOME>
+    <PROPERTY>position = (152, -153)</PROPERTY>
+  </VARIABLE>
+
+  <VARIABLE TYPE="nature">
+    <NAME>Variable0_paste3</NAME>
+    <OUTCOME>true</OUTCOME>
+    <OUTCOME>false</OUTCOME>
+    <PROPERTY>position = (259, -48)</PROPERTY>
+  </VARIABLE>
+
+  <VARIABLE TYPE="nature">
+    <NAME>Variable0_paste0</NAME>
+    <OUTCOME>true</OUTCOME>
+    <OUTCOME>false</OUTCOME>
+    <PROPERTY>position = (243, -283)</PROPERTY>
+  </VARIABLE>
+
+  <DEFINITION>
+    <FOR>Variable0_paste1</FOR>
+    <GIVEN>Variable0_paste3</GIVEN>
+    <TABLE>0.9 0.1 0.01 0.99 </TABLE>
+  </DEFINITION>
+
+  <DEFINITION>
+    <FOR>Variable0</FOR>
+    <GIVEN>Variable0_paste2</GIVEN>
+    <TABLE>0.7 0.3 0.1 0.9 </TABLE>
+  </DEFINITION>
+
+  <DEFINITION>
+    <FOR>Variable0_paste2</FOR>
+    <GIVEN>Variable0_paste3</GIVEN>
+    <TABLE>0.9 0.1 0.01 0.99 </TABLE>
+  </DEFINITION>
+
+  <DEFINITION>
+    <FOR>Variable0_paste3</FOR>
+    <TABLE>0.87 0.13 </TABLE>
+  </DEFINITION>
+
+  <DEFINITION>
+    <FOR>Variable0_paste0</FOR>
+    <GIVEN>Variable0_paste2</GIVEN>
+    <TABLE>0.8 0.2 0.1 0.9 </TABLE>
+  </DEFINITION>
+
+</NETWORK>
+</BIF>
