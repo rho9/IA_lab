@@ -405,13 +405,13 @@
     )
     (hotel
         (name "Royal Superga")
-        (stars 5)
+        (stars 4)
         (location "torino")
         (free_rooms 10)
     )
     (hotel 
         (name "Nova Hotel")
-        (stars 4)
+        (stars 3)
         (location "asti")
         (free_rooms 54)
     )
@@ -423,13 +423,13 @@
     )
     (hotel 
         (name "Napoleon")
-        (stars 4)
+        (stars 3)
         (location "cherasco")
         (free_rooms 20)
     )
     (hotel
         (name "Imperial")
-        (stars 5)
+        (stars 4)
         (location "cherasco")
         (free_rooms 7)
     )
@@ -441,7 +441,7 @@
     )
     (hotel
         (name "Resorting SPA")
-        (stars 5)
+        (stars 4)
         (location "pré_saint_didier")
         (free_rooms 47)
     )
@@ -477,7 +477,7 @@
     )
     (hotel
         (name "Sinavilla Matilde")
-        (stars 4)
+        (stars 3)
         (location "imperia")
         (free_rooms 75)
     )
@@ -495,7 +495,7 @@
     )
     (hotel 
         (name "Miramonti")
-        (stars 4)
+        (stars 3)
         (location "como")
         (free_rooms 10)
     )
@@ -519,7 +519,7 @@
     )
     (hotel 
         (name "Hotel Diamante")
-        (stars 5)
+        (stars 4)
         (location "rimini")
         (free_rooms 9)
     )
@@ -531,7 +531,7 @@
     )
     (hotel 
         (name "Palazzo di Amindta")
-        (stars 5)
+        (stars 4)
         (location "venezia")
         (free_rooms 43)
     )
@@ -543,7 +543,7 @@
     )
     (hotel 
         (name "Hotel Iris")
-        (stars 4)
+        (stars 3)
         (location "verona")
         (free_rooms 10)
     )
@@ -561,7 +561,7 @@
     )
     (hotel
         (name "Hotel cenacolo")
-        (stars 4)
+        (stars 3)
         (location "trento")
         (free_rooms 32)
     )
@@ -597,7 +597,7 @@
     )
     (hotel
         (name "MOM")
-        (stars 4)
+        (stars 3)
         (location "gorizia")
         (free_rooms 25)
     )
@@ -609,7 +609,7 @@
     )
     (hotel
         (name "La rocca")
-        (stars 4)
+        (stars 3)
         (location "firenze")
         (free_rooms 54)
     )
@@ -621,7 +621,7 @@
     )
     (hotel
         (name "Hotel Cristallo")
-        (stars 5)
+        (stars 4)
         (location "saturnia")
         (free_rooms 5)
     )
@@ -639,7 +639,7 @@
     )
     (hotel 
         (name "Bosone Palace")
-        (stars 4)
+        (stars 3)
         (location "assisi")
         (free_rooms 56)
     )
@@ -651,7 +651,7 @@
     )
     (hotel 
         (name "Grand Hotel Elite")
-        (stars 5)
+        (stars 4)
         (location "ancona")
         (free_rooms 13)
     )
@@ -693,7 +693,7 @@
     )
     (hotel
         (name "Hotel Ambasciatori")
-        (stars 4)
+        (stars 3)
         (location "rieti")
         (free_rooms 24)
     )
@@ -705,7 +705,7 @@
     )
     (hotel
         (name "Hotel Olimpya")
-        (stars 4)
+        (stars 3)
         (location "l'aquila")
         (free_rooms 16)
     )
@@ -723,7 +723,7 @@
     )
     (hotel 
         (name "Nuovo Albergo")
-        (stars 4)
+        (stars 3)
         (location "termoli")
         (free_rooms 51)
     )
@@ -735,13 +735,13 @@
     )
     (hotel 
         (name "Ambra Palace")
-        (stars 5)
+        (stars 4)
         (location "campobasso")
         (free_rooms 5)
     )
     (hotel
         (name "Hotel Excelsio")
-        (stars 4)
+        (stars 3)
         (location "campobasso")
         (free_rooms 8)
     )
@@ -765,7 +765,7 @@
     )
     (hotel
         (name "Grande Albergo delle Nazioni")
-        (stars 5)
+        (stars 4)
         (location "benevento")
         (free_rooms 8)
     )
@@ -801,7 +801,7 @@
     )
     (hotel
         (name "Hotel Vittoria")
-        (stars 4)
+        (stars 3)
         (location "matera")
         (free_rooms 29)
     )
@@ -837,7 +837,7 @@
     )
     (hotel
         (name "Hotel Solievo")
-        (stars 4)
+        (stars 3)
         (location "pizzo")
         (free_rooms 56)
     )
@@ -855,7 +855,7 @@
     )
     (hotel 
         (name "Villa Barone")
-        (stars 4)
+        (stars 3)
         (location "messina")
         (free_rooms 75)
     )
@@ -867,7 +867,7 @@
     )
     (hotel 
         (name "Imperiali Hotel")
-        (stars 5)
+        (stars 4)
         (location "cagliari")
         (free_rooms 2)
     )
@@ -885,7 +885,7 @@
     )
     (hotel
         (name "Holiday In")
-        (stars 4)
+        (stars 3)
         (location "caprera")
         (free_rooms 2)
     )
