@@ -10,6 +10,17 @@ una località per un periodo di tempo di almeno una notte.
 - in rules non più di 100km tra una meta e l'altra (nei cf un po' di tolleranza è ammessa)
 - Gestione preferenza su una località (aggiungere campo a località: sarà come un cf)
 
+- La percentuale di importanza delle varie feature per quanto riguarda i cf:
+  * Regione si (10)
+  * Regione no (10)
+  * Tipologia (10)
+  * Stelle min (5)
+  * Stelle max (5)
+  * Vicinanza regione (5)
+  * Distanza da hotel (5)
+  * Soldi (20)
+  * Disponibilità camere (30)
+
 # Appunti
 ## main.clp
 Gestisce il flusso di esecuzione (ha una salience molto alta per esssere sicuri che parta per primo).  
