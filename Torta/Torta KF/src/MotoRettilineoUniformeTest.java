@@ -11,6 +11,7 @@ import libreria.random.Well19937c;
 import libreria.userguide.ExampleUtils;
 import libreria.userguide.ExampleUtils.ExampleFrame;
 import libreria.util.FastMath;
+import libreria.MatrixDeterminant;
 
 import javax.swing.*;
 import java.awt.*;
@@ -128,7 +129,7 @@ public class MotoRettilineoUniformeTest {
         });
 
 
-        // POTREBBE ESSERE "variare la P(.) inizialedellostato"
+        // POTREBBE ESSERE "variare la P(.) iniziale dello stato"
         // The initial error covariance matrix
         final RealMatrix initialErrorCovariance = MatrixUtils.createRealMatrix(new double[][] {
                 {   1,    0,   0,    0 },
@@ -231,11 +232,19 @@ public class MotoRettilineoUniformeTest {
         printMatrix(error);
         System.out.println();
 
+        // STAMPA IL DETERMINANTE DELLA MATRICE DEGLI ERRORI
+        System.out.println("Determinante della matrice degli errori: " +
+                MatrixDeterminant.determinantOfMatrix(error, 4));
+
         // STAMPIAMO LA MATRICE DI KALMAN GAIN
         System.out.println("Matrice del Kalman gain");
         double[][] kalmanGain = filter.getKalmanGain().getData();
         printMatrix(kalmanGain);
         System.out.println();
+
+        // STAMPA IL DETERMINANTE DELLA MATRICE di Kalman Gain
+        System.out.println("Determinante della matrice di Kalman Gain: " +
+                MatrixDeterminant.determinantOfMatrix(kalmanGain, 4));
 
         chart.setXAxisTitle("X");
         chart.setYAxisTitle("Y");
