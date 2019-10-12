@@ -103,7 +103,6 @@ public class MotoRettilineoUniformeTest {
         //     [ 0,  1, 0,  0 ]  => vx(n+1) =        vx(n)
         //     [ 0,  0, 1, dt ]  =>  y(n+1) =              y(n) + vy(n)
         //     [ 0,  0, 0,  1 ]  => vy(n+1) =                     vy(n)
-        // PER ORA NON USATA
         final RealMatrix A = MatrixUtils.createRealMatrix(new double[][] {
                 { 1, dt, 0,  0 },
                 { 0,  1, 0,  0 },
