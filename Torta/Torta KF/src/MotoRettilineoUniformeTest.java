@@ -62,6 +62,7 @@ public class MotoRettilineoUniformeTest {
             return location[1];
         }
 
+        // RND: RANDOM
         //public double getMeasuredX() { return location[0] + rng.nextGaussian() * measurementNoise; }
 
         //public double getMeasuredY() { return location[1] + rng.nextGaussian() * measurementNoise;  }
@@ -77,6 +78,7 @@ public class MotoRettilineoUniformeTest {
             return velocity[1];
         }
 
+        // AGGIORNA LA POSIZIONE DI X E Y (I VALORI REALI)
         public void step() {
             location[0] += velocity[0]*timeslice;
             location[1] += velocity[1]*timeslice;
@@ -101,6 +103,7 @@ public class MotoRettilineoUniformeTest {
         //     [ 0,  1, 0,  0 ]  => vx(n+1) =        vx(n)
         //     [ 0,  0, 1, dt ]  =>  y(n+1) =              y(n) + vy(n)
         //     [ 0,  0, 0,  1 ]  => vy(n+1) =                     vy(n)
+        // PER ORA NON USATA
         final RealMatrix A = MatrixUtils.createRealMatrix(new double[][] {
                 { 1, dt, 0,  0 },
                 { 0,  1, 0,  0 },
@@ -129,8 +132,9 @@ public class MotoRettilineoUniformeTest {
         });
 
 
-        // POTREBBE ESSERE "variare la P(.) iniziale dello stato"
+        // POTREBBE ESSERE "variare la P(.) iniziale dello stato" ???????
         // The initial error covariance matrix
+        // USARE PER REGOLARE L'ERRORE DELLE MISURAZIONI
         final RealMatrix initialErrorCovariance = MatrixUtils.createRealMatrix(new double[][] {
                 {   1,    0,   0,    0 },
                 {   0,    0,   0,    0 },
@@ -139,6 +143,8 @@ public class MotoRettilineoUniformeTest {
         });
 
         // the measurement covariance matrix
+        // NOTA: la matrice di covarianza rappresenta la variazione di ogni variabile rispetto alle altre
+        // USARE PER REGOLARE LA VARIANZA DELLE MISURAZIONI
         final RealMatrix R = MatrixUtils.createRealMatrix(new double[][] {
                 {    500,    0,     0,    0 },
                 {     0,    1,     0,    0 },
@@ -148,14 +154,16 @@ public class MotoRettilineoUniformeTest {
 
         // process noise DA VARIARE
         //final RealMatrix Q = MatrixUtils.createRealMatrix(4, 4);
+        // USARE PER REGOLARE IL RUMORE
         final RealMatrix Q = MatrixUtils.createRealMatrix(new double[][] {
                 { 0.05,    0,   0,    0 },
                 { 0,    0,   0,    0 },
-                { 0,    0,   0.05,    0 },
+                { 0,    0,   0.5,    0 },
                 { 0,    0,   0,    0 }
         });
 
-        // the measurement covariance matrix for Kalman Filter FORSE DA MIDIFICARE
+        // the measurement covariance matrix for Kalman Filter
+        // MODIFICA IL GRAFICO. VEDERE DA TEORA IN CHE MODO
         final RealMatrix RK = MatrixUtils.createRealMatrix(new double[][] {
                 {    20,    0,     0,    0 },
                 {     0,    1,     0,    0 },
@@ -169,8 +177,9 @@ public class MotoRettilineoUniformeTest {
         // This is our guess of the initial state.
         final double speedX = mru.getXVelocity();
         final double speedY = mru.getYVelocity();
+        // POSIZIONE INIZIALE (SPERIMENTARE CAMBIANDO)
         final RealVector initialState = MatrixUtils.createRealVector(new double[] { 0, speedX, 150, speedY } );
-        // POSX, SPEEDX, POSY, SPEDDY. FAI ESPERIMENTI CAMBIANDO LE POSIZIONI
+        // initialState: POSX, SPEEDX, POSY, SPEEDY
 
         // Kalman Filter
         final ProcessModel pm = new DefaultProcessModel(A, B, Q, initialState, initialErrorCovariance);
@@ -249,13 +258,16 @@ public class MotoRettilineoUniformeTest {
         chart.setXAxisTitle("X");
         chart.setYAxisTitle("Y");
 
+        // LINEA CHE RAPPRESENTA I VALORI REALI
         Series dataset = chart.addSeries("true", realX, realY);
         dataset.setMarker(SeriesMarker.NONE);
 
+        // LINEA CHE RAPPRESENTA I VALORI MISURATI
         dataset = chart.addSeries("measured", measuredX, measuredY);
         dataset.setLineStyle(SeriesLineStyle.DOT_DOT);
         dataset.setMarker(SeriesMarker.NONE);
 
+        // LINEA CHE RAPPRESENTA KALMAN GAIN
         dataset = chart.addSeries("kalman", kalmanX, kalmanY);
         dataset.setLineColor(Color.red);
         dataset.setLineStyle(SeriesLineStyle.DASH_DASH);
