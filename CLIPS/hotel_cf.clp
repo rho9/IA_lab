@@ -36,7 +36,7 @@
   (preference (name tourism)(value ?value))
 =>
   (assert (hotel_cf_temp (name ?name) (CF 0.0) (type ?value)))
-  (assert (hotel_cf_temp_r (name ?name) (CF 0.1) (type ?value)))
+  (assert (hotel_cf_temp (name ?name) (CF 0.1) (type normal_region)))
 )
 
 ; handle CF for number of empty room and staying people
@@ -69,7 +69,7 @@
   (declare (salience 50))
   (preference (name ok_region)(value ?value))
   (location (name ?loc)(region ?value))
-  (location (name ?loc2)(region ?value2:&(neq ?value ?value2)))
+  (location (name ?loc2)(region ?value2&:(neq ?value ?value2)))
   (hotel (name ?name)(location ?loc))
   (distance (name1 ?loc) (name2 ?loc2))
   ; se le due località sono in distance, allora stanno a meno di 120 km l'una dall'altra
@@ -81,26 +81,22 @@
   (assert (hotel_cf_temp (name ?name2) (CF 0.05) (type ?value)))
 )
 
-;QUI
-
-; for each temp fact sets 1 if satisfiable
+; handle CF for min star number
 (defrule HOTEL_CF::hotel_cf_min
   (declare (salience 10))
   (preference (name min_star_number) (value ?preferred_stars))
-  ?f <- (hotel_cf_temp (name ?name) (CF 0.0) (type min_star_number))
   (hotel (name ?name) (stars ?stars&:(>= ?stars ?preferred_stars)))
 =>
-  (modify ?f (CF 1.0))
+  (assert (hotel_cf_temp (name ?name) (CF 0.05) (type min_star_number)))
 )
 
-; for each temp fact sets 1 if satisfiable
+; handle CF for max star number
 (defrule HOTEL_CF::hotel_cf_max
   (declare (salience 10))
-  ?f <- (hotel_cf_temp (name ?name) (CF 0.0) (type max_star_number))
   (preference (name max_star_number) (value ?preferred_stars))
   (hotel (name ?name) (stars ?stars&:(<= ?stars ?preferred_stars)))
 =>
-  (modify ?f (CF 1.0))
+(assert (hotel_cf_temp (name ?name) (CF 0.05) (type max_star_number)))
 )
 
 ; if variable as name selector for slots it could be rewritten with a single rule
@@ -108,103 +104,104 @@
 (defrule HOTEL_CF::hotel_cf_turism_balneare
   (declare (salience 10))
   (preference (name tourism) (value balneare))
-  ?f <- (hotel_cf_temp (name ?name) (CF 0.0) (type balneare))
+  ;?f <- (hotel_cf_temp (name ?name) (CF 0.0) (type balneare))
   (hotel (name ?name)(location ?loc))
   (location (name ?loc) (balneare ?v&:(> ?v 0.0)))
 =>
-  (modify ?f (CF (* (/ (/ 10 45) 100) ?v)))
+  (assert (hotel_cf_temp (name ?name) (CF (* (/ (/ 10 45) 100) ?v)) (type balneare)))
+
+  ;(modify ?f (CF (* (/ (/ 10 45) 100) ?v)))
   ; 10% è l'importanza della tipologia. 
-  ; / 10 45 normalizza il CF dividendo ogni tipologia per il numero divalori che gli si può assegnare
+  ; / 10 45 normalizza il CF dividendo ogni tipologia per il numero di valori che gli si può assegnare
   ; / (/ 10 45) 100) fa sì che il CF stia tra 0 e 1
 )
 
 (defrule HOTEL_CF::hotel_cf_turism_montano
   (declare (salience 10))
   (preference (name tourism) (value montano))
-  ?f <- (hotel_cf_temp (name ?name) (CF 0.0) (type montano))
+  ;?f <- (hotel_cf_temp (name ?name) (CF 0.0) (type montano))
   (hotel (name ?name)(location ?loc))
   (location (name ?loc) (montano ?v&:(> ?v 0.0)))
 =>
-  (modify ?f (CF (* (/ (/ 10 45) 100) ?v)))
+  (assert  (hotel_cf_temp (name ?name) (CF (* (/ (/ 10 45) 100) ?v)) (type montano)))
+  ;(modify ?f (CF (* (/ (/ 10 45) 100) ?v)))
 )
                 
 (defrule HOTEL_CF::hotel_cf_turism_lacustre
   (declare (salience 10))
   (preference (name tourism) (value lacustre))
-  ?f <- (hotel_cf_temp (name ?name) (CF 0.0) (type lacustre))
+  ;?f <- (hotel_cf_temp (name ?name) (CF 0.0) (type lacustre))
   (hotel (name ?name)(location ?loc))
   (location (name ?loc) (lacustre ?v&:(> ?v 0.0)))
 =>
-  (modify ?f (CF (* (/ (/ 10 45) 100) ?v)))
+  (assert  (hotel_cf_temp (name ?name) (CF (* (/ (/ 10 45) 100) ?v)) (type lacustre)))
+  ;(modify ?f (CF (* (/ (/ 10 45) 100) ?v)))
 )
 
 (defrule HOTEL_CF::hotel_cf_turism_naturalistico
   (declare (salience 10))
   (preference (name tourism) (value naturalistico))
-  ?f <- (hotel_cf_temp (name ?name) (CF 0.0) (type naturalistico))
+  ;?f <- (hotel_cf_temp (name ?name) (CF 0.0) (type naturalistico))
   (hotel (name ?name)(location ?loc))
   (location (name ?loc) (naturalistico ?v&:(> ?v 0.0)))
 =>
-  (modify ?f (CF (* (/ (/ 10 45) 100) ?v)))
+  (assert  (hotel_cf_temp (name ?name) (CF (* (/ (/ 10 45) 100) ?v)) (type naturalistico)))
+  ;(modify ?f (CF (* (/ (/ 10 45) 100) ?v)))
 )
 
 (defrule HOTEL_CF::hotel_cf_turism_termale
   (declare (salience 10))
   (preference (name tourism) (value termale))
-  ?f <- (hotel_cf_temp (name ?name) (CF 0.0) (type termale))
+  ;?f <- (hotel_cf_temp (name ?name) (CF 0.0) (type termale))
   (hotel (name ?name)(location ?loc))
   (location (name ?loc) (termale ?v&:(> ?v 0.0)))
 =>
-  (modify ?f (CF (* (/ (/ 10 45) 100) ?v)))
+  (assert  (hotel_cf_temp (name ?name) (CF (* (/ (/ 10 45) 100) ?v)) (type termale)))
+  ;(modify ?f (CF (* (/ (/ 10 45) 100) ?v)))
 )
 
 (defrule HOTEL_CF::hotel_cf_turism_culturale
   (declare (salience 10))
   (preference (name tourism) (value culturale))
-  ?f <- (hotel_cf_temp (name ?name) (CF 0.0) (type culturale))
+  ;?f <- (hotel_cf_temp (name ?name) (CF 0.0) (type culturale))
   (hotel (name ?name)(location ?loc))
   (location (name ?loc) (culturale ?v&:(> ?v 0.0)))
 =>
-  (modify ?f (CF (* (/ (/ 10 45) 100) ?v)))
+  (assert  (hotel_cf_temp (name ?name) (CF (* (/ (/ 10 45) 100) ?v)) (type culturale)))
+  ;(modify ?f (CF (* (/ (/ 10 45) 100) ?v)))
 )
 
 (defrule HOTEL_CF::hotel_cf_turism_religioso
   (declare (salience 10))
   (preference (name tourism) (value religioso))
-  ?f <- (hotel_cf_temp (name ?name) (CF 0.0) (type religioso))
+  ;?f <- (hotel_cf_temp (name ?name) (CF 0.0) (type religioso))
   (hotel (name ?name)(location ?loc))
   (location (name ?loc) (religioso ?v&:(> ?v 0.0)))
 =>
-  (modify ?f (CF (* (/ (/ 10 45) 100) ?v)))
+  (assert  (hotel_cf_temp (name ?name) (CF (* (/ (/ 10 45) 100) ?v)) (type religioso)))
+  ;(modify ?f (CF (* (/ (/ 10 45) 100) ?v)))
 )
 
 (defrule HOTEL_CF::hotel_cf_turism_sportivo
   (declare (salience 10))
   (preference (name tourism) (value sportivo))
-  ?f <- (hotel_cf_temp (name ?name) (CF 0.0) (type sportivo))
+  ;?f <- (hotel_cf_temp (name ?name) (CF 0.0) (type sportivo))
   (hotel (name ?name)(location ?loc))
   (location (name ?loc) (sportivo ?v&:(> ?v 0.0)))
 =>
-  (modify ?f (CF (* (/ (/ 10 45) 100) ?v)))
+  (assert  (hotel_cf_temp (name ?name) (CF (* (/ (/ 10 45) 100) ?v)) (type sportivo)))
+  ;(modify ?f (CF (* (/ (/ 10 45) 100) ?v)))
 )
 
 (defrule HOTEL_CF::hotel_cf_turism_enogastronomico
   (declare (salience 10))
   (preference (name tourism) (value enogastronomico))
-  ?f <- (hotel_cf_temp (name ?name) (CF 0.0) (type enogastronomico))
+  ;?f <- (hotel_cf_temp (name ?name) (CF 0.0) (type enogastronomico))
   (hotel (name ?name)(location ?loc))
   (location (name ?loc) (enogastronomico ?v&:(> ?v 0.0)))
 =>
-  (modify ?f (CF (* (/ (/ 10 45) 100) ?v)))
-)
-
-(defrule HOTEL_CF::hotel_cf_people
-  (declare (salience 10))
-  ?f <- (hotel_cf_temp (name ?name) (CF 0.0) (type people))
-  (preference (name people) (value ?people))
-  (hotel (name ?name) (free_rooms ?p&:(<= ?people ?p)))
-=>
-  (modify ?f (CF 1.0))
+  (assert  (hotel_cf_temp (name ?name) (CF (* (/ (/ 10 45) 100) ?v)) (type enogastronomico)))
+  ;(modify ?f (CF (* (/ (/ 10 45) 100) ?v)))
 )
 
 ; calculation of cf
@@ -214,10 +211,18 @@
   ?g <- (hotel_cf (name ?name) (CF ?CF2))
 =>
   (retract ?f)
-  ;(printout t ?pref)
+  ;(printout t ?pref) ; prints used for debugging purposes
   (if (eq ?CF2 -1) then
   (bind ?CF2 0))
   (modify ?g (CF(+ ?CF1 ?CF2)))
   ;(printout t ?name)
-  ;(printout t (+ ?CF1 ?CF2))
+  (printout t (+ ?CF1 ?CF2))
+  (printout t ?CF1)
+  (printout t ?CF2)
 )
+;rule used to print the facts and debug
+; (defrule HOTEL_CF_facts
+;   (declare (salience 0))
+;   =>
+;   (facts)
+; )
