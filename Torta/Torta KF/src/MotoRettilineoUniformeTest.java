@@ -30,6 +30,7 @@ public class MotoRettilineoUniformeTest {
 
         private final RandomGenerator rng;
 
+        //R - measurement noise covariance matrix
         private final double[][] R;
         private final MultivariateNormalDistribution mnd;
 
@@ -46,7 +47,6 @@ public class MotoRettilineoUniformeTest {
 
             this.measurementNoise = measurementNoise;
             this.rng = new Well19937c(seed);
-
             this.R = R.getData();
             double[] means = {0.0,0.0,0.0,0.0};
 
@@ -98,7 +98,7 @@ public class MotoRettilineoUniformeTest {
         // shooting angle
         final double angle = 15;
 
-
+        //A - state transition matrix
         // A = [ 1, dt, 0,  0 ]  =>  x(n+1) = x(n) + vx(n)
         //     [ 0,  1, 0,  0 ]  => vx(n+1) =        vx(n)
         //     [ 0,  0, 1, dt ]  =>  y(n+1) =              y(n) + vy(n)
@@ -113,7 +113,7 @@ public class MotoRettilineoUniformeTest {
         // The control vector
         final RealVector controlVector =
                 MatrixUtils.createRealVector(new double[] { 0, 0, 0, 0 } );
-
+        //B - control input matrix
         // The control matrix B, see control vector
         final RealMatrix B = MatrixUtils.createRealMatrix(new double[][] {
                 { 1, 0, 0, 0 },
@@ -122,6 +122,7 @@ public class MotoRettilineoUniformeTest {
                 { 0, 0, 0, 1 }
         });
 
+        //H - measurement matrix
         // We only observe the x/y coordinates
         final RealMatrix H = MatrixUtils.createRealMatrix(new double[][] {
                 { 1, 0, 0, 0 },
@@ -140,7 +141,7 @@ public class MotoRettilineoUniformeTest {
                 {   0,    0,   1,    0 },
                 {   0,    0,   0,    0 }
         });
-
+        //R - measurement noise covariance matrix</li>
         // the measurement covariance matrix
         // NOTA: la matrice di covarianza rappresenta la variazione di ogni variabile rispetto alle altre
         // USARE PER REGOLARE LA VARIANZA DELLE MISURAZIONI
@@ -151,7 +152,8 @@ public class MotoRettilineoUniformeTest {
                 {     0,    0,     0,    1 }
         });
 
-        // process noise DA VARIARE
+        //Q - process noise covariance matrix
+        // process noise (varia il rumore della predizione)
         //final RealMatrix Q = MatrixUtils.createRealMatrix(4, 4);
         // USARE PER REGOLARE IL RUMORE
         final RealMatrix Q = MatrixUtils.createRealMatrix(new double[][] {
