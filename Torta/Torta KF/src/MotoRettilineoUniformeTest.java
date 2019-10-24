@@ -196,6 +196,8 @@ public class MotoRettilineoUniformeTest {
 
         final List<Number> erroreX = new ArrayList<Number>();
         final List<Number> erroreY = new ArrayList<Number>();
+        final List<Number> errore1Y = new ArrayList<Number>();
+
         final List<Number> kalmanGainX = new ArrayList<Number>();
         final List<Number> kalmanGainY = new ArrayList<Number>();
 
@@ -227,7 +229,8 @@ public class MotoRettilineoUniformeTest {
             erroreX.add(i);
             double[][] error = filter.getErrorCovariance();
             erroreY.add(error[0][0]);
-            //erroreY.add(error[2][2]);
+            //TODO decidere che fare con sta cosa. Quale dei 2??
+            errore1Y.add(error[2][2]);
 
             kalmanGainX.add(i);
             RealMatrix kalmanGain = filter.getKalmanGain();
@@ -235,7 +238,8 @@ public class MotoRettilineoUniformeTest {
             //kalmanGainY.add(kalmanGain.getData()[2][2]);
 
         }
-
+        //TODO Magari stampare l'ultimo valore di erroreY anzichè il determinante e la matrice.
+        //Torta aveva detto che è meglio un unico valore
         // STAMPIAMO LA MATRICE DEGLI ERRORI
         System.out.println("Matrice degli errori");
         double[][] error = filter.getErrorCovariance();
@@ -258,6 +262,13 @@ public class MotoRettilineoUniformeTest {
 
         chart.setXAxisTitle("X");
         chart.setYAxisTitle("Y");
+
+        //Stampa erroreY ed errore1Y
+        for(int x = 0; x < erroreY.size(); x++){
+            System.out.print(erroreY.get(x));
+            System.out.print("--");
+            System.out.println(errore1Y.get(x));
+        }
 
         // LINEA CHE RAPPRESENTA I VALORI REALI
         Series dataset = chart.addSeries("true", realX, realY);
