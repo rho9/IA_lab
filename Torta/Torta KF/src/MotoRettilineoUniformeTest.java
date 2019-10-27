@@ -92,7 +92,7 @@ public class MotoRettilineoUniformeTest {
         // the number of iterations to run
         final int iterations = 200;
         // measurement noise (m)
-        final double measurementNoise = 1;
+        final double measurementNoise = 3;
         // initial velocity
         final double initialVelocity = 100;
         // shooting angle
@@ -277,6 +277,7 @@ public class MotoRettilineoUniformeTest {
         // LINEA CHE RAPPRESENTA I VALORI MISURATI
         dataset = chart.addSeries("measured", measuredX, measuredY);
         dataset.setLineStyle(SeriesLineStyle.DOT_DOT);
+        dataset.setLineColor(Color.green);
         dataset.setMarker(SeriesMarker.NONE);
 
         // LINEA CHE RAPPRESENTA KALMAN GAIN
@@ -313,7 +314,7 @@ public class MotoRettilineoUniformeTest {
         JComponent container = new JPanel();
         container.setLayout(new BoxLayout(container, BoxLayout.LINE_AXIS));
 
-        Chart chart = createChartBis("Moto Rettilineo Uniforme", 550, 450, LegendPosition.InsideNE, true);
+        Chart chart = createChartBis("Moto Rettilineo Uniforme", 550, 450, LegendPosition.InsideSE, true);
         motoRettilineoUniformeTest(chart);
         container.add(new XChartPanel(chart));
 
@@ -328,7 +329,7 @@ public class MotoRettilineoUniformeTest {
 
         public Display() {
             setTitle("Commons Math: Kalman Filter - Moto Rettilineo Uniforme");
-            setSize(1450, 515);
+            setSize(565, 515);
 
             container = new JPanel();
             JComponent comp = createComponent();
