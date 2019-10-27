@@ -37,6 +37,7 @@
 =>
   (assert (hotel_cf_temp (name ?name) (CF 0.0) (type ?value)))
   (assert (hotel_cf_temp (name ?name) (CF 0.1) (type normal_region)))
+  ; normal_region: regioni neutrale (nè da non visitare, nè da visitare)
 )
 
 ; handle CF for number of empty room and staying people
@@ -108,7 +109,8 @@
   (hotel (name ?name)(location ?loc))
   (location (name ?loc) (balneare ?v&:(> ?v 0.0)))
 =>
-  (assert (hotel_cf_temp (name ?name) (CF (* (/ (/ 10 45) 100) ?v)) (type balneare)))
+  (bind ?num_pref (length$ (find-all-facts ((?f preference)) (eq ?f:name tourism))))
+  (assert (hotel_cf_temp (name ?name) (CF (* (/ (/ 10 (* ?num_pref 5)) 100) ?v)) (type balneare)))
 
   ;(modify ?f (CF (* (/ (/ 10 45) 100) ?v)))
   ; 10% è l'importanza della tipologia. 
@@ -123,7 +125,8 @@
   (hotel (name ?name)(location ?loc))
   (location (name ?loc) (montano ?v&:(> ?v 0.0)))
 =>
-  (assert  (hotel_cf_temp (name ?name) (CF (* (/ (/ 10 45) 100) ?v)) (type montano)))
+  (bind ?num_pref (length$ (find-all-facts ((?f preference)) (eq ?f:name tourism))))
+  (assert (hotel_cf_temp (name ?name) (CF (* (/ (/ 10 (* ?num_pref 5)) 100) ?v)) (type montano)))
   ;(modify ?f (CF (* (/ (/ 10 45) 100) ?v)))
 )
                 
@@ -134,7 +137,8 @@
   (hotel (name ?name)(location ?loc))
   (location (name ?loc) (lacustre ?v&:(> ?v 0.0)))
 =>
-  (assert  (hotel_cf_temp (name ?name) (CF (* (/ (/ 10 45) 100) ?v)) (type lacustre)))
+  (bind ?num_pref (length$ (find-all-facts ((?f preference)) (eq ?f:name tourism))))
+  (assert (hotel_cf_temp (name ?name) (CF (* (/ (/ 10 (* ?num_pref 5)) 100) ?v)) (type lacustre)))
   ;(modify ?f (CF (* (/ (/ 10 45) 100) ?v)))
 )
 
@@ -145,7 +149,8 @@
   (hotel (name ?name)(location ?loc))
   (location (name ?loc) (naturalistico ?v&:(> ?v 0.0)))
 =>
-  (assert  (hotel_cf_temp (name ?name) (CF (* (/ (/ 10 45) 100) ?v)) (type naturalistico)))
+  (bind ?num_pref (length$ (find-all-facts ((?f preference)) (eq ?f:name tourism))))
+  (assert (hotel_cf_temp (name ?name) (CF (* (/ (/ 10 (* ?num_pref 5)) 100) ?v)) (type naturalistico)))
   ;(modify ?f (CF (* (/ (/ 10 45) 100) ?v)))
 )
 
@@ -156,7 +161,8 @@
   (hotel (name ?name)(location ?loc))
   (location (name ?loc) (termale ?v&:(> ?v 0.0)))
 =>
-  (assert  (hotel_cf_temp (name ?name) (CF (* (/ (/ 10 45) 100) ?v)) (type termale)))
+  (bind ?num_pref (length$ (find-all-facts ((?f preference)) (eq ?f:name tourism))))
+  (assert (hotel_cf_temp (name ?name) (CF (* (/ (/ 10 (* ?num_pref 5)) 100) ?v)) (type termale)))
   ;(modify ?f (CF (* (/ (/ 10 45) 100) ?v)))
 )
 
@@ -167,7 +173,8 @@
   (hotel (name ?name)(location ?loc))
   (location (name ?loc) (culturale ?v&:(> ?v 0.0)))
 =>
-  (assert  (hotel_cf_temp (name ?name) (CF (* (/ (/ 10 45) 100) ?v)) (type culturale)))
+  (bind ?num_pref (length$ (find-all-facts ((?f preference)) (eq ?f:name tourism))))
+  (assert (hotel_cf_temp (name ?name) (CF (* (/ (/ 10 (* ?num_pref 5)) 100) ?v)) (type culturale)))
   ;(modify ?f (CF (* (/ (/ 10 45) 100) ?v)))
 )
 
@@ -178,7 +185,8 @@
   (hotel (name ?name)(location ?loc))
   (location (name ?loc) (religioso ?v&:(> ?v 0.0)))
 =>
-  (assert  (hotel_cf_temp (name ?name) (CF (* (/ (/ 10 45) 100) ?v)) (type religioso)))
+  (bind ?num_pref (length$ (find-all-facts ((?f preference)) (eq ?f:name tourism))))
+  (assert (hotel_cf_temp (name ?name) (CF (* (/ (/ 10 (* ?num_pref 5)) 100) ?v)) (type religioso)))
   ;(modify ?f (CF (* (/ (/ 10 45) 100) ?v)))
 )
 
@@ -189,7 +197,8 @@
   (hotel (name ?name)(location ?loc))
   (location (name ?loc) (sportivo ?v&:(> ?v 0.0)))
 =>
-  (assert  (hotel_cf_temp (name ?name) (CF (* (/ (/ 10 45) 100) ?v)) (type sportivo)))
+  (bind ?num_pref (length$ (find-all-facts ((?f preference)) (eq ?f:name tourism))))
+  (assert (hotel_cf_temp (name ?name) (CF (* (/ (/ 10 (* ?num_pref 5)) 100) ?v)) (type sportivo)))
   ;(modify ?f (CF (* (/ (/ 10 45) 100) ?v)))
 )
 
@@ -200,7 +209,8 @@
   (hotel (name ?name)(location ?loc))
   (location (name ?loc) (enogastronomico ?v&:(> ?v 0.0)))
 =>
-  (assert  (hotel_cf_temp (name ?name) (CF (* (/ (/ 10 45) 100) ?v)) (type enogastronomico)))
+  (bind ?num_pref (length$ (find-all-facts ((?f preference)) (eq ?f:name tourism))))
+  (assert (hotel_cf_temp (name ?name) (CF (* (/ (/ 10 (* ?num_pref 5)) 100) ?v)) (type enogastronomico)))
   ;(modify ?f (CF (* (/ (/ 10 45) 100) ?v)))
 )
 
@@ -212,17 +222,18 @@
 =>
   (retract ?f)
   ;(printout t ?pref) ; prints used for debugging purposes
-  (if (eq ?CF2 -1) then
+  (if (eq ?CF2 -1.0) then
   (bind ?CF2 0))
   (modify ?g (CF(+ ?CF1 ?CF2)))
   ;(printout t ?name)
-  (printout t (+ ?CF1 ?CF2))
-  (printout t ?CF1)
-  (printout t ?CF2)
+  ; (printout t (+ ?CF1 ?CF2) crlf)
+  ; (printout t ?CF1 crlf)
+  ; (printout t ?CF2 crlf crlf)
 )
-;rule used to print the facts and debug
-; (defrule HOTEL_CF_facts
-;   (declare (salience 0))
-;   =>
-;   (facts)
-; )
+
+rule used to print the facts and debug
+(defrule HOTEL_CF_facts
+  (declare (salience 0))
+  =>
+  (facts)
+)
