@@ -45,6 +45,7 @@
 )
  
 (deftemplate TEMPLATES::hotel_cf 
+    (slot id)
     (slot name)
     (slot CF(type FLOAT))
 )
@@ -61,49 +62,13 @@
     (slot dist)
 )
 
- (deftemplate TEMPLATES::node
-     (slot parent)
-     (slot id)
-     (slot hotel)
-     (slot location)
-     (slot CF)
-;     (slot open) ; frontiera aperta
-     (slot distance)
-     (slot level)
-     (multislot children_id)
-     (multislot children_hotel)
- )
-
-(deftemplate TEMPLATES::cf_list
-    (multislot cf)
+(deftemplate TEMPLATES::proposal
+    (slot id)
+    (multislot offer)
+    (slot totalCF)
+    (slot totalCost)
 )
 
-(deftemplate TEMPLATES::tabu_list
-    (slot name)
-    (multislot locations)
-    (slot last(default nil))
+(deftemplate TEMPLATES::orderedHCF
+    (multislot hotel_cf_id_list)
 )
-
-; (deftemplate TEMPLATES::best_node
-;     (slot id)
-; )
-
-; (deftemplate TEMPLATES::best_expansion
-;     (slot id)
-; )
-
-;(deftemplate TEMPLATES::solution
-;    (multislot sol1)
-;    (slot cf1)
-;    (multislot sol2)
-;    (slot cf2)
-;    (multislot sol3)
-;    (slot cf3)
-;    (multislot sol4)
-;    (slot cf4)
-;    (multislot sol5)
-;    (slot cf5)
-;)
-
-;(deftemplate TEMPLATES::bests
-;    (multislot ids (default -100)) 

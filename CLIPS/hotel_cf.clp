@@ -231,7 +231,7 @@
   ; (printout t ?CF2 crlf crlf)
 )
 
-rule used to print the facts and debug
+;rule used to print the facts and debug
 (defrule HOTEL_CF_facts
   (declare (salience 0))
   =>
