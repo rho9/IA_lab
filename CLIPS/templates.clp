@@ -62,13 +62,13 @@
     (slot dist)
 )
 
-(deftemplate TEMPLATES::proposal
-    (slot id)
-    (multislot offer)
-    (slot totalCF)
-    (slot totalCost)
-)
+; (deftemplate TEMPLATES::proposal
+;     (slot id)
+;     (multislot offer)
+;     (slot totalCF)
+;     (slot totalCost)
+; )
 
-(deftemplate TEMPLATES::orderedHCF
-    (multislot hotel_cf_id_list)
-)
+; (deftemplate TEMPLATES::orderedHCF
+;     (multislot hotel_cf_id_list)
+; )

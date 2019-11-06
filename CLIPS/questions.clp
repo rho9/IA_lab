@@ -21,7 +21,7 @@
    (printout t ?question)
    (bind ?answer (read))
    ; lexemep check if the variable is a string or a symbol
-   (if (lexemep ?answer) then (bind ?answer (lowcase ?answer))) ; usefull for "stop"
+   (if (lexemep ?answer) then (bind ?answer (lowcase ?answer))) ; usefull for "s"
    (while (or (not (integerp ?answer)) (<= ?answer 0)) do ; or is lazy, if the first cond is true does not verify the second
       (printout t "Inserire un numero intero postivo ")
       (bind ?answer (read))
@@ -42,7 +42,7 @@
    =>
    (modify ?f (already_asked TRUE))
    (bind ?answer (ask_question_av ?the_question ?valid_answers))
-   (while (neq ?answer stop)
+   (while (neq ?answer s)
       (assert (preference (name ?type)
                          (value ?answer)))
       (bind ?answer (ask_question_av ?the_question ?valid_answers))
@@ -71,7 +71,7 @@
    =>
    (modify ?f (already_asked TRUE))
    (bind ?answer (ask_question_av ?the_question ?valid_answers))
-   (if (neq ?answer stop) then
+   (if (neq ?answer s) then
       (assert (preference (name ?type)  
                          (value ?answer)))
    )
@@ -94,7 +94,7 @@
                            religioso
                            sportivo
                            enogastronomico
-                           stop))
+                           s))
   (question (preference ok_region)
             (the_question "Quali regioni italiane vuoi visitare? ")
             (valid_answers piemonte
@@ -117,7 +117,7 @@
                            calabria
                            sicilia
                            sardegna
-                           stop))
+                           s))
   (question (preference no_region)
             (the_question "Quali regioni italiane NON vuoi visitare? ")
             (valid_answers piemonte
@@ -140,17 +140,17 @@
                            calabria
                            sicilia
                            sardegna
-                           stop))
+                           s))
   (question (preference locality_number)
             (the_question "Quante località vorresti visitare? "))
   (question (preference money)
             (the_question "Quanto vuoi spendere per il tuo soggiorno? "))
   (question (preference min_star_number)
             (the_question "Qual è il numero minimo di stelle che deve avere l'hotel in cui vuoi soggiornare? ")
-            (valid_answers 1 2 3 4 stop))
+            (valid_answers 1 2 3 4 s))
   (question (preference max_star_number)
             (the_question "Qual è il numero massimo di stelle che deve avere l'hotel in cui vuoi soggiornare? ")
-            (valid_answers 1 2 3 4 stop))
+            (valid_answers 1 2 3 4 s))
   (question (preference night)
             (the_question "Quante notti vuoi trascorrere in vacanza? "))
   (question (preference people)

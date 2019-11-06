@@ -16,7 +16,7 @@
   (declare (salience 1000))
   (hotel (name ?name))
 =>
-  (assert (hotel_cf (name ?name) (CF -1.0)))
+  (assert (hotel_cf (id (gensym*)) (name ?name) (CF -1.0)))
 )
 
 ; duplicate fact for each preference because of clips problems loop
@@ -37,6 +37,7 @@
 =>
   (assert (hotel_cf_temp (name ?name) (CF 0.0) (type ?value)))
   (assert (hotel_cf_temp (name ?name) (CF 0.1) (type normal_region)))
+  (assert (hotel_cf_temp (name ?name) (CF 0.05) (type distance)))
   ; normal_region: regioni neutrale (nè da non visitare, nè da visitare)
 )
 
@@ -225,7 +226,7 @@
   (if (eq ?CF2 -1.0) then
   (bind ?CF2 0))
   (modify ?g (CF(+ ?CF1 ?CF2)))
-  ;(printout t ?name)
+  ; (printout t ?name)
   ; (printout t (+ ?CF1 ?CF2) crlf)
   ; (printout t ?CF1 crlf)
   ; (printout t ?CF2 crlf crlf)

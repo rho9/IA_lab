@@ -6,4 +6,3 @@
   (set-fact-duplication FALSE) ; QUANDO VIENE USATO????
   (focus DATA RULES QUESTIONS HOTEL_CF SEARCH)
 )
-
