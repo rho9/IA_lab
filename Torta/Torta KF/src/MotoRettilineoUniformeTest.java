@@ -27,6 +27,7 @@ public class MotoRettilineoUniformeTest {
 
         private final double timeslice;
         private final double measurementNoise;
+        private final double realPositionNoise;
 
         private final RandomGenerator rng;
 
@@ -34,7 +35,7 @@ public class MotoRettilineoUniformeTest {
         private final double[][] R;
         private final MultivariateNormalDistribution mnd;
 
-        public  MotoRettilineoUniforme(RealMatrix R, double timeslice, double angle, double initialVelocity, double measurementNoise, int seed) {
+        public  MotoRettilineoUniforme(RealMatrix R, double timeslice, double angle, double initialVelocity, double measurementNoise, double realPositionNoise, int seed) {
             this.timeslice = timeslice;
 
             final double angleInRadians = FastMath.toRadians(angle);
@@ -46,6 +47,7 @@ public class MotoRettilineoUniformeTest {
             this.location = new double[] { 0, 0 };
 
             this.measurementNoise = measurementNoise;
+            this.realPositionNoise = realPositionNoise;
             this.rng = new Well19937c(seed);
             this.R = R.getData();
             double[] means = {0.0,0.0,0.0,0.0};
@@ -55,11 +57,11 @@ public class MotoRettilineoUniformeTest {
         }
 
         public double getX() {
-            return location[0];
+            return location[0]+ this.mnd.sample()[0] * realPositionNoise;
         }
 
         public double getY() {
-            return location[1];
+            return location[1]+ this.mnd.sample()[2] * realPositionNoise;
         }
 
         // RND: RANDOM
@@ -68,9 +70,9 @@ public class MotoRettilineoUniformeTest {
         //public double getMeasuredY() { return location[1] + rng.nextGaussian() * measurementNoise;  }
 
         // per il calcolo della posizione vengono usati mnd e measurementNoise per sporcare i valori
-        public double getMeasuredX() { return location[0] + this.mnd.sample()[0] * measurementNoise; }
+        public double getMeasuredX() { return getX() + this.mnd.sample()[0] * measurementNoise; }
 
-        public double getMeasuredY() { return location[1] + this.mnd.sample()[2] * measurementNoise;  }
+        public double getMeasuredY() { return getY() + this.mnd.sample()[2] * measurementNoise;  }
 
         public double getXVelocity() { return velocity[0]; }
 
@@ -93,6 +95,8 @@ public class MotoRettilineoUniformeTest {
         final int iterations = 200;
         // measurement noise (m)
         final double measurementNoise = 3;
+        // position noise (m)
+        final double realPositionNoise = 0;
         // initial velocity
         final double initialVelocity = 100;
         // shooting angle
@@ -173,7 +177,7 @@ public class MotoRettilineoUniformeTest {
         });
 
         // definizione del moto rettilineo uniforme
-        final MotoRettilineoUniforme mru = new MotoRettilineoUniforme(R, dt, angle, initialVelocity, measurementNoise, 1000);
+        final MotoRettilineoUniforme mru = new MotoRettilineoUniforme(R, dt, angle, initialVelocity, measurementNoise, realPositionNoise, 1000);
 
         // This is our guess of the initial state.
         final double speedX = mru.getXVelocity();
