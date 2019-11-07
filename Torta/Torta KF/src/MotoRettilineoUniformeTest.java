@@ -94,7 +94,7 @@ public class MotoRettilineoUniformeTest {
         // the number of iterations to run
         final int iterations = 200;
         // measurement noise (m)
-        final double measurementNoise = 3;
+        final double measurementNoise = 1;
         // position noise (m)
         final double realPositionNoise = 0;
         // initial velocity
@@ -200,7 +200,7 @@ public class MotoRettilineoUniformeTest {
 
         final List<Number> erroreX = new ArrayList<Number>();
         final List<Number> erroreY = new ArrayList<Number>();
-        final List<Number> errore1Y = new ArrayList<Number>();
+        final List<Number> errorDistance = new ArrayList<Number>();
 
         final List<Number> kalmanGainX = new ArrayList<Number>();
         final List<Number> kalmanGainY = new ArrayList<Number>();
@@ -233,8 +233,8 @@ public class MotoRettilineoUniformeTest {
             erroreX.add(i);
             double[][] error = filter.getErrorCovariance();
             erroreY.add(error[0][0]);
-            //TODO decidere che fare con sta cosa. Quale dei 2??
-            errore1Y.add(error[2][2]);
+
+            errorDistance.add(Math.abs(state[2]-mru.getY())); //distance between kalman estimation and real value
 
             kalmanGainX.add(i);
             RealMatrix kalmanGain = filter.getKalmanGain();
@@ -242,37 +242,18 @@ public class MotoRettilineoUniformeTest {
             //kalmanGainY.add(kalmanGain.getData()[2][2]);
 
         }
-        //TODO Magari stampare l'ultimo valore di erroreY anzichè il determinante e la matrice.
+
         //Torta aveva detto che è meglio un unico valore
-        // STAMPIAMO LA MATRICE DEGLI ERRORI
-        System.out.println("Matrice degli errori");
-        double[][] error = filter.getErrorCovariance();
-        printMatrix(error);
-        System.out.println();
-
-        // STAMPA IL DETERMINANTE DELLA MATRICE DEGLI ERRORI
-        System.out.println("Determinante della matrice degli errori: " +
-                MatrixDeterminant.determinantOfMatrix(error, 4));
-
-        // STAMPIAMO LA MATRICE DI KALMAN GAIN
-        System.out.println("Matrice del Kalman gain");
-        double[][] kalmanGain = filter.getKalmanGain().getData();
-        printMatrix(kalmanGain);
-        System.out.println();
-
-        // STAMPA IL DETERMINANTE DELLA MATRICE di Kalman Gain
-        System.out.println("Determinante della matrice di Kalman Gain: " +
-                MatrixDeterminant.determinantOfMatrix(kalmanGain, 4));
+        // STAMPIAMO LA MEDIA DEGLI ERRORI
+        System.out.println("Media degli errori");
+        double sum = 0;
+        for (int i = 0; i < iterations; i++) {
+            sum = (double)errorDistance.get(i) + sum;
+        }
+        System.out.println(sum/iterations);
 
         chart.setXAxisTitle("X");
         chart.setYAxisTitle("Y");
-
-        //Stampa erroreY ed errore1Y
-        for(int x = 0; x < erroreY.size(); x++){
-            System.out.print(erroreY.get(x));
-            System.out.print("--");
-            System.out.println(errore1Y.get(x));
-        }
 
         // LINEA CHE RAPPRESENTA I VALORI REALI
         Series dataset = chart.addSeries("true", realX, realY);
