@@ -45,14 +45,20 @@ public class TestSprinklerPlus {
         qrv[0] = Sprinkler;
 
         //evidenze (variabili che assegnamo a priori)
-        AssignmentProposition[] ap = new AssignmentProposition[2];
+        AssignmentProposition[] ap = new AssignmentProposition[4];
         ap[0] = new AssignmentProposition(Season, "Fall");
         ap[1] = new AssignmentProposition(Cloudy, "Yes");
+        ap[2] = new AssignmentProposition(Road_wet, "No");
+        ap[3] = new AssignmentProposition(Grass_wet, "Yes");
 
         System.out.println("\nRISULTATO");
         MPE mpe = new MPE();
+        long startTime = System.currentTimeMillis();
         Map<RandomVariable, Object> assignment = mpe.start(Arrays.asList(qrv), ap, bn);
+        long stoptime = System.currentTimeMillis();
         System.out.println(assignment);
+        long elapsed_time=stoptime-startTime;
+        System.out.println("Tempo trascorso: " + elapsed_time + "ms");
     }
 }
 

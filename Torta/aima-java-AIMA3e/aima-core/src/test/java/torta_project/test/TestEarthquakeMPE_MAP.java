@@ -75,7 +75,11 @@ public class TestEarthquakeMPE_MAP {
         RandomVariable[] qrv = mpeB ? assegnaVarMPE(rvs) : assegnaVarMAP(tastiera,rvs);
 
         MPE mpe = new MPE();
-        Map<RandomVariable, Object> assignament = mpe.start(Arrays.asList(qrv), ap, bn);
-        System.out.println(assignament);
+        long startTime = System.currentTimeMillis();
+        Map<RandomVariable, Object> assignment = mpe.start(Arrays.asList(qrv), ap, bn);
+        long stoptime = System.currentTimeMillis();
+        System.out.println(assignment);
+        long elapsed_time=stoptime-startTime;
+        System.out.println("Tempo trascorso: " + elapsed_time + "ms");
     }
 }
