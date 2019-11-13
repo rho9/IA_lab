@@ -1,0 +1,1 @@
+clips <<< `python -c "print '(load l.clp)\n(l)\n'+'2\n'*10+'s\n'*3+'(exit)\n'"`
