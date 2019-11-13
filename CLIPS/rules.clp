@@ -1,12 +1,5 @@
 (defmodule RULES (import DATA ?ALL) (export ?ALL))
 
-; computes cost of hotel knowing his stars
-(defrule RULES::cal_cost
-  (hotel (name ?name)(stars ?x))
-=>
-  (assert (cost ?name (+ 50 (* (- ?x 1) 25))))
-)
-
 ; computes distances between two locations
 (defrule RULES::cal_distance
   (declare (salience 1000))
