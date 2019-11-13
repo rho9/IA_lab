@@ -24,9 +24,10 @@
     (slot cost)
 )
 
+; find first place of an holiday proposal
 (defrule SEARCH::create_roots
     (declare (salience 10000))
-    (preference (name locality_number)(value ?v))
+    (preference (name locality_number)(value ?v)) ; to know how many places the user wants to visit
     (hotel_cf (id ?id1) (CF ?CF1))
     (not (hotel_cf (CF ?CF2&:(and (> (- ?CF2 0.02) ?CF1) (> (+ ?CF2 0.02) ?CF1)))))
     =>
@@ -36,6 +37,7 @@
     (assert (chosen (pid ?pid) (id_hotel ?id1)))
 )
 
+; find other places of an holiday proposal
 (defrule SEARCH::find_proposal
     (declare (salience 1000))
     (preference (name locality_number)(value ?v))
