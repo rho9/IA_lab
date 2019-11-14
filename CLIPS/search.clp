@@ -24,6 +24,14 @@
     (slot cost)
 )
 
+(deftemplate TEMPLATES::proposal
+    (slot id)
+    (slot pid)
+    (multislot l)
+    (slot CF)
+    (slot cost)
+)
+
 ; find first place of an holiday proposal
 (defrule SEARCH::create_roots
     (declare (salience 10000))
@@ -49,7 +57,7 @@
     (hotel_cf (name ?name2) (CF ?CF2) (id ?id2))
     (hotel (name ?name3)(location ?loc3))
     (distance (name1 ?loc1)(name2 ?loc3)(dist ?d3))
-    (not (path (pid ?pid)(count ?c&:(neq ?c (+ ?c 1)))));fix bug: ripetizione percorsi stesso livello stesso pid
+    (not (path (pid ?pid)(count ?c1&:(eq ?c1 (+ ?c 1)))));fix bug: ripetizione percorsi stesso livello stesso pid
     (not (chosen (pid ?pid)(id_hotel ?id2)))
     (not (hotel_cf (name ?name3) (CF ?CF3&:(> (- ?CF3 (max 0 (* 0.05 (/(- ?d3 100) 20)))) (- ?CF2 (max 0 (* 0.05 (/(- ?d2 100) 20)))))))) ;non esiste un hotel3 con cf maggiore di hotel2
 =>
@@ -67,27 +75,49 @@
 )
 
 (defrule SEARCH::cost_temp_remove
-  (declare (salience 10))
-  ?f <- (cost_temp (pid ?pid)(cost ?cost))
-  ?g <- (cost (pid ?pid) (cost ?cost1))
+    (declare (salience 10))
+    (preference (name locality_number)(value ?v))
+    ?f <- (cost_temp (pid ?pid)(cost ?cost))
+    ?g <- (cost (pid ?pid) (cost ?cost1))
+    (path (pid ?pid) (count ?v))
 =>
-  (retract ?f)
-  ;(printout t ?pref) ; prints used for debugging purposes
-  (modify ?g (cost(+ ?cost ?cost1)))
+    (retract ?f)
+    (printout t ?cost ?cost1) ; prints used for debugging purposes
+    (modify ?g (cost (+ ?cost ?cost1)))
 
 )
 
-(defrule SEARCH::print
+(defrule SEARCH::root_proposals
+    (preference (name locality_number)(value ?v))
+    (path (pid ?pid) (id2 ?id)(count 1))
+    (path (pid ?pid) (count ?v)(CF ?CF))
+    (cost (pid ?pid) (cost ?cost))
+=>
+    (assert (proposal (id (gensym*)) (pid ?pid) (l ?id) (CF ?CF)(cost ?cost)))
+)
+
+(defrule SEARCH::child_proposals
     (declare (salience 1))
+    (preference (name locality_number)(value ?v))
+    (path (pid ?pid) (id2 ?id)(count ?c&:(neq ?c 1)))
+    ?f <- (proposal (pid ?pid)(l ?l))
+    (cost (pid ?pid) (cost ?cost))
+=>
+    (modify ?f (l ?l ?id))
+)
+
+(defrule SEARCH::print
+    (declare (salience 0))
+    ;(false)
 =>
     (facts)
 )
 
 
-(defrule ANSWERS::print_answer
-    (answer(locations $?l)(nights $?n)(cost ?cost)(CF ?cf))
-    (printout "Proposta" clrf)
-    (printout "Costo: " ?cost clrf)
-    (printout "CF: " ?cf clrf)
-    print_loc_nights(?l, ?n)
-)
+; (defrule ANSWERS::print_answer
+;     (answer(locations $?l)(nights $?n)(cost ?cost)(CF ?cf))
+;     (printout "Proposta" clrf)
+;     (printout "Costo: " ?cost clrf)
+;     (printout "CF: " ?cf clrf)
+;     print_loc_nights(?l, ?n)
+; )
