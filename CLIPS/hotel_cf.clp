@@ -235,6 +235,7 @@
 ;rule used to print the facts and debug
 (defrule HOTEL_CF_facts
   (declare (salience 0))
+  (fale)
   =>
   (facts)
 )

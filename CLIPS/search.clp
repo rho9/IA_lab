@@ -32,6 +32,17 @@
     (slot cost)
 )
 
+(deftemplate TEMPLATES::n_printed
+    (slot value)
+)
+
+(deftemplate TEMPLATES::printing 
+    (slot id)
+)
+
+(deftemplate TEMPLATES::printed
+    (slot id)
+)
 ; find first place of an holiday proposal
 (defrule SEARCH::create_roots
     (declare (salience 10000))
@@ -82,12 +93,13 @@
     (path (pid ?pid) (count ?v))
 =>
     (retract ?f)
-    (printout t ?cost ?cost1) ; prints used for debugging purposes
+    ;(printout t ?cost ?cost1) ; prints used for debugging purposes
     (modify ?g (cost (+ ?cost ?cost1)))
 
 )
 
 (defrule SEARCH::root_proposals
+    (declare (salience 1))
     (preference (name locality_number)(value ?v))
     (path (pid ?pid) (id2 ?id)(count 1))
     (path (pid ?pid) (count ?v)(CF ?CF))
@@ -97,7 +109,7 @@
 )
 
 (defrule SEARCH::child_proposals
-    (declare (salience 1))
+    (declare (salience 0))
     (preference (name locality_number)(value ?v))
     (path (pid ?pid) (id2 ?id)(count ?c&:(neq ?c 1)))
     ?f <- (proposal (pid ?pid)(l ?l))
@@ -106,9 +118,62 @@
     (modify ?f (l ?l ?id))
 )
 
+(defrule init_printing 
+    (declare (salience -1))
+=>
+    (assert (n_printed (value 0)))
+    (printout t crlf)
+)
+
+(defrule SEARCH::print_paths
+    (declare (salience -10))
+    (proposal (id ?id)(pid ?pid)(l $?path)(CF ?CF)(cost ?cost))
+    (not (proposal (CF ?CF1&:(> ?CF1 ?CF))))
+    ?f <- (n_printed (value ?p&:(< ?p 5)))
+    (not (printing (id ?idp)))
+    (not (printed (id ?idd)))
+=>
+    (modify ?f (value (+ ?p 1)))
+    (assert (printing (id ?id)))
+    (printout t (+ ?p 1) ") ")
+)
+
+(defrule SEARCH::printing_paths
+    (declare (salience -10))
+    ?g <- (printing (id ?id))
+    ?f <- (proposal (id ?id)(pid ?pid)(l ?head $?path ?tail)(CF ?CF)(cost ?cost))
+    (hotel_cf (id ?head)(name ?name))
+    (hotel(name ?name)(location ?loc)(stars ?s))
+    (not (printed (id ?idd)))
+=>
+    ;(retract ?f)
+    ;(assert(proposal (id ?id)(pid ?pid)(l ?head $?path)(CF ?CF)(cost ?cost)))
+    (printout t ?loc " (" ?name " " ?s " stars" ") ")
+    
+    (if (eq ?tail ?head) 
+        then 
+            (retract ?g)
+            (assert (printed (id ?id)))
+        else
+            (modify ?f (l $?path ?tail))
+        
+    )
+)
+
+(defrule SEARCH::printed_paths
+    (declare (salience -10))
+    ?g <-(printed (id ?id))
+    ?f <- (proposal (id ?id)(pid ?pid)(CF ?CF)(cost ?cost))
+=>
+    (printout t "cost: " ?cost "€ -> " (* ?CF 100) "%" crlf)
+    (retract ?f)
+    (retract ?g)
+)
+
+
 (defrule SEARCH::print
-    (declare (salience 0))
-    ;(false)
+    (declare (salience -100))
+    (false)
 =>
     (facts)
 )
