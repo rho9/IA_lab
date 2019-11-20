@@ -17,6 +17,9 @@
   (hotel (name ?name))
 =>
   (assert (hotel_cf (id (gensym*)) (name ?name) (CF -1.0)))
+  (assert (hotel_cf_temp (name ?name) (CF 0.1) (type normal_region)))
+  (assert (hotel_cf_temp (name ?name) (CF 0.05) (type distance)))
+  (assert (hotel_cf_temp (name ?name) (CF 0.2) (type eheh)))
 )
 
 ; duplicate fact for each preference because of clips problems loop
@@ -36,8 +39,6 @@
   (preference (name tourism)(value ?value))
 =>
   (assert (hotel_cf_temp (name ?name) (CF 0.0) (type ?value)))
-  (assert (hotel_cf_temp (name ?name) (CF 0.1) (type normal_region)))
-  (assert (hotel_cf_temp (name ?name) (CF 0.05) (type distance)))
   ; normal_region: regioni neutrale (nè da non visitare, nè da visitare)
 )
 
@@ -235,7 +236,7 @@
 ;rule used to print the facts and debug
 (defrule HOTEL_CF_facts
   (declare (salience 0))
-  (fale)
+  (false)
   =>
   (facts)
 )
