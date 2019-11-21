@@ -40,7 +40,6 @@
     (slot value)
 )
 
-
 (deftemplate TEMPLATES::n_printed
     (slot value)
 )
@@ -103,53 +102,56 @@
     (path (pid ?pid) (count ?v))
 =>
     (retract ?f)
-    ;(printout t ?cost ?cost1) ; prints used for debugging purposes
+    ; (printout t "ciao")
+    ; (printout t ?cost ?cost1) ; prints used for debugging purposes
     (modify ?g (cost (+ ?cost ?cost1)))
 )
 
 (defrule SEARCH::root_proposals
     (declare (salience 6000))
     (preference (name locality_number)(value ?v))
-    (path (pid ?pid) (id2 ?id)(count 1))
+    ?f <- (path (pid ?pid) (id2 ?id)(count 1))
     (path (pid ?pid) (count ?v)(CF ?CF))
     (cost (pid ?pid) (cost ?cost))
 =>
     (assert (proposal (id (gensym*)) (pid ?pid) (l ?id) (CF ?CF)(cost ?cost)))
     (assert (path_value (value 2)))
+    (retract ?f)
 )
 
 (defrule SEARCH::child_proposals
     (declare (salience 5000))
     (path_value (value ?c))
-    (path (pid ?pid) (id2 ?id)(count ?c)
-    ?f <- (proposal (pid ?pid)(l ?l))
+    ?f <- (proposal (id ?proid)(pid ?pid)(l ?head $?l))
+    ?g <- (path (pid ?pid) (id1 ?head) (id2 ?id&:(neq ?id ?head))(count ?c))
     (cost (pid ?pid) (cost ?cost))
 =>
-    (modify ?f (l ?l ?id))
+    (retract ?g)
+    (modify ?f (l ?id ?head $?l))
 )
 
-(defrule SEARCH::child_proposals
-    (declare (salience 5000))
+(defrule SEARCH::child_update_bound
+    (declare (salience 4000))
     (preference (name locality_number)(value ?v))
-    (path_value (value ?c&:(<= ?c ?v)))
-    (not(path (pid ?pid) (id2 ?id)(count ?c)))
-    ?f <- (proposal (pid ?pid)(l ?l))
+    ?g <- (path_value(value ?c&:(<= ?c ?v)))
+    ?f <- (proposal (pid ?pid)(l ?id $?l))
+    (not(path (pid ?pid) (id1 ?id)(count ?c)))
     (cost (pid ?pid) (cost ?cost))
 =>
-    (modify )) ;qua
+    (modify ?g (value (+ ?c 1)))
+    (printout t "refresh" crlf)
+    (refresh SEARCH::child_proposals)
 )
 
 
 (defrule SEARCH::money_temp
-    (declare (salience 4000))
+    (declare (salience 3000))
     ?f <- (proposal (id ?id)(CF ?CF)(cost ?cost))
     (preference (name money)(value ?v))
     ?g <- (proposal_cf_money (called $?l&:(not( member$ ?id $?l))))
 =>
     (if (> ?cost ?v) then (modify ?f (id ?id)(CF (- ?CF 0.2))))
     (modify ?g (called $?l ?id)) 
-    ;(facts)
-    ;(halt)
 )
 
 ; (defrule SEARCH::money_temp_remove
@@ -186,23 +188,20 @@
 (defrule SEARCH::printing_paths
     (declare (salience 900))
     ?g <- (printing (id ?id))
-    ?f <- (proposal (id ?id)(pid ?pid)(l ?head $?path ?tail)(CF ?CF)(cost ?cost))
+    ?f <- (proposal (id ?id)(pid ?pid)(l ?head $?path)(CF ?CF)(cost ?cost))
     (hotel_cf (id ?head)(name ?name))
     (hotel(name ?name)(location ?loc)(stars ?s))
     (not (printed (id ?idd)))
 =>
-
-    (printout t $?path crlf)
     ;(retract ?f)
     ;(assert(proposal (id ?id)(pid ?pid)(l ?head $?path)(CF ?CF)(cost ?cost)))
     (printout t ?loc " (" ?name " " ?s " stars" ") ")
-    
-    (if (eq ?tail ?head) 
+    (if (eq $?path (create$)) 
         then 
             (retract ?g)
             (assert (printed (id ?id)))
         else
-            (modify ?f (l $?path ?tail))
+            (modify ?f (l $?path))
     )
 )
 
@@ -219,7 +218,7 @@
 
 (defrule SEARCH::print
     (declare (salience -100))
-    ;(false)
+    (false)
 =>
     (facts)
 )
