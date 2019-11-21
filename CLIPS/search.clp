@@ -8,10 +8,10 @@
     (slot count)
 )
 
-(deftemplate TEMPLATES::chosen
-    (slot pid)
-    (slot id_hotel)
-)
+; (deftemplate TEMPLATES::chosen
+;     (slot pid)
+;     (slot id_hotel)
+; )
 
 (deftemplate TEMPLATES::cost
     (slot pid)
@@ -30,6 +30,11 @@
     (multislot l)
     (slot CF)
     (slot cost)
+)
+
+(deftemplate TEMPLATES::chosen_loc
+    (slot pid)
+    (multislot l)
 )
 
 (deftemplate TEMPLATES::proposal_cf_money
@@ -55,13 +60,16 @@
 (defrule SEARCH::create_roots
     (declare (salience 10000))
     (preference (name locality_number)(value ?v)) ; to know how many places the user wants to visit
-    (hotel_cf (id ?id1) (CF ?CF1))
+    (hotel_cf (id ?id1)(name ?name) (CF ?CF1))
+    (hotel (name ?name)(location ?loc))
     (not (hotel_cf (CF ?CF2&:(and (> (- ?CF2 0.2) ?CF1) (> (+ ?CF2 0.2) ?CF1)))))
     =>
     (bind ?pid (gensym*))
     (assert (path (pid ?pid)(id1 ?id1)(id2 ?id1)(CF (/ ?CF1 ?v))(count 1)))
     (assert (cost (pid ?pid)(cost 0)))
-    (assert (chosen (pid ?pid) (id_hotel ?id1)))
+    ;(assert (chosen (pid ?pid) (id_hotel ?id1)))
+    (assert (chosen_loc (pid ?pid)(l (create$ ?loc))))
+    (printout t ?pid (create$ ?loc) crlf)
     (assert (proposal_cf_money (called )))
 )
 
@@ -78,11 +86,13 @@
     (hotel (name ?name3)(location ?loc3))
     (distance (name1 ?loc1)(name2 ?loc3)(dist ?d3))
     (not (path (pid ?pid)(count ?c1&:(eq ?c1 (+ ?c 1)))));fix bug: ripetizione percorsi stesso livello stesso pid
-    (not (chosen (pid ?pid)(id_hotel ?id2)))
+    ?f <- (chosen_loc (pid ?pid)(l $?l&:(not (member$ ?loc2 $?l))))
     (not (hotel_cf (name ?name3) (CF ?CF3&:(> (- ?CF3 (max 0 (* 0.05 (/(- ?d3 100) 20)))) (- ?CF2 (max 0 (* 0.05 (/(- ?d2 100) 20)))))))) ;non esiste un hotel3 con cf maggiore di hotel2
 =>
     (assert (path (pid ?pid)(id1 ?id1)(id2 ?id2)(CF (+ ?CF_path (/ (- ?CF2 (max 0 (* 0.05 (/(- ?d2 100) 20)))) ?v)))(count (+ ?c 1))))
-    (assert (chosen (pid ?pid) (id_hotel ?id2)))
+    (modify ?f (l ?loc2 $?l))
+    ;(assert (chosen (pid ?pid) (id_hotel ?id2)))
+    ;(assert (chosen_loc))
 )
 
 (defrule SEARCH::cal_cost_root
