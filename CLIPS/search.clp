@@ -28,6 +28,7 @@
     (slot id)
     (slot pid)
     (multislot l)
+    (multislot locs)
     (slot CF)
     (slot cost)
 )
@@ -85,7 +86,7 @@
     (hotel_cf (name ?name2) (CF ?CF2) (id ?id2))
     (hotel (name ?name3)(location ?loc3))
     (distance (name1 ?loc1)(name2 ?loc3)(dist ?d3))
-    (not (path (pid ?pid)(count ?c1&:(eq ?c1 (+ ?c 1)))));fix bug: ripetizione percorsi stesso livello stesso pid
+    (not (path (pid ?pid)(count ?c1&:(eq ?c1 (+ ?c 1)))));untill the end
     ?f <- (chosen_loc (pid ?pid)(l $?l&:(not (member$ ?loc2 $?l))))
     (not (hotel_cf (name ?name3) (CF ?CF3&:(> (- ?CF3 (max 0 (* 0.05 (/(- ?d3 100) 20)))) (- ?CF2 (max 0 (* 0.05 (/(- ?d2 100) 20)))))))) ;non esiste un hotel3 con cf maggiore di hotel2
 =>
@@ -123,8 +124,10 @@
     ?f <- (path (pid ?pid) (id2 ?id)(count 1))
     (path (pid ?pid) (count ?v)(CF ?CF))
     (cost (pid ?pid) (cost ?cost))
+    (hotel_cf (name ?name) (id ?id))
+    (hotel (name ?name)(location ?loc))
 =>
-    (assert (proposal (id (gensym*)) (pid ?pid) (l ?id) (CF ?CF)(cost ?cost)))
+    (assert (proposal (id (gensym*)) (pid ?pid) (l ?id) (locs ?loc) (CF ?CF)(cost ?cost)))
     (assert (path_value (value 2)))
     (retract ?f)
 )
@@ -132,12 +135,14 @@
 (defrule SEARCH::child_proposals
     (declare (salience 5000))
     (path_value (value ?c))
-    ?f <- (proposal (id ?proid)(pid ?pid)(l ?head $?l))
+    ?f <- (proposal (id ?proid)(pid ?pid)(l ?head $?l)(locs ?locshead $?locs))
     ?g <- (path (pid ?pid) (id1 ?head) (id2 ?id&:(neq ?id ?head))(count ?c))
+    (hotel_cf (name ?name) (id ?id))
+    (hotel (name ?name)(location ?loc))
     (cost (pid ?pid) (cost ?cost))
 =>
     (retract ?g)
-    (modify ?f (l ?id ?head $?l))
+    (modify ?f (l ?id ?head $?l)(locs ?loc ?locshead $?locs))
 )
 
 (defrule SEARCH::child_update_bound
@@ -153,6 +158,19 @@
     (refresh SEARCH::child_proposals)
 )
 
+(defrule SEARCH::remove_proposals
+    (declare (salience 3500))
+    (proposal (pid ?pid1)(locs $?locs1))
+    ?f <- (proposal (pid ?pid2&:(neq ?pid1 ?pid2))(locs $?locs2))
+=>
+    (foreach ?loc1 $?locs1
+        (foreach ?loc2 $?locs2
+            (bind ?l2 ?loc2)
+            (if (eq ?loc1 ?loc2) then (break)))
+        (bind ?l1 ?loc1)
+        (if (neq ?l1 ?l2) then (break)))
+    (if (eq ?l1 ?l2) then (retract ?f))
+)
 
 (defrule SEARCH::money_temp
     (declare (salience 3000))
