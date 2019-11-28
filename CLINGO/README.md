@@ -1,6 +1,3 @@
-# TO DO
-Controllare che assegnamenti_scuola.cl dia una risposta corretta e se sì eliminare calendario_scuola.cl e test.cl
-
 # COMMENTO
 % commento la riga
 %* commento blocchi *%

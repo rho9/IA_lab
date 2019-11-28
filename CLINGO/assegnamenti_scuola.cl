@@ -1,11 +1,4 @@
 %%%%%%%%%%%%%%%%%%%%%%%%
-% TO-DO
-%%%%%%%%%%%%%%%%%%%%%%%%
-
-% frequenza di attività extrascolastiche
-% check che professori, aule e classi facciano le stesse cose
-
-%%%%%%%%%%%%%%%%%%%%%%%%
 % RISORSE
 %%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -146,14 +139,8 @@ si_tiene_in(lettere,(a_lettere1;a_lettere2);
 % 1 ora a settimana (religione)
 1{orario(D,religione,A,I,F,G,C,S): insegna(D,religione), si_tiene_in(religione,A),ora(I,F),giorno(G)}1 :- classe(C,S).
 
-% per ogni slot c'è al massimo una lezione con una classe, ogni lezione si tiene in un aula precisa
+% per ogni slot c'è al massimo una lezione con una classe, ogni lezione si tiene in un'aula precisa
 0{orario(D,L,A,I,F,G,C,S): classe(C,S),si_tiene_in(L,A),insegna(D,L)}1 :- slot(I,F,G,A).
-
-% SERVE? se serve ricordarsi di modificare la relazione
-% all'interno di una stessa aula non si possono tenere più lezioni nello stesso momento
-%:- ha_lezione(_,_,C1,S1,I,F,G,A),
-%   ha_lezione(_,_,C2,S2,I,F,G,A),
-%   C1!=C2;S1!=S2.
 
 % un insegnante non può avere lezione in due posti diversi nello stesso momento
 :- orario(D,_,A1,I,F,G,_,_),
