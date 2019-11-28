@@ -2,7 +2,7 @@
 
 (deftemplate TEMPLATES::hotel "hotels"
     (slot name (type STRING))
-    (slot stars (type INTEGER)(range 1 5))
+    (slot stars (type INTEGER)(range 1 4))
     (slot location (type STRING))
     (slot free_rooms (type INTEGER) (range 0 ?VARIABLE))
 )
@@ -62,13 +62,55 @@
     (slot dist)
 )
 
-; (deftemplate TEMPLATES::proposal
-;     (slot id)
-;     (multislot offer)
-;     (slot totalCF)
-;     (slot totalCost)
-; )
+(deftemplate TEMPLATES::path
+    (slot pid)
+    (slot id1)
+    (slot id2)
+    (slot CF)
+    (slot count)
+)
 
-; (deftemplate TEMPLATES::orderedHCF
-;     (multislot hotel_cf_id_list)
-; )
+(deftemplate TEMPLATES::cost
+    (slot pid)
+    (slot cost)
+)
+
+(deftemplate TEMPLATES::cost_temp
+    (slot id)
+    (slot pid)
+    (slot cost)
+)
+
+(deftemplate TEMPLATES::proposal
+    (slot id)
+    (slot pid)
+    (multislot l)
+    (multislot locs)
+    (slot CF)
+    (slot cost)
+)
+
+(deftemplate TEMPLATES::chosen_loc
+    (slot pid)
+    (multislot l)
+)
+
+(deftemplate TEMPLATES::proposal_cf_money
+    (multislot called)
+)
+
+(deftemplate TEMPLATES::path_value
+    (slot value)
+)
+
+(deftemplate TEMPLATES::n_printed
+    (slot value)
+)
+
+(deftemplate TEMPLATES::printing 
+    (slot id)
+)
+
+(deftemplate TEMPLATES::printed
+    (slot id)
+)
