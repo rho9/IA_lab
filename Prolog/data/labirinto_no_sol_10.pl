@@ -1,4 +1,4 @@
-% Configurazione labirinto prova
+% Configurazione labirinto labirinto_no_sol_10
 
 num_righe(10).
 num_colonne(10).

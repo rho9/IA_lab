@@ -1,3 +1,4 @@
+ 
 %Configurazione labirinto
 
 num_righe(10).

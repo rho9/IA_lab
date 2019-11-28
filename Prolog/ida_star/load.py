@@ -3,8 +3,8 @@
 import subprocess as sub
 import sys
 
-if len(sys.argv) != 3:
-    print("Usage python3 load.py labyrinth max \nExample python3 load.py esempio1 30")
+if len(sys.argv) != 4:
+    print("Usage python3 load.py labyrinth max \nExample python3 load.py esempio1 heuristics 30")
     exit()
 
 path = sys.argv[0][:0-len("load.py")]
@@ -15,7 +15,7 @@ file.write("\n")
 file.write("main :- consult(['"+path+"ida_star.pl']),\n")
 file.write("  consult(['"+path+"../azioni.pl']),\n")
 file.write("  consult(['"+path+"../data/"+sys.argv[1]+".pl']),\n")
-file.write("  consult(['"+path+"../heuristics/chebyshev_distance.pl']),\n")
+file.write("  consult(['"+path+"../heuristics/"+sys.argv[2]+".pl']),\n")
 file.write("  ida_star(X, 1),\n")
 file.write("  atomic_list_concat(X, ', ', A),\n")
 file.write("  atom_string(A, S),\n")
