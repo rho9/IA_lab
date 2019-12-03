@@ -97,6 +97,7 @@
 
 (deftemplate TEMPLATES::proposal_cf_money
     (multislot called)
+    (slot over)
 )
 
 (deftemplate TEMPLATES::path_value

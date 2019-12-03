@@ -1,16 +1,5 @@
 (defmodule HOTEL_CF (import RULES ?ALL) (import DATA ?ALL) (import QUESTIONS ?ALL) (export ?ALL)) ; import questions because of preferences
 
-; - La percentuale di importanza delle varie feature per quanto riguarda i cf:
-;   * Regione si (10)
-;   * Regione no (10)
-;   * Tipologia (10)
-;   * Stelle min (5)
-;   * Stelle max (5)
-;   * Vicinanza regione (5)
-;   * Distanza da hotel (5) ; la calcolo poi nella ricerca: sarebbe troppo oneroso farlo qua. la regione invece posso perchè è statica
-;   * Soldi (20)
-;   * Disponibilità camere (30)
-
 ; assert hotel_cf
 (defrule HOTEL_CF::hotel_cf_init
   (declare (salience 1000))
@@ -19,18 +8,8 @@
   (assert (hotel_cf (id (gensym*)) (name ?name) (CF -1.0)))
   (assert (hotel_cf_temp (name ?name) (CF 0.1) (type normal_region)))
   (assert (hotel_cf_temp (name ?name) (CF 0.05) (type distance)))
-  (assert (hotel_cf_temp (name ?name) (CF 0.2) (type eheh)))
+  (assert (hotel_cf_temp (name ?name) (CF 0.2) (type money)))
 )
-
-; duplicate fact for each preference because of clips problems loop
-; (defrule HOTEL_CF::hotel_cf_temp
-;   (declare (salience 100))
-;   (hotel_cf (name ?name) (CF -1.0))
-;   (preference (name ?pref)(value ?value))
-; =>
-;   (if (and (and (neq ?pref ok_region) (neq ?pref no_region))(and (neq ?pref money) (neq ?pref tourism))) then
-;     (assert (hotel_cf_temp (name ?name) (CF 0.0) (type ?pref))))
-; )
 
 ; handle CF for tourism
 (defrule HOTEL_CF::hotel_cf_temp_t
@@ -39,7 +18,6 @@
   (preference (name tourism)(value ?value))
 =>
   (assert (hotel_cf_temp (name ?name) (CF 0.0) (type ?value)))
-  ; normal_region: regioni neutrale (nè da non visitare, nè da visitare)
 )
 
 ; handle CF for number of empty room and staying people
@@ -77,11 +55,11 @@
   (distance (name1 ?loc) (name2 ?loc2))
   ; se le due località sono in distance, allora stanno a meno di 120 km l'una dall'altra
   (hotel (name ?name2&:(neq ?name ?name2)) (location ?loc2))
-  ;(not (hotel_cf_temp (name ?name2) (CF 0.05) (type ?value)))
+  ;(not (hotel_cf_temp (name ?name2) (CF 0.05) (type near)))
   ; per evitare che venga calcolato il cf per ogni regione (lo vogliamo fare una sola volta)
   ; commentato perché non si possono duplicare i fatti (controllare se funziona)
 =>
-  (assert (hotel_cf_temp (name ?name2) (CF 0.05) (type ?value)))
+  (assert (hotel_cf_temp (name ?name2) (CF 0.05) (type near)))
 )
 
 ; handle CF for min star number
@@ -223,14 +201,9 @@
   ?g <- (hotel_cf (name ?name) (CF ?CF2))
 =>
   (retract ?f)
-  ;(printout t ?pref) ; prints used for debugging purposes
   (if (eq ?CF2 -1.0) then
   (bind ?CF2 0))
   (modify ?g (CF(+ ?CF1 ?CF2)))
-  ; (printout t ?name)
-  ; (printout t (+ ?CF1 ?CF2) crlf)
-  ; (printout t ?CF1 crlf)
-  ; (printout t ?CF2 crlf crlf)
 )
 
 ;rule used to print the facts and debug
