@@ -20,6 +20,8 @@ pixels = im.load()
 # get colored pixels
 labirinto = {}
 labirinto["walls"] = []
+labirinto["start"] = []
+labirinto["end"] = []
 
 width, heigth = im.size
 
@@ -28,16 +30,20 @@ for i in range(width):
         if pixels[i, j] == (0, 0, 255) or pixels[i, j] == (0, 0, 255, 255):
             labirinto['walls'].append((i+1, j+1))
         elif pixels[i, j] == (255, 0, 0) or pixels[i, j] == (255, 0, 0, 255):
-            labirinto['start'] = (i+1, j+1)
+            labirinto['start'].append((i+1, j+1))
         elif pixels[i, j] == (0, 255, 0) or pixels[i, j] == (0, 255, 0, 255):
-            labirinto['end'] = (i+1, j+1)
+            labirinto['end'].append((i+1, j+1))
 
 # write prolog program
 file.write("num_righe("+str(heigth)+").\n")
 file.write("num_colonne("+str(width)+").\n\n")
 
-file.write("iniziale(pos"+str(tuple(reversed(labirinto["start"])))+").\n")
-file.write("finale(pos"+str(tuple(reversed(labirinto["end"])))+").\n\n")
+for start in labirinto["start"]:
+    file.write("iniziale(pos"+str(tuple(reversed(start)))+").\n")
+for end in labirinto["end"]:
+    file.write("finale(pos"+str(tuple(reversed(end)))+").\n")
+
+file.write("\n")
 
 file.writelines(map(
     lambda x: "occupata(pos"+str(tuple(reversed(x)))+").\n",
