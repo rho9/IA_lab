@@ -15,7 +15,8 @@ Se con una soglia non ottengo soluzione, invece di aumentare la soglia di un pas
 raggiungere la soluzione con la soglia più bassa (Manhattan Distance)
 - A\*: è in ampiezza ordinando in base all'euristica
 Cerca di trovare più euristiche (magari fai confronti anche con quelle stupide. Es mettere 1  tutto (o qualcosa di meno stupido).
-Basta un dominio, ma fai le considerazioni e la sperimentazione (dimesione del problema, tipologia del problema uscita non raggiungibile, più uscite, labirinto molto fitto).
+Basta un dominio, ma fai le considerazioni e la sperimentazione (dimesione del problema, tipologia del problema
+uscita non raggiungibile, più uscite, labirinto molto fitto).
 
 
 ## `start.py`

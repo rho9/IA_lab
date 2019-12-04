@@ -1,11 +1,11 @@
-% Configurazione labirinto labirinto_con_2_sol_10
+% Configurazione labirinto esempio
 
 num_righe(10).
 num_colonne(10).
 
 iniziale(pos(1, 1)).
-finale(pos(2, 4)).
 finale(pos(10, 9)).
+finale(pos(2, 4)).
 
 occupata(pos(6, 1)).
 occupata(pos(7, 1)).
