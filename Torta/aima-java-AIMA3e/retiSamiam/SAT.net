@@ -1,0 +1,156 @@
+net
+{
+	propagationenginegenerator1791944048146838126L = "edu.ucla.belief.approx.BeliefPropagationSettings@33f5257c";
+	jenginegenerator6060830225489488864L = "edu.ucla.belief.inference.JoinTreeSettings@d3c4631";
+	recoveryenginegenerator6944530267470113528l = "edu.ucla.util.SettingsImpl@5f8cee2c";
+	node_size = (130 55);
+}
+
+node variable0
+{
+	states = ("T" "F" );
+	position = (109 -60);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable0";
+	label = "A";
+	excludepolicy = "include whole CPT";
+}
+node variable2
+{
+	states = ("T" "F" );
+	position = (661 -59);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable2";
+	label = "C";
+	excludepolicy = "include whole CPT";
+}
+node variable1
+{
+	states = ("T" "F" );
+	position = (396 -59);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable1";
+	label = "B";
+	excludepolicy = "include whole CPT";
+}
+node variable5
+{
+	states = ("T" "F" );
+	position = (523 -252);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable5";
+	label = "2";
+	excludepolicy = "include whole CPT";
+}
+node variable6
+{
+	states = ("T" "F" );
+	position = (787 -249);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable6";
+	label = "3";
+	excludepolicy = "include whole CPT";
+}
+node variable3
+{
+	states = ("T" "F" );
+	position = (901 -58);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable3";
+	label = "D";
+	excludepolicy = "include whole CPT";
+}
+node variable7
+{
+	states = ("T" "F" );
+	position = (522 -435);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable7";
+	label = "AND";
+	excludepolicy = "include whole CPT";
+}
+node variable4
+{
+	states = ("T" "F" );
+	position = (253 -250);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable4";
+	label = "1";
+	excludepolicy = "include whole CPT";
+}
+potential ( variable0 | )
+{
+	data = (	0.5	0.5	);
+}
+potential ( variable2 | )
+{
+	data = (	0.5	0.5	);
+}
+potential ( variable1 | )
+{
+	data = (	0.5	0.5	);
+}
+potential ( variable5 | variable0 variable2 variable3 )
+{
+	data = ((((	1.0	0.0	)
+		(	1.0	0.0	))
+		((	1.0	0.0	)
+		(	0.0	1.0	)))
+		(((	1.0	0.0	)
+		(	1.0	0.0	))
+		((	1.0	0.0	)
+		(	1.0	0.0	))));
+}
+potential ( variable6 | variable1 variable2 variable3 )
+{
+	data = ((((	1.0	0.0	)
+		(	1.0	0.0	))
+		((	1.0	0.0	)
+		(	1.0	0.0	)))
+		(((	1.0	0.0	)
+		(	1.0	0.0	))
+		((	0.0	1.0	)
+		(	1.0	0.0	))));
+}
+potential ( variable3 | )
+{
+	data = (	0.5	0.5	);
+}
+potential ( variable7 | variable4 variable5 variable6 )
+{
+	data = ((((	1.0	0.0	)
+		(	0.0	1.0	))
+		((	0.0	1.0	)
+		(	0.0	1.0	)))
+		(((	0.0	1.0	)
+		(	0.0	1.0	))
+		((	0.0	1.0	)
+		(	0.0	1.0	))));
+}
+potential ( variable4 | variable0 variable1 variable2 )
+{
+	data = ((((	1.0	0.0	)
+		(	1.0	0.0	))
+		((	1.0	0.0	)
+		(	1.0	0.0	)))
+		(((	1.0	0.0	)
+		(	1.0	0.0	))
+		((	1.0	0.0	)
+		(	0.0	1.0	))));
+}

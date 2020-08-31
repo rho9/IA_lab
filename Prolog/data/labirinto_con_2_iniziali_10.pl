@@ -1,10 +1,10 @@
-% Configurazione labirinto esempio
+% Configurazione labirinto labirinto_con_2_iniziali_10
 
 num_righe(10).
 num_colonne(10).
 
-iniziale(pos(2, 9)).
 iniziale(pos(4, 6)).
+iniziale(pos(2, 9)).
 finale(pos(10, 1)).
 
 occupata(pos(2, 1)).

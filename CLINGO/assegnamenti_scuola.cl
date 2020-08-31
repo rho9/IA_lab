@@ -46,6 +46,7 @@ docente(d_lettere1;
         d_matematica_scienze2;
         d_matematica_scienze3;
         d_matematica_scienze4;
+
         d_tecnologia;
         d_musica;
         d_inglese;
@@ -53,6 +54,7 @@ docente(d_lettere1;
         d_religione;
         d_arte;
         d_educazione_fisica).
+
 
 % Tipologia di orario
 tempo_prolungato(1..3,a).
@@ -78,6 +80,7 @@ ora(8,9;
 mensa(12,13).
 
 % Lezioni tenute da professori
+
 insegna(
         (d_lettere1;
          d_lettere2),

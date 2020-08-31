@@ -1,0 +1,483 @@
+/usr/lib/jvm/java-1.11.0-openjdk-amd64/bin/java -javaagent:/opt/idea-IU-191.7479.19/lib/idea_rt.jar=38831:/opt/idea-IU-191.7479.19/bin -Dfile.encoding=UTF-8 -classpath /media/fily1212/Dati/universita/ProgettiEFP/IALab/Torta/map/aima-java-AIMA3e/aima-core/target/test-classes:/media/fily1212/Dati/universita/ProgettiEFP/IALab/Torta/map/aima-java-AIMA3e/aima-core/target/classes:/home/fily1212/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/fily1212/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar efp.test.TestBatch
++++
+cancer.xbif
+Assignment: []
+Query: [Xray]
+Execution time in milliseconds : 5
+Biggest factor 8
+{Xray=Negative}
+MAP Value: 0.7918590000000001
++++
+cancer.xbif
+Assignment: []
+Query: [Smoker]
+Execution time in milliseconds : 0
+Biggest factor 8
+{Smoker=False}
+MAP Value: 0.7
++++
+cancer.xbif
+Assignment: []
+Query: [Smoker, Cancer, Xray, Dyspnoea, Pollution]
+Execution time in milliseconds : 1
+Biggest factor 8
+{Smoker=False, Pollution=Low, Cancer=False, Dyspnoea=False, Xray=Negative}
+MAP Value: 0.35244719999999996
++++
+cancer.xbif
+Assignment: [Pollution = High]
+Query: [Cancer]
+Execution time in milliseconds : 0
+Biggest factor 8
+{Cancer=False}
+MAP Value: 0.09709999999999999
++++
+cancer.xbif
+Assignment: [Dyspnoea = True]
+Query: [Cancer]
+Execution time in milliseconds : 0
+Biggest factor 8
+{Dyspnoea=True, Cancer=False}
+MAP Value: 0.29651099999999997
++++
+cancer.xbif
+Assignment: [Dyspnoea = True]
+Query: [Xray, Pollution, Cancer, Smoker]
+Execution time in milliseconds : 0
+Biggest factor 8
+{Smoker=False, Pollution=Low, Dyspnoea=True, Cancer=False, Xray=Negative}
+MAP Value: 0.15104879999999998
++++
+cancer.xbif
+Assignment: [Pollution = High, Smoker = True, Xray = Positive]
+Query: [Dyspnoea]
+Execution time in milliseconds : 0
+Biggest factor 8
+{Dyspnoea=False}
+MAP Value: 0.0044624999999999995
++++
+cancer.xbif
+Assignment: [Smoker = True, Xray = Positive, Cancer = False]
+Query: [Dyspnoea]
+Execution time in milliseconds : 0
+Biggest factor 8
+{Cancer=False, Dyspnoea=False}
+MAP Value: 0.04065599999999999
++++
+cancer.xbif
+Assignment: [Dyspnoea = True, Smoker = False, Cancer = False]
+Query: [Pollution, Xray]
+Execution time in milliseconds : 0
+Biggest factor 8
+{Smoker=False, Cancer=False, Pollution=Low, Xray=Negative}
+MAP Value: 0.15104879999999998
++++
+cancer.xbif
+Assignment: [Pollution = High, Cancer = True, Xray = Negative, Smoker = True]
+Query: [Dyspnoea]
+Execution time in milliseconds : 0
+Biggest factor 8
+{Cancer=True, Dyspnoea=True}
+MAP Value: 9.750000000000001E-5
++++
+cancer.xbif
+Assignment: [Dyspnoea = False, Cancer = False, Xray = Positive, Smoker = False]
+Query: [Pollution]
+Execution time in milliseconds : 0
+Biggest factor 8
+{Cancer=False, Smoker=False, Pollution=Low}
+MAP Value: 0.0881118
++++
+cancer.xbif
+Assignment: [Cancer = False, Dyspnoea = True, Smoker = True, Xray = Negative]
+Query: [Pollution]
+Execution time in milliseconds : 0
+Biggest factor 8
+{Cancer=False, Smoker=True, Pollution=Low}
+MAP Value: 0.062856
++++
+earthquake.xbif
+Assignment: []
+Query: [MaryCalls]
+Execution time in milliseconds : 0
+Biggest factor 8
+{MaryCalls=False}
+MAP Value: 0.9788812019999998
++++
+earthquake.xbif
+Assignment: []
+Query: [Alarm]
+Execution time in milliseconds : 0
+Biggest factor 8
+{Alarm=False}
+MAP Value: 0.9838857999999999
++++
+earthquake.xbif
+Assignment: []
+Query: [JohnCalls, Earthquake, MaryCalls, Burglary, Alarm]
+Execution time in milliseconds : 0
+Biggest factor 8
+{Burglary=False, Earthquake=False, Alarm=False, JohnCalls=False, MaryCalls=False}
+MAP Value: 0.9115606269
++++
+earthquake.xbif
+Assignment: [Alarm = True]
+Query: [Burglary]
+Execution time in milliseconds : 0
+Biggest factor 8
+{Burglary=True}
+MAP Value: 0.009401999999999999
++++
+earthquake.xbif
+Assignment: [MaryCalls = True]
+Query: [JohnCalls]
+Execution time in milliseconds : 0
+Biggest factor 8
+{JohnCalls=True}
+MAP Value: 0.010643888899999999
++++
+earthquake.xbif
+Assignment: [JohnCalls = False]
+Query: [Alarm, Earthquake, Burglary, MaryCalls]
+Execution time in milliseconds : 0
+Biggest factor 8
+{Burglary=False, Earthquake=False, JohnCalls=False, Alarm=False, MaryCalls=False}
+MAP Value: 0.9115606269
++++
+earthquake.xbif
+Assignment: [Alarm = True, JohnCalls = True, Earthquake = False]
+Query: [MaryCalls]
+Execution time in milliseconds : 0
+Biggest factor 8
+{Alarm=True, MaryCalls=True}
+MAP Value: 0.006414786
++++
+earthquake.xbif
+Assignment: [Earthquake = True, Burglary = True, JohnCalls = True]
+Query: [Alarm]
+Execution time in milliseconds : 0
+Biggest factor 8
+{JohnCalls=True, Alarm=True, Earthquake=True, Burglary=True}
+MAP Value: 1.71E-4
++++
+earthquake.xbif
+Assignment: [Earthquake = False, MaryCalls = True, Alarm = False]
+Query: [Burglary, JohnCalls]
+Execution time in milliseconds : 0
+Biggest factor 8
+{Earthquake=False, Alarm=False, Burglary=False, JohnCalls=False}
+MAP Value: 0.009207683099999999
++++
+earthquake.xbif
+Assignment: [Alarm = False, JohnCalls = True, Earthquake = True, MaryCalls = True]
+Query: [Burglary]
+Execution time in milliseconds : 0
+Biggest factor 8
+{Alarm=False, Earthquake=True, Burglary=False}
+MAP Value: 7.029000000000002E-6
++++
+earthquake.xbif
+Assignment: [Earthquake = True, Alarm = False, MaryCalls = True, Burglary = False]
+Query: [JohnCalls]
+Execution time in milliseconds : 0
+Biggest factor 8
+{Alarm=False, JohnCalls=False}
+MAP Value: 1.33551E-4
++++
+earthquake.xbif
+Assignment: [Burglary = True, JohnCalls = True, Earthquake = False, Alarm = True]
+Query: [MaryCalls]
+Execution time in milliseconds : 0
+Biggest factor 8
+{Alarm=True, MaryCalls=True}
+MAP Value: 0.00580356
++++
+sachs.xbif
+Assignment: []
+Query: [Akt]
+Execution time in milliseconds : 11
+Biggest factor 243
+{Akt=LOW}
+MAP Value: 0.6093933219087293
++++
+sachs.xbif
+Assignment: []
+Query: [Akt, PIP3]
+Execution time in milliseconds : 8
+Biggest factor 243
+{Akt=LOW, PIP3=AVG}
+MAP Value: 0.26011011387573557
++++
+sachs.xbif
+Assignment: []
+Query: [Plcg, Mek, PIP2, PKC, PIP3, Jnk, Akt, P38, PKA, Raf, Erk]
+Execution time in milliseconds : 5
+Biggest factor 243
+{PKC=AVG, Plcg=LOW, PKA=AVG, Jnk=LOW, P38=LOW, PIP3=AVG, PIP2=LOW, Raf=LOW, Mek=LOW, Erk=AVG, Akt=LOW}
+MAP Value: 0.01780596580137922
++++
+sachs.xbif
+Assignment: [Raf = HIGH]
+Query: [Erk]
+Execution time in milliseconds : 3
+Biggest factor 243
+{Erk=HIGH}
+MAP Value: 0.09154462879757783
++++
+sachs.xbif
+Assignment: [P38 = AVG]
+Query: [PKA, PIP3]
+Execution time in milliseconds : 2
+Biggest factor 243
+{PIP3=AVG, PKA=AVG}
+MAP Value: 0.047979265665774165
++++
+sachs.xbif
+Assignment: [Erk = HIGH]
+Query: [PKC, Raf, PIP3, P38, PIP2, Akt, Mek, PKA, Plcg, Jnk]
+Execution time in milliseconds : 3
+Biggest factor 243
+{PKC=LOW, Plcg=LOW, PKA=LOW, Erk=HIGH, Akt=HIGH, Jnk=HIGH, P38=HIGH, PIP3=AVG, PIP2=LOW, Raf=HIGH, Mek=HIGH}
+MAP Value: 0.007050860955051944
++++
+sachs.xbif
+Assignment: [PKA = LOW, PIP2 = HIGH, PIP3 = LOW, Akt = HIGH, Plcg = LOW, Jnk = AVG]
+Query: [Erk]
+Execution time in milliseconds : 0
+Biggest factor 243
+{PKA=LOW, Akt=HIGH, Erk=HIGH}
+MAP Value: 1.3496210881014179E-7
++++
+sachs.xbif
+Assignment: [Plcg = LOW, Erk = LOW, Akt = HIGH, Raf = HIGH, Mek = HIGH, PKC = LOW]
+Query: [Jnk, PIP2]
+Execution time in milliseconds : 0
+Biggest factor 243
+{PIP2=LOW, Jnk=HIGH}
+MAP Value: 3.046831075260061E-8
++++
+sachs.xbif
+Assignment: [Plcg = HIGH, Mek = LOW, Erk = HIGH, PIP3 = HIGH, Raf = AVG, PIP2 = HIGH]
+Query: [PKA, Jnk, P38, Akt, PKC]
+Execution time in milliseconds : 0
+Biggest factor 243
+{PKC=AVG, Mek=LOW, Erk=HIGH, PKA=AVG, PIP3=HIGH, Raf=AVG, Akt=AVG, Jnk=LOW, P38=LOW}
+MAP Value: 4.8801631355808565E-5
++++
+sachs.xbif
+Assignment: [Raf = LOW, PIP3 = AVG, Akt = AVG, PKC = HIGH, Jnk = AVG, P38 = HIGH, Mek = HIGH, PKA = LOW, PIP2 = LOW, Plcg = LOW]
+Query: [Erk]
+Execution time in milliseconds : 0
+Biggest factor 243
+{Akt=AVG, PKA=LOW, Erk=AVG, Mek=HIGH}
+MAP Value: 4.6328803667756606E-10
++++
+sachs.xbif
+Assignment: [P38 = HIGH, Akt = LOW, Jnk = HIGH, PKC = LOW, Erk = LOW, PIP3 = AVG, Plcg = HIGH, PIP2 = LOW, Raf = HIGH, PKA = HIGH]
+Query: [Mek]
+Execution time in milliseconds : 0
+Biggest factor 243
+{Erk=LOW, PKA=HIGH, Mek=LOW, PKC=LOW, PIP3=AVG, Raf=HIGH}
+MAP Value: 4.9449901068465024E-12
++++
+sachs.xbif
+Assignment: [Plcg = LOW, Erk = LOW, P38 = HIGH, Mek = AVG, PIP3 = HIGH, PKA = LOW, Raf = HIGH, Akt = LOW, Jnk = AVG, PKC = HIGH]
+Query: [PIP2]
+Execution time in milliseconds : 0
+Biggest factor 243
+{Plcg=LOW, PIP3=HIGH, PIP2=LOW}
+MAP Value: 6.371093630581095E-10
++++
+survey.xbif
+Assignment: []
+Query: [A]
+Execution time in milliseconds : 0
+Biggest factor 12
+{A=Adult}
+MAP Value: 0.5
++++
+survey.xbif
+Assignment: []
+Query: [T]
+Execution time in milliseconds : 0
+Biggest factor 18
+{T=Car}
+MAP Value: 0.5618339760000001
++++
+survey.xbif
+Assignment: []
+Query: [O, S, A, R, E, T]
+Execution time in milliseconds : 0
+Biggest factor 18
+{A=Adult, S=M, E=High, R=Big, O=Emp, T=Car}
+MAP Value: 0.09020159999999999
++++
+survey.xbif
+Assignment: [T = Other]
+Query: [S]
+Execution time in milliseconds : 0
+Biggest factor 18
+{S=M}
+MAP Value: 0.09437758799999998
++++
+survey.xbif
+Assignment: [R = Big]
+Query: [A]
+Execution time in milliseconds : 0
+Biggest factor 18
+{A=Adult}
+MAP Value: 0.3822
++++
+survey.xbif
+Assignment: [O = Self]
+Query: [E, A, S, T, R]
+Execution time in milliseconds : 0
+Biggest factor 18
+{A=Adult, S=M, O=Self, E=High, R=Big, T=Car}
+MAP Value: 0.004536
++++
+survey.xbif
+Assignment: [T = Train, R = Big, A = Young]
+Query: [E]
+Execution time in milliseconds : 0
+Biggest factor 18
+{R=Big, E=High}
+MAP Value: 0.037933379999999996
++++
+survey.xbif
+Assignment: [S = F, O = Self, T = Other]
+Query: [A]
+Execution time in milliseconds : 0
+Biggest factor 18
+{A=Adult}
+MAP Value: 9.124000000000001E-4
++++
+survey.xbif
+Assignment: [T = Car, E = High, A = Young]
+Query: [O, S, R]
+Execution time in milliseconds : 0
+Biggest factor 18
+{E=High, A=Young, S=M, R=Big, T=Car, O=Emp}
+MAP Value: 0.05637599999999999
++++
+survey.xbif
+Assignment: [E = Uni, O = Emp, A = Old, T = Train, S = M]
+Query: [R]
+Execution time in milliseconds : 0
+Biggest factor 18
+{O=Emp, T=Train, R=Big, E=Uni}
+MAP Value: 0.0025436160000000003
++++
+survey.xbif
+Assignment: [R = Big, E = Uni, S = F, O = Self, A = Young]
+Query: [T]
+Execution time in milliseconds : 0
+Biggest factor 18
+{R=Big, O=Self, T=Car}
+MAP Value: 0.0019353600000000003
++++
+survey.xbif
+Assignment: [S = M, R = Big, T = Other, E = High, A = Young]
+Query: [O]
+Execution time in milliseconds : 0
+Biggest factor 18
+{R=Big, T=Other, O=Emp, E=High}
+MAP Value: 0.017495999999999998
++++
+zasia.xbif
+Assignment: []
+Query: [Smoke]
+Execution time in milliseconds : 0
+Biggest factor 8
+{Smoke=Yes}
+MAP Value: 0.5
++++
+zasia.xbif
+Assignment: []
+Query: [Smoke, Asia]
+Execution time in milliseconds : 0
+Biggest factor 8
+{Asia=No, Smoke=Yes}
+MAP Value: 0.495
++++
+zasia.xbif
+Assignment: []
+Query: [Asia, Bronc, Tub, Either, Dysp, Lung, Xray, Smoke]
+Execution time in milliseconds : 0
+Biggest factor 8
+{Asia=No, Smoke=No, Tub=No, Lung=No, Bronc=No, Either=No, Dysp=No, Xray=No}
+MAP Value: 0.29036197574999995
++++
+zasia.xbif
+Assignment: [Bronc = Yes]
+Query: [Asia]
+Execution time in milliseconds : 0
+Biggest factor 8
+{Asia=No}
+MAP Value: 0.44549999999999995
++++
+zasia.xbif
+Assignment: [Dysp = No]
+Query: [Tub, Smoke]
+Execution time in milliseconds : 0
+Biggest factor 8
+{Smoke=No, Tub=No}
+MAP Value: 0.3391853999999999
++++
+zasia.xbif
+Assignment: [Either = Yes]
+Query: [Asia, Xray, Dysp, Bronc, Smoke, Tub, Lung]
+Execution time in milliseconds : 0
+Biggest factor 8
+{Asia=No, Smoke=Yes, Bronc=Yes, Either=Yes, Dysp=Yes, Tub=No, Lung=Yes, Xray=Yes}
+MAP Value: 0.025933446000000002
++++
+zasia.xbif
+Assignment: [Either = Yes, Tub = No, Asia = Yes, Dysp = No]
+Query: [Bronc]
+Execution time in milliseconds : 0
+Biggest factor 8
+{Either=Yes, Dysp=No, Bronc=No}
+MAP Value: 6.6975E-5
++++
+zasia.xbif
+Assignment: [Xray = Yes, Asia = No, Tub = Yes, Dysp = No]
+Query: [Either, Lung]
+Execution time in milliseconds : 0
+Biggest factor 8
+{Xray=Yes, Either=Yes, Tub=Yes, Lung=No}
+MAP Value: 0.0019384595999999998
++++
+zasia.xbif
+Assignment: [Tub = Yes, Smoke = Yes, Asia = Yes, Dysp = Yes]
+Query: [Xray, Bronc, Lung, Either]
+Execution time in milliseconds : 0
+Biggest factor 8
+{Smoke=Yes, Lung=No, Bronc=Yes, Dysp=Yes, Either=Yes, Tub=Yes, Xray=Yes}
+MAP Value: 1.1907000000000001E-4
++++
+zasia.xbif
+Assignment: [Smoke = Yes, Asia = Yes, Dysp = Yes, Xray = No, Lung = Yes, Either = No, Bronc = Yes]
+Query: [Tub]
+Execution time in milliseconds : 0
+Biggest factor 8
+{Lung=Yes, Either=No, Tub=null, Asia=Yes}
+MAP Value: 0.0
++++
+zasia.xbif
+Assignment: [Either = No, Smoke = Yes, Bronc = Yes, Lung = Yes, Dysp = No, Tub = No, Xray = No]
+Query: [Asia]
+Execution time in milliseconds : 0
+Biggest factor 8
+{Tub=No, Asia=No}
+MAP Value: 0.0
++++
+zasia.xbif
+Assignment: [Either = No, Asia = No, Lung = Yes, Dysp = Yes, Bronc = No, Smoke = Yes, Xray = No]
+Query: [Tub]
+Execution time in milliseconds : 0
+Biggest factor 8
+{Either=No, Lung=Yes, Tub=null, Asia=No}
+MAP Value: 0.0
+
+Process finished with exit code 0

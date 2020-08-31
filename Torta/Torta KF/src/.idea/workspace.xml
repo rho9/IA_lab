@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7f6cb6bc-a5b9-448d-a6d4-250a80f89326" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../Micalizio/ProgettoVacanza/main.clp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Micalizio/ProgettoVacanza/main.clp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../KF.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../KF.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstantVoltageExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConstantVoltageExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/Field.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/FieldElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/FieldElement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/RealFieldElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/RealFieldElement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/BivariateFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/BivariateFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/DifferentiableMultivariateFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/DifferentiableMultivariateFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/DifferentiableMultivariateVectorFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/DifferentiableMultivariateVectorFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/DifferentiableUnivariateFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/DifferentiableUnivariateFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/FunctionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/FunctionUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/MultivariateFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/MultivariateFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/MultivariateMatrixFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/MultivariateMatrixFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/MultivariateVectorFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/MultivariateVectorFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/ParametricUnivariateFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/ParametricUnivariateFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/RealFieldUnivariateFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/RealFieldUnivariateFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/TrivariateFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/TrivariateFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/UnivariateFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/UnivariateFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/UnivariateMatrixFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/UnivariateMatrixFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/UnivariateVectorFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/UnivariateVectorFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/differentiation/DSCompiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/differentiation/DSCompiler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/differentiation/DerivativeStructure.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/differentiation/DerivativeStructure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/differentiation/FiniteDifferencesDifferentiator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/differentiation/FiniteDifferencesDifferentiator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/differentiation/GradientFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/differentiation/GradientFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/differentiation/JacobianFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/differentiation/JacobianFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/differentiation/MultivariateDifferentiableFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/differentiation/MultivariateDifferentiableFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/differentiation/MultivariateDifferentiableVectorFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/differentiation/MultivariateDifferentiableVectorFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/differentiation/SparseGradient.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/differentiation/SparseGradient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/differentiation/UnivariateDifferentiableFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/differentiation/UnivariateDifferentiableFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/differentiation/UnivariateDifferentiableMatrixFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/differentiation/UnivariateDifferentiableMatrixFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/differentiation/UnivariateDifferentiableVectorFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/differentiation/UnivariateDifferentiableVectorFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/differentiation/UnivariateFunctionDifferentiator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/differentiation/UnivariateFunctionDifferentiator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/differentiation/UnivariateMatrixFunctionDifferentiator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/differentiation/UnivariateMatrixFunctionDifferentiator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/differentiation/UnivariateVectorFunctionDifferentiator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/differentiation/UnivariateVectorFunctionDifferentiator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/differentiation/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/differentiation/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Abs.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Abs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Acos.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Acos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Acosh.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Acosh.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Add.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Add.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Asin.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Asin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Asinh.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Asinh.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Atan.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Atan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Atan2.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Atan2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Atanh.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Atanh.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Cbrt.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Cbrt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Ceil.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Ceil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Constant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Cos.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Cos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Cosh.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Cosh.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Divide.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Divide.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Exp.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Exp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Expm1.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Expm1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Floor.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Floor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Gaussian.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Gaussian.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/HarmonicOscillator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/HarmonicOscillator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Identity.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Identity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Inverse.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Inverse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Log.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Log10.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Log10.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Log1p.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Log1p.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Logistic.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Logistic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Logit.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Logit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Max.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Max.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Min.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Min.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Minus.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Minus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Multiply.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Multiply.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Pow.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Pow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Power.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Power.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Rint.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Rint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Sigmoid.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Sigmoid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Signum.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Signum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Sin.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Sin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Sinc.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Sinc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Sinh.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Sinh.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Sqrt.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Sqrt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/StepFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/StepFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Subtract.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Subtract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Tan.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Tan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Tanh.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Tanh.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/Ulp.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/Ulp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/function/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/function/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/interpolation/AkimaSplineInterpolator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/interpolation/AkimaSplineInterpolator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/interpolation/BicubicInterpolatingFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/interpolation/BicubicInterpolatingFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/interpolation/BicubicInterpolator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/interpolation/BicubicInterpolator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/interpolation/BicubicSplineInterpolatingFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/interpolation/BicubicSplineInterpolatingFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/interpolation/BicubicSplineInterpolator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/interpolation/BicubicSplineInterpolator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/interpolation/BivariateGridInterpolator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/interpolation/BivariateGridInterpolator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/interpolation/DividedDifferenceInterpolator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/interpolation/DividedDifferenceInterpolator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/interpolation/FieldHermiteInterpolator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/interpolation/FieldHermiteInterpolator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/interpolation/HermiteInterpolator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/interpolation/HermiteInterpolator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/interpolation/InterpolatingMicrosphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/interpolation/InterpolatingMicrosphere.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/interpolation/InterpolatingMicrosphere2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/interpolation/InterpolatingMicrosphere2D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/interpolation/LinearInterpolator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/interpolation/LinearInterpolator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/interpolation/LoessInterpolator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/interpolation/LoessInterpolator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/interpolation/MicrosphereInterpolatingFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/interpolation/MicrosphereInterpolatingFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/interpolation/MicrosphereInterpolator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/interpolation/MicrosphereInterpolator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/interpolation/MicrosphereProjectionInterpolator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/interpolation/MicrosphereProjectionInterpolator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/interpolation/MultivariateInterpolator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/interpolation/MultivariateInterpolator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/interpolation/NevilleInterpolator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/interpolation/NevilleInterpolator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/interpolation/PiecewiseBicubicSplineInterpolatingFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/interpolation/PiecewiseBicubicSplineInterpolatingFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/interpolation/PiecewiseBicubicSplineInterpolator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/interpolation/PiecewiseBicubicSplineInterpolator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/interpolation/SmoothingPolynomialBicubicSplineInterpolator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/interpolation/SmoothingPolynomialBicubicSplineInterpolator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/interpolation/SplineInterpolator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/interpolation/SplineInterpolator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/interpolation/TricubicInterpolatingFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/interpolation/TricubicInterpolatingFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/interpolation/TricubicInterpolator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/interpolation/TricubicInterpolator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/interpolation/TricubicSplineInterpolatingFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/interpolation/TricubicSplineInterpolatingFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/interpolation/TricubicSplineInterpolator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/interpolation/TricubicSplineInterpolator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/interpolation/TrivariateGridInterpolator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/interpolation/TrivariateGridInterpolator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/interpolation/UnivariateInterpolator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/interpolation/UnivariateInterpolator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/interpolation/UnivariatePeriodicInterpolator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/interpolation/UnivariatePeriodicInterpolator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/interpolation/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/interpolation/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/polynomials/PolynomialFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/polynomials/PolynomialFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/polynomials/PolynomialFunctionLagrangeForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/polynomials/PolynomialFunctionLagrangeForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/polynomials/PolynomialFunctionNewtonForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/polynomials/PolynomialFunctionNewtonForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/polynomials/PolynomialSplineFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/polynomials/PolynomialSplineFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/polynomials/PolynomialsUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/polynomials/PolynomialsUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/polynomials/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/polynomials/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/solvers/AbstractDifferentiableUnivariateSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/solvers/AbstractDifferentiableUnivariateSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/solvers/AbstractPolynomialSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/solvers/AbstractPolynomialSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/solvers/AbstractUnivariateDifferentiableSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/solvers/AbstractUnivariateDifferentiableSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/solvers/AbstractUnivariateSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/solvers/AbstractUnivariateSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/solvers/AllowedSolution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/solvers/AllowedSolution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/solvers/BaseAbstractUnivariateSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/solvers/BaseAbstractUnivariateSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/solvers/BaseSecantSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/solvers/BaseSecantSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/solvers/BaseUnivariateSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/solvers/BaseUnivariateSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/solvers/BisectionSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/solvers/BisectionSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/solvers/BracketedRealFieldUnivariateSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/solvers/BracketedRealFieldUnivariateSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/solvers/BracketedUnivariateSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/solvers/BracketedUnivariateSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/solvers/BracketingNthOrderBrentSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/solvers/BracketingNthOrderBrentSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/solvers/BrentSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/solvers/BrentSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/solvers/DifferentiableUnivariateSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/solvers/DifferentiableUnivariateSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/solvers/FieldBracketingNthOrderBrentSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/solvers/FieldBracketingNthOrderBrentSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/solvers/IllinoisSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/solvers/IllinoisSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/solvers/LaguerreSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/solvers/LaguerreSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/solvers/MullerSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/solvers/MullerSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/solvers/MullerSolver2.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/solvers/MullerSolver2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/solvers/NewtonRaphsonSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/solvers/NewtonRaphsonSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/solvers/NewtonSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/solvers/NewtonSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/solvers/PegasusSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/solvers/PegasusSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/solvers/PolynomialSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/solvers/PolynomialSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/solvers/RegulaFalsiSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/solvers/RegulaFalsiSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/solvers/RiddersSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/solvers/RiddersSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/solvers/SecantSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/solvers/SecantSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/solvers/UnivariateDifferentiableSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/solvers/UnivariateDifferentiableSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/solvers/UnivariateSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/solvers/UnivariateSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/solvers/UnivariateSolverUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/solvers/UnivariateSolverUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/analysis/solvers/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/analysis/solvers/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/complex/Complex.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/complex/Complex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/complex/ComplexField.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/complex/ComplexField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/complex/ComplexFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/complex/ComplexFormat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/complex/ComplexUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/complex/ComplexUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/complex/Quaternion.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/complex/Quaternion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/complex/RootsOfUnity.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/complex/RootsOfUnity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/complex/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/complex/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/AbstractIntegerDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/AbstractIntegerDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/AbstractMultivariateRealDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/AbstractMultivariateRealDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/AbstractRealDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/AbstractRealDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/BetaDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/BetaDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/BinomialDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/BinomialDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/CauchyDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/CauchyDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/ChiSquaredDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/ChiSquaredDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/ConstantRealDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/ConstantRealDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/EnumeratedDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/EnumeratedDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/EnumeratedIntegerDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/EnumeratedIntegerDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/EnumeratedRealDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/EnumeratedRealDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/ExponentialDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/ExponentialDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/FDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/FDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/GammaDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/GammaDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/GeometricDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/GeometricDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/GumbelDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/GumbelDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/HypergeometricDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/HypergeometricDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/IntegerDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/IntegerDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/KolmogorovSmirnovDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/KolmogorovSmirnovDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/LaplaceDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/LaplaceDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/LevyDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/LevyDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/LogNormalDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/LogNormalDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/LogisticDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/LogisticDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/MixtureMultivariateNormalDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/MixtureMultivariateNormalDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/MixtureMultivariateRealDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/MixtureMultivariateRealDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/MultivariateNormalDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/MultivariateNormalDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/MultivariateRealDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/MultivariateRealDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/NakagamiDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/NakagamiDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/NormalDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/NormalDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/ParetoDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/ParetoDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/PascalDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/PascalDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/PoissonDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/PoissonDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/RealDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/RealDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/SaddlePointExpansion.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/SaddlePointExpansion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/TDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/TDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/TriangularDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/TriangularDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/UniformIntegerDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/UniformIntegerDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/UniformRealDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/UniformRealDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/WeibullDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/WeibullDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/ZipfDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/ZipfDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/fitting/MultivariateNormalMixtureExpectationMaximization.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/fitting/MultivariateNormalMixtureExpectationMaximization.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/fitting/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/fitting/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/distribution/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/distribution/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/exception/ConvergenceException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/exception/ConvergenceException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/exception/DimensionMismatchException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/exception/DimensionMismatchException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/exception/InsufficientDataException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/exception/InsufficientDataException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/exception/MathArithmeticException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/exception/MathArithmeticException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/exception/MathIllegalArgumentException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/exception/MathIllegalArgumentException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/exception/MathIllegalNumberException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/exception/MathIllegalNumberException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/exception/MathIllegalStateException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/exception/MathIllegalStateException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/exception/MathInternalError.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/exception/MathInternalError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/exception/MathParseException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/exception/MathParseException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/exception/MathRuntimeException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/exception/MathRuntimeException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/exception/MathUnsupportedOperationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/exception/MathUnsupportedOperationException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/exception/MaxCountExceededException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/exception/MaxCountExceededException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/exception/MultiDimensionMismatchException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/exception/MultiDimensionMismatchException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/exception/NoBracketingException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/exception/NoBracketingException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/exception/NoDataException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/exception/NoDataException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/exception/NonMonotonicSequenceException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/exception/NonMonotonicSequenceException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/exception/NotANumberException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/exception/NotANumberException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/exception/NotFiniteNumberException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/exception/NotFiniteNumberException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/exception/NotPositiveException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/exception/NotPositiveException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/exception/NotStrictlyPositiveException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/exception/NotStrictlyPositiveException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/exception/NullArgumentException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/exception/NullArgumentException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/exception/NumberIsTooLargeException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/exception/NumberIsTooLargeException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/exception/NumberIsTooSmallException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/exception/NumberIsTooSmallException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/exception/OutOfRangeException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/exception/OutOfRangeException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/exception/TooManyEvaluationsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/exception/TooManyEvaluationsException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/exception/TooManyIterationsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/exception/TooManyIterationsException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/exception/ZeroException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/exception/ZeroException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/exception/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/exception/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/exception/util/ArgUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/exception/util/ArgUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/exception/util/DummyLocalizable.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/exception/util/DummyLocalizable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/exception/util/ExceptionContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/exception/util/ExceptionContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/exception/util/ExceptionContextProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/exception/util/ExceptionContextProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/exception/util/Localizable.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/exception/util/Localizable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/exception/util/LocalizedFormats.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/exception/util/LocalizedFormats.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/exception/util/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/exception/util/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/filter/DefaultMeasurementModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/filter/DefaultMeasurementModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/filter/DefaultProcessModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/filter/DefaultProcessModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/filter/KalmanFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/filter/KalmanFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/filter/MeasurementModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/filter/MeasurementModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/filter/ProcessModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/filter/ProcessModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/filter/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/filter/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fitting/AbstractCurveFitter.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fitting/AbstractCurveFitter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fitting/CurveFitter.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fitting/CurveFitter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fitting/GaussianCurveFitter.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fitting/GaussianCurveFitter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fitting/GaussianFitter.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fitting/GaussianFitter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fitting/HarmonicCurveFitter.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fitting/HarmonicCurveFitter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fitting/HarmonicFitter.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fitting/HarmonicFitter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fitting/PolynomialCurveFitter.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fitting/PolynomialCurveFitter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fitting/PolynomialFitter.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fitting/PolynomialFitter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fitting/SimpleCurveFitter.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fitting/SimpleCurveFitter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fitting/WeightedObservedPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fitting/WeightedObservedPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fitting/WeightedObservedPoints.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fitting/WeightedObservedPoints.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fitting/leastsquares/AbstractEvaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fitting/leastsquares/AbstractEvaluation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fitting/leastsquares/DenseWeightedEvaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fitting/leastsquares/DenseWeightedEvaluation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fitting/leastsquares/EvaluationRmsChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fitting/leastsquares/EvaluationRmsChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fitting/leastsquares/GaussNewtonOptimizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fitting/leastsquares/GaussNewtonOptimizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fitting/leastsquares/LeastSquaresAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fitting/leastsquares/LeastSquaresAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fitting/leastsquares/LeastSquaresBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fitting/leastsquares/LeastSquaresBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fitting/leastsquares/LeastSquaresFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fitting/leastsquares/LeastSquaresFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fitting/leastsquares/LeastSquaresOptimizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fitting/leastsquares/LeastSquaresOptimizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fitting/leastsquares/LeastSquaresProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fitting/leastsquares/LeastSquaresProblem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fitting/leastsquares/LevenbergMarquardtOptimizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fitting/leastsquares/LevenbergMarquardtOptimizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fitting/leastsquares/MultivariateJacobianFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fitting/leastsquares/MultivariateJacobianFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fitting/leastsquares/OptimumImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fitting/leastsquares/OptimumImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fitting/leastsquares/ParameterValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fitting/leastsquares/ParameterValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fitting/leastsquares/ValueAndJacobianFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fitting/leastsquares/ValueAndJacobianFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fitting/leastsquares/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fitting/leastsquares/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fitting/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fitting/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fraction/AbstractFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fraction/AbstractFormat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fraction/BigFraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fraction/BigFraction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fraction/BigFractionField.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fraction/BigFractionField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fraction/BigFractionFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fraction/BigFractionFormat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fraction/Fraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fraction/Fraction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fraction/FractionConversionException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fraction/FractionConversionException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fraction/FractionField.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fraction/FractionField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fraction/FractionFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fraction/FractionFormat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fraction/ProperBigFractionFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fraction/ProperBigFractionFormat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fraction/ProperFractionFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fraction/ProperFractionFormat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/fraction/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/fraction/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/AbstractFieldMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/AbstractFieldMatrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/AbstractRealMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/AbstractRealMatrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/AnyMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/AnyMatrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/Array2DRowFieldMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/Array2DRowFieldMatrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/Array2DRowRealMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/Array2DRowRealMatrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/ArrayFieldVector.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/ArrayFieldVector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/ArrayRealVector.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/ArrayRealVector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/BiDiagonalTransformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/BiDiagonalTransformer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/BlockFieldMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/BlockFieldMatrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/BlockRealMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/BlockRealMatrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/CholeskyDecomposition.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/CholeskyDecomposition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/ConjugateGradient.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/ConjugateGradient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/DecompositionSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/DecompositionSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/DefaultFieldMatrixChangingVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/DefaultFieldMatrixChangingVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/DefaultFieldMatrixPreservingVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/DefaultFieldMatrixPreservingVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/DefaultIterativeLinearSolverEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/DefaultIterativeLinearSolverEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/DefaultRealMatrixChangingVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/DefaultRealMatrixChangingVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/DefaultRealMatrixPreservingVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/DefaultRealMatrixPreservingVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/DiagonalMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/DiagonalMatrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/EigenDecomposition.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/EigenDecomposition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/FieldDecompositionSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/FieldDecompositionSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/FieldLUDecomposition.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/FieldLUDecomposition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/FieldMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/FieldMatrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/FieldMatrixChangingVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/FieldMatrixChangingVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/FieldMatrixPreservingVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/FieldMatrixPreservingVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/FieldVector.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/FieldVector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/FieldVectorChangingVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/FieldVectorChangingVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/FieldVectorPreservingVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/FieldVectorPreservingVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/HessenbergTransformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/HessenbergTransformer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/IllConditionedOperatorException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/IllConditionedOperatorException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/IterativeLinearSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/IterativeLinearSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/IterativeLinearSolverEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/IterativeLinearSolverEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/JacobiPreconditioner.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/JacobiPreconditioner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/LUDecomposition.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/LUDecomposition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/MatrixDimensionMismatchException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/MatrixDimensionMismatchException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/MatrixUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/MatrixUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/NonPositiveDefiniteMatrixException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/NonPositiveDefiniteMatrixException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/NonPositiveDefiniteOperatorException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/NonPositiveDefiniteOperatorException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/NonSelfAdjointOperatorException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/NonSelfAdjointOperatorException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/NonSquareMatrixException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/NonSquareMatrixException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/NonSquareOperatorException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/NonSquareOperatorException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/NonSymmetricMatrixException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/NonSymmetricMatrixException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/OpenMapRealMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/OpenMapRealMatrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/OpenMapRealVector.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/OpenMapRealVector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/PreconditionedIterativeLinearSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/PreconditionedIterativeLinearSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/QRDecomposition.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/QRDecomposition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/RRQRDecomposition.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/RRQRDecomposition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/RealLinearOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/RealLinearOperator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/RealMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/RealMatrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/RealMatrixChangingVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/RealMatrixChangingVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/RealMatrixFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/RealMatrixFormat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/RealMatrixPreservingVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/RealMatrixPreservingVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/RealVector.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/RealVector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/RealVectorChangingVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/RealVectorChangingVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/RealVectorFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/RealVectorFormat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/RealVectorPreservingVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/RealVectorPreservingVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/RectangularCholeskyDecomposition.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/RectangularCholeskyDecomposition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/SchurTransformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/SchurTransformer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/SingularMatrixException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/SingularMatrixException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/SingularOperatorException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/SingularOperatorException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/SingularValueDecomposition.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/SingularValueDecomposition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/SparseFieldMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/SparseFieldMatrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/SparseFieldVector.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/SparseFieldVector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/SparseRealMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/SparseRealMatrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/SparseRealVector.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/SparseRealVector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/SymmLQ.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/SymmLQ.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/TriDiagonalTransformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/TriDiagonalTransformer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/linear/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/linear/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/AbstractConvergenceChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/AbstractConvergenceChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/AbstractOptimizationProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/AbstractOptimizationProblem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/BaseMultiStartMultivariateOptimizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/BaseMultiStartMultivariateOptimizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/BaseMultivariateOptimizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/BaseMultivariateOptimizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/BaseOptimizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/BaseOptimizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/ConvergenceChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/ConvergenceChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/InitialGuess.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/InitialGuess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/MaxEval.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/MaxEval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/MaxIter.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/MaxIter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/OptimizationData.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/OptimizationData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/OptimizationProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/OptimizationProblem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/PointValuePair.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/PointValuePair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/PointVectorValuePair.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/PointVectorValuePair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/SimpleBounds.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/SimpleBounds.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/SimplePointChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/SimplePointChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/SimpleValueChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/SimpleValueChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/SimpleVectorValueChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/SimpleVectorValueChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/linear/LinearConstraint.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/linear/LinearConstraint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/linear/LinearConstraintSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/linear/LinearConstraintSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/linear/LinearObjectiveFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/linear/LinearObjectiveFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/linear/LinearOptimizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/linear/LinearOptimizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/linear/NoFeasibleSolutionException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/linear/NoFeasibleSolutionException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/linear/NonNegativeConstraint.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/linear/NonNegativeConstraint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/linear/PivotSelectionRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/linear/PivotSelectionRule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/linear/Relationship.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/linear/Relationship.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/linear/SimplexSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/linear/SimplexSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/linear/SimplexTableau.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/linear/SimplexTableau.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/linear/SolutionCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/linear/SolutionCallback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/linear/UnboundedSolutionException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/linear/UnboundedSolutionException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/linear/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/linear/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/GoalType.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/GoalType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/GradientMultivariateOptimizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/GradientMultivariateOptimizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/LeastSquaresConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/LeastSquaresConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/LineSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/LineSearch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/MultiStartMultivariateOptimizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/MultiStartMultivariateOptimizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/MultivariateFunctionMappingAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/MultivariateFunctionMappingAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/MultivariateFunctionPenaltyAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/MultivariateFunctionPenaltyAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/MultivariateOptimizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/MultivariateOptimizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/ObjectiveFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/ObjectiveFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/ObjectiveFunctionGradient.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/ObjectiveFunctionGradient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/gradient/NonLinearConjugateGradientOptimizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/gradient/NonLinearConjugateGradientOptimizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/gradient/Preconditioner.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/gradient/Preconditioner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/gradient/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/gradient/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/noderiv/AbstractSimplex.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/noderiv/AbstractSimplex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/noderiv/BOBYQAOptimizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/noderiv/BOBYQAOptimizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/noderiv/MultiDirectionalSimplex.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/noderiv/MultiDirectionalSimplex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/noderiv/NelderMeadSimplex.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/noderiv/NelderMeadSimplex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/noderiv/PowellOptimizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/noderiv/PowellOptimizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/noderiv/SimplexOptimizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/noderiv/SimplexOptimizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/noderiv/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/noderiv/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/nonlinear/scalar/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/nonlinear/vector/JacobianMultivariateVectorOptimizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/nonlinear/vector/JacobianMultivariateVectorOptimizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/nonlinear/vector/ModelFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/nonlinear/vector/ModelFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/nonlinear/vector/ModelFunctionJacobian.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/nonlinear/vector/ModelFunctionJacobian.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/nonlinear/vector/MultiStartMultivariateVectorOptimizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/nonlinear/vector/MultiStartMultivariateVectorOptimizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/nonlinear/vector/MultivariateVectorOptimizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/nonlinear/vector/MultivariateVectorOptimizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/nonlinear/vector/Target.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/nonlinear/vector/Target.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/nonlinear/vector/Weight.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/nonlinear/vector/Weight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/nonlinear/vector/jacobian/AbstractLeastSquaresOptimizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/nonlinear/vector/jacobian/AbstractLeastSquaresOptimizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/nonlinear/vector/jacobian/GaussNewtonOptimizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/nonlinear/vector/jacobian/GaussNewtonOptimizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/nonlinear/vector/jacobian/LevenbergMarquardtOptimizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/nonlinear/vector/jacobian/LevenbergMarquardtOptimizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/nonlinear/vector/jacobian/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/nonlinear/vector/jacobian/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/nonlinear/vector/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/nonlinear/vector/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/univariate/BracketFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/univariate/BracketFinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/univariate/BrentOptimizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/univariate/BrentOptimizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/univariate/MultiStartUnivariateOptimizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/univariate/MultiStartUnivariateOptimizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/univariate/SearchInterval.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/univariate/SearchInterval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/univariate/SimpleUnivariateValueChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/univariate/SimpleUnivariateValueChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/univariate/UnivariateObjectiveFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/univariate/UnivariateObjectiveFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/univariate/UnivariateOptimizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/univariate/UnivariateOptimizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/univariate/UnivariatePointValuePair.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/univariate/UnivariatePointValuePair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/optim/univariate/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/optim/univariate/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/random/AbstractRandomGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/random/AbstractRandomGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/random/AbstractWell.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/random/AbstractWell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/random/BitsStreamGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/random/BitsStreamGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/random/CorrelatedRandomVectorGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/random/CorrelatedRandomVectorGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/random/EmpiricalDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/random/EmpiricalDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/random/GaussianRandomGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/random/GaussianRandomGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/random/HaltonSequenceGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/random/HaltonSequenceGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/random/ISAACRandom.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/random/ISAACRandom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/random/JDKRandomGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/random/JDKRandomGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/random/MersenneTwister.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/random/MersenneTwister.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/random/NormalizedRandomGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/random/NormalizedRandomGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/random/RandomAdaptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/random/RandomAdaptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/random/RandomData.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/random/RandomData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/random/RandomDataGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/random/RandomDataGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/random/RandomDataImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/random/RandomDataImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/random/RandomGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/random/RandomGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/random/RandomGeneratorFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/random/RandomGeneratorFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/random/RandomVectorGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/random/RandomVectorGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/random/SobolSequenceGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/random/SobolSequenceGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/random/StableRandomGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/random/StableRandomGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/random/SynchronizedRandomGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/random/SynchronizedRandomGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/random/UncorrelatedRandomVectorGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/random/UncorrelatedRandomVectorGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/random/UniformRandomGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/random/UniformRandomGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/random/UnitSphereRandomVectorGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/random/UnitSphereRandomVectorGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/random/ValueServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/random/ValueServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/random/Well1024a.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/random/Well1024a.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/random/Well19937a.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/random/Well19937a.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/random/Well19937c.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/random/Well19937c.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/random/Well44497a.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/random/Well44497a.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/random/Well44497b.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/random/Well44497b.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/random/Well512a.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/random/Well512a.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/random/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/random/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/special/BesselJ.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/special/BesselJ.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/special/Beta.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/special/Beta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/special/Erf.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/special/Erf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/special/Gamma.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/special/Gamma.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/special/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/special/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/Frequency.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/Frequency.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/StatUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/StatUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/clustering/Cluster.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/clustering/Cluster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/clustering/Clusterable.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/clustering/Clusterable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/clustering/DBSCANClusterer.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/clustering/DBSCANClusterer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/clustering/KMeansPlusPlusClusterer.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/clustering/KMeansPlusPlusClusterer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/clustering/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/clustering/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/correlation/Covariance.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/correlation/Covariance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/correlation/KendallsCorrelation.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/correlation/KendallsCorrelation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/correlation/PearsonsCorrelation.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/correlation/PearsonsCorrelation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/correlation/SpearmansCorrelation.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/correlation/SpearmansCorrelation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/correlation/StorelessBivariateCovariance.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/correlation/StorelessBivariateCovariance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/correlation/StorelessCovariance.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/correlation/StorelessCovariance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/correlation/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/correlation/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/AbstractStorelessUnivariateStatistic.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/AbstractStorelessUnivariateStatistic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/AbstractUnivariateStatistic.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/AbstractUnivariateStatistic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/AggregateSummaryStatistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/AggregateSummaryStatistics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/DescriptiveStatistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/DescriptiveStatistics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/MultivariateSummaryStatistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/MultivariateSummaryStatistics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/StatisticalMultivariateSummary.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/StatisticalMultivariateSummary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/StatisticalSummary.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/StatisticalSummary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/StatisticalSummaryValues.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/StatisticalSummaryValues.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/StorelessUnivariateStatistic.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/StorelessUnivariateStatistic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/SummaryStatistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/SummaryStatistics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/SynchronizedDescriptiveStatistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/SynchronizedDescriptiveStatistics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/SynchronizedMultivariateSummaryStatistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/SynchronizedMultivariateSummaryStatistics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/SynchronizedSummaryStatistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/SynchronizedSummaryStatistics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/UnivariateStatistic.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/UnivariateStatistic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/WeightedEvaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/WeightedEvaluation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/moment/FirstMoment.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/moment/FirstMoment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/moment/FourthMoment.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/moment/FourthMoment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/moment/GeometricMean.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/moment/GeometricMean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/moment/Kurtosis.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/moment/Kurtosis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/moment/Mean.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/moment/Mean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/moment/SecondMoment.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/moment/SecondMoment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/moment/SemiVariance.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/moment/SemiVariance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/moment/Skewness.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/moment/Skewness.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/moment/StandardDeviation.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/moment/StandardDeviation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/moment/ThirdMoment.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/moment/ThirdMoment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/moment/Variance.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/moment/Variance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/moment/VectorialCovariance.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/moment/VectorialCovariance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/moment/VectorialMean.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/moment/VectorialMean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/moment/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/moment/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/rank/Max.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/rank/Max.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/rank/Median.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/rank/Median.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/rank/Min.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/rank/Min.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/rank/PSquarePercentile.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/rank/PSquarePercentile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/rank/Percentile.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/rank/Percentile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/rank/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/rank/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/summary/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/summary/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/summary/Sum.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/summary/Sum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/summary/SumOfLogs.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/summary/SumOfLogs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/summary/SumOfSquares.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/summary/SumOfSquares.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/descriptive/summary/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/descriptive/summary/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/inference/AlternativeHypothesis.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/inference/AlternativeHypothesis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/inference/BinomialTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/inference/BinomialTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/inference/ChiSquareTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/inference/ChiSquareTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/inference/GTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/inference/GTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/inference/KolmogorovSmirnovTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/inference/KolmogorovSmirnovTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/inference/MannWhitneyUTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/inference/MannWhitneyUTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/inference/OneWayAnova.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/inference/OneWayAnova.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/inference/TTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/inference/TTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/inference/TestUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/inference/TestUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/inference/WilcoxonSignedRankTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/inference/WilcoxonSignedRankTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/inference/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/inference/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/interval/AgrestiCoullInterval.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/interval/AgrestiCoullInterval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/interval/BinomialConfidenceInterval.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/interval/BinomialConfidenceInterval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/interval/ClopperPearsonInterval.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/interval/ClopperPearsonInterval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/interval/ConfidenceInterval.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/interval/ConfidenceInterval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/interval/IntervalUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/interval/IntervalUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/interval/NormalApproximationInterval.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/interval/NormalApproximationInterval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/interval/WilsonScoreInterval.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/interval/WilsonScoreInterval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/interval/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/interval/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/ranking/NaNStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/ranking/NaNStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/ranking/NaturalRanking.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/ranking/NaturalRanking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/ranking/RankingAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/ranking/RankingAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/ranking/TiesStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/ranking/TiesStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/ranking/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/ranking/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/regression/AbstractMultipleLinearRegression.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/regression/AbstractMultipleLinearRegression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/regression/GLSMultipleLinearRegression.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/regression/GLSMultipleLinearRegression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/regression/MillerUpdatingRegression.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/regression/MillerUpdatingRegression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/regression/ModelSpecificationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/regression/ModelSpecificationException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/regression/MultipleLinearRegression.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/regression/MultipleLinearRegression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/regression/OLSMultipleLinearRegression.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/regression/OLSMultipleLinearRegression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/regression/RegressionResults.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/regression/RegressionResults.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/regression/SimpleRegression.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/regression/SimpleRegression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/regression/UpdatingMultipleLinearRegression.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/regression/UpdatingMultipleLinearRegression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/stat/regression/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/stat/regression/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/userguide/ExampleUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/userguide/ExampleUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/util/ArithmeticUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/util/ArithmeticUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/util/BigReal.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/util/BigReal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/util/BigRealField.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/util/BigRealField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/util/CentralPivotingStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/util/CentralPivotingStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/util/Combinations.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/util/Combinations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/util/CombinatoricsUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/util/CombinatoricsUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/util/CompositeFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/util/CompositeFormat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/util/ContinuedFraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/util/ContinuedFraction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/util/Decimal64.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/util/Decimal64.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/util/Decimal64Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/util/Decimal64Field.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/util/DefaultTransformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/util/DefaultTransformer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/util/DoubleArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/util/DoubleArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/util/FastMath.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/util/FastMath.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/util/FastMathCalc.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/util/FastMathCalc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/util/FastMathLiteralArrays.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/util/FastMathLiteralArrays.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/util/Incrementor.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/util/Incrementor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/util/IntegerSequence.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/util/IntegerSequence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/util/IterationEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/util/IterationEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/util/IterationListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/util/IterationListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/util/IterationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/util/IterationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/util/KthSelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/util/KthSelector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/util/MathArrays.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/util/MathArrays.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/util/MathUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/util/MathUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/util/MedianOf3PivotingStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/util/MedianOf3PivotingStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/util/MultidimensionalCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/util/MultidimensionalCounter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/util/NumberTransformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/util/NumberTransformer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/util/OpenIntToDoubleHashMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/util/OpenIntToDoubleHashMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/util/OpenIntToFieldHashMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/util/OpenIntToFieldHashMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/util/Pair.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/util/Pair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/util/PivotingStrategyInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/util/PivotingStrategyInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/util/Precision.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/util/Precision.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/util/RandomPivotingStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/util/RandomPivotingStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/util/ResizableDoubleArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/util/ResizableDoubleArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/util/TransformerMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/util/TransformerMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libreria/util/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/libreria/util/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../map/aima-java-AIMA3e/R/SpinklerPlus.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../map/aima-java-AIMA3e/R/SpinklerPlus.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../map/aima-java-AIMA3e/R/earthquake.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../map/aima-java-AIMA3e/R/earthquake.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../map/aima-java-AIMA3e/aima-core/src/main/java/aima/core/efp/MPE.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../map/aima-java-AIMA3e/aima-core/src/main/java/aima/core/efp/MPE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../map/aima-java-AIMA3e/aima-core/src/main/java/bnparser/BNParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../map/aima-java-AIMA3e/aima-core/src/main/java/bnparser/BNParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../map/aima-java-AIMA3e/aima-core/src/test/java/efp/test/Prova2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../map/aima-java-AIMA3e/aima-core/src/test/java/efp/test/Prova2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../map/aima-java-AIMA3e/aima-core/src/test/java/efp/test/TestBatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../map/aima-java-AIMA3e/aima-core/src/test/java/efp/test/TestBatch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../map/aima-java-AIMA3e/aima-core/src/test/java/efp/test/TestMAP.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../map/aima-java-AIMA3e/aima-core/src/test/java/efp/test/TestMAP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../map/aima-java-AIMA3e/retiSamiam/Reti/Medium_20-50/xml/barley.xbif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../map/aima-java-AIMA3e/retiSamiam/Reti/Medium_20-50/xml/mildew.xbif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../map/aima-java-AIMA3e/retiSamiam/Reti/Medium_20-50/xml/water.xbif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../map/aima-java-AIMA3e/retiSamiam/Reti/Small_20/xml/asia.xbif" beforeDir="false" afterPath="$PROJECT_DIR$/../../map/aima-java-AIMA3e/retiSamiam/Reti/Small_20/xml/zasia.xbif" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectId" id="1RF8RnhfHjAhR2W2oFdjXpk11My" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../.." />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7f6cb6bc-a5b9-448d-a6d4-250a80f89326" name="Default Changelist" comment="" />
+      <created>1569251477550</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1569251477550</updated>
+      <workItem from="1569251478644" duration="18000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
