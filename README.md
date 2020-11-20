@@ -1,5 +1,2 @@
-# IA_lab
-In questa repo potrete trovare i vari progetti realizzati per il corso di Intelligenza Artificiale Laboratorio.
-
-## Appunti su Git
-Per tornare al master da linea di codice: `git checkout master`
+# AI_lab
+In this repository you will find the projects carried out for the Artificial Intelligence Laboratory course I attended.
